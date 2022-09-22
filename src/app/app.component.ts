@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project';
+  image='../assets/resumebuilder-logo.png';
+  Home(): void {
+    window.location.reload();
+}
 }

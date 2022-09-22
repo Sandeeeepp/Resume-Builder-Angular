@@ -1,0 +1,58 @@
+
+
+
+ <body>
+  
+    <div>
+     
+     <img class="pull-left" [src]="image" routerLink="/">
+   
+   <div class="text-center"><button mat-button [matMenuTriggerFor]="Tools">
+   <h2>Tools</h2>  
+   </button>
+     <mat-menu #Tools="matMenu">
+       <button mat-menu-item [matMenuTriggerFor]="Resume">Resume</button>
+       
+       <button mat-menu-item [matMenuTriggerFor]="CVs">CVs</button>
+       <button mat-menu-item [matMenuTriggerFor]="CoverLetters">Cover Letters</button>
+       
+     </mat-menu>
+     
+     <mat-menu #Resume="matMenu">
+      
+       <button mat-menu-item>Templates</button>
+       <button mat-menu-item>Articles</button>
+     </mat-menu>
+   
+   
+     
+     <mat-menu #CVs="matMenu">
+      
+       <button mat-menu-item>Templates</button>
+       <button mat-menu-item>Articles</button>
+     </mat-menu>
+   
+     <mat-menu #CoverLetters="matMenu">
+      
+       <button mat-menu-item>Templates</button>
+     </mat-menu>
+     
+   
+       <button mat-button color="grey" >
+        <h2>Pricing</h2>
+       </button>
+       
+       <button mat-button color="grey" routerLink="/faqs">
+         <h2 >FAQs</h2>
+       </button>
+       
+       <link rel="stylesheet"
+     href=
+     "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+     <button class="btn btn-lg pull-right " mat-button color="accent" routerLink="/login">Login</button>
+   </div>
+   </div>
+   
+   <router-outlet></router-outlet>
+   
+   </body>
