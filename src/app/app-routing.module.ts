@@ -5,11 +5,14 @@ import { FAQsComponent } from './faqs/faqs.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegisterComponent } from './register/register.component';
+import { ResumeTemplateComponent } from './resume-template/resume-template.component';
 
 const routes: Routes = [
-  {path:'login',component:LoginComponent},
-  {path:'faqs',component:FAQsComponent},
-  // {path: '**', component:PageNotFoundComponent}
+  {path:'Register',component:RegisterComponent},
+   {path:'faqs',component:FAQsComponent},
+  //{path:'resume',component:ResumeTemplateComponent},
+  // {path: '**', component:PageNotFoundComponent},
   { path: '.',   redirectTo: '/Home', pathMatch: 'full' },
   
 

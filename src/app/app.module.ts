@@ -14,6 +14,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { FAQsComponent } from './faqs/faqs.component';
+import { ResumeTemplateComponent } from './resume-template/resume-template.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import {AngularFireModule} from '@angular/fire/compat'
+import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
+import { RegisterComponent } from './register/register.component';
+
 
 
 @NgModule({
@@ -22,7 +30,10 @@ import { FAQsComponent } from './faqs/faqs.component';
     LoginComponent,
     PageNotFoundComponent,
     HomeComponent,
-    FAQsComponent
+    FAQsComponent,
+    ResumeTemplateComponent,
+    RegisterComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -34,10 +45,14 @@ import { FAQsComponent } from './faqs/faqs.component';
     MatIconModule,
     MatCardModule,
     MatFormFieldModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
    
     
   ],
-  providers: [],
+  providers: [
+    ScreenTrackingService,UserTrackingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
