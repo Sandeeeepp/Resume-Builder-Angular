@@ -34,6 +34,7 @@ import { RegisterComponent } from './register/register.component';
     ResumeTemplateComponent,
     RegisterComponent,
     
+    
   ],
   imports: [
     BrowserModule,

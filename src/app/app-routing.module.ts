@@ -9,9 +9,9 @@ import { RegisterComponent } from './register/register.component';
 import { ResumeTemplateComponent } from './resume-template/resume-template.component';
 
 const routes: Routes = [
-  {path:'Register',component:RegisterComponent},
+  {path:'register',component:RegisterComponent},
    {path:'faqs',component:FAQsComponent},
-  //{path:'resume',component:ResumeTemplateComponent},
+  {path:'resume',component:ResumeTemplateComponent},
   // {path: '**', component:PageNotFoundComponent},
   { path: '.',   redirectTo: '/Home', pathMatch: 'full' },
   

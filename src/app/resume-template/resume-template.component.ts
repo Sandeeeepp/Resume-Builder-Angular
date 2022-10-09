@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-resume-template',
@@ -6,23 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resume-template.component.css']
 })
 export class ResumeTemplateComponent implements OnInit {
+   dataSource!:any;
   name='';
-  constructor() { }
+  value='clear me'
+  constructor(private store:AngularFirestore) { }
 
   ngOnInit(): void {
-  }
-
-  public get name1(){
-    return localStorage.getItem('name');
-  }
-  public get email(){
-    return localStorage.getItem('email');
-  }
-  public get phone(){
-    return localStorage.getItem('phone');
+    this.getAll();
   }
 
 
- 
+  getAll(){
+    this.store.collection('login',ref=>ref.where("Email",'==',localStorage.getItem('email'))).snapshotChanges().subscribe((response=>{
+      this.dataSource=response.map(item=>
+        Object.assign({id:item.payload.doc.id},item.payload.doc.data()))
+    }))
 
+}
 }

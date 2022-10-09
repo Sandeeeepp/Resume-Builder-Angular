@@ -1,30 +1,26 @@
 <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 
 <div class="container">
-  <div class="header">
+  <div class="header" *ngFor="let item of dataSource,let i = index;">
     <div class="full-name">
       <span class>
-        <!-- <input type="text" placeholder="enter your name" id="name" >      ="first-name" *ngIf="name==null ;else ElseBlock" -->
-        {{name1}}
+        {{item.fName}}
         </span>
-        <!-- <ng-template #ElseBlock> -->
-            <!-- {{name1}} -->
-        <!-- </ng-template>  -->
-      <span class="last-name">Doe</span>
+      <span class="last-name">{{item.lName}}</span>
     </div>
     <div class="contact-info">
       <span class="email">Email: </span>
-      <span class="email-val">{{email}}</span>
+      <span class="email-val">{{item.Email}}</span>
       <span class="separator"></span>
       <span class="phone">Phone: </span>
-      <span class="phone-val">{{phone}}</span>
+      <span class="phone-val">{{item.Phone}}</span>
     </div>
     
     <div class="about">
       <span class="position">Front-End Developer </span>
       <span class="desc">
       <input type="text" placeholder=" I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow. 
-      " id="desc"> 
+      " [(ngModel)]="value" id="desc"> 
       </span>
     </div>
   </div>

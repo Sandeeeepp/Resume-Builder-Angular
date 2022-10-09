@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { collection, query, where, getDocs } from "firebase/firestore";
+
 
 @Component({
   selector: 'app-register',
@@ -20,11 +22,10 @@ export class RegisterComponent implements OnInit {
  
 
 
-  submit(name:string,email:string,PhoneNumber:string,password:string){
-    localStorage.setItem('name',name);
+  submit(fname:string,lname:string,email:string,PhoneNumber:string,password:string){
+   
     localStorage.setItem('email',email);
-    localStorage.setItem('phone',PhoneNumber);
-     this.store.collection('login').add({Name:name,Email:email,Phone:PhoneNumber,Password:password})
+     this.store.collection('login').add({fName:fname,lName:lname,Email:email,Phone:PhoneNumber,Password:password})
     
 
 }
@@ -48,13 +49,8 @@ dropDownValue1=''
   constructor(private store:AngularFirestore){
   }
   ngOnInit(){
-    this.getAll();
   }
-  getAll(){
-    this.store.collection('login').snapshotChanges().subscribe((response=>{
-      this.dataSource=response.map(item=>
-        Object.assign({id:item.payload.doc.id},item.payload.doc.data()))
-    }))
+  
 
 }
-}
+
