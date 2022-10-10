@@ -1,102 +1,202 @@
-
-    <link rel="stylesheet"
-    href=
-    "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<mat-card class="container example-card pull-right">
-    <body >
-    <div class="container-fluid my-3">
-        <form #LoginForm="ngForm">
-          
-      
-          
-          <div class="form-group">
-            <label>first name</label>
-            <input type="text" class="form-control" placeholder="enter your first name"  name="fname" ngModel #fname="ngModel" required [class.is-invalid]="fname.invalid && fname.touched"><small class="text-danger"[class.d-none]="fname.valid || fname.untouched">please enter the name , it is required</small>
-          </div>
-          <div class="form-group">
-            <label>Last name</label>
-            <input type="text" class="form-control" placeholder="enter your last name"  name="lname" ngModel #lname="ngModel" required [class.is-invalid]="lname.invalid && lname.touched"><small class="text-danger"[class.d-none]="fname.valid || lname.untouched">please enter the name , it is required</small>
-          </div>
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" class="form-control" placeholder="enter your Phone Number" name="Phone Number"  ngModel pattern="^\d{10}$" #PhoneNumber="ngModel" required [class.is-invalid]="PhoneNumber.invalid && PhoneNumber.touched" ><small class="text-danger"[class.d-none]="PhoneNumber.valid || PhoneNumber.untouched" >enter 10 digit number</small>
-          </div>
-          <div class="text-danger" *ngIf="PhoneNumber.errors?.['pattern']">phone number must be of 10 digits</div>
-          <div class="form-group">
-            <label>Email id</label>
-            <input type="email" class="form-control" placeholder="enter your email" name="email" ngModel #email="ngModel" required [class.is-invalid]="email.invalid && email.touched"><small class="text-danger "[class.d-none]="email.valid || email.untouched" >enter email</small> 
-          </div>
-        
-          <div>
-            <label>Select State</label>
-            <select name="state" id="state" class="form-control" (change)="SetDropDownValue($event)" name="sname" ngModel #sname="ngModel"  [class.is-invalid]="SValue && sname.touched" (blur)="selectValidate(sname.value)" (change)="selectValidate(sname.touched)">
-                <small class="text-danger" [class.d-none]="sname.valid || sname.untouched">State Required</small>
-                <option value="">Select state</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chandigarh">Chandigarh</option>
-                <option value="Chhattisgarh">Chhattisgarh</option>
-                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                <option value="Daman and Diu">Daman and Diu</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Lakshadweep">Lakshadweep</option>
-                <option value="Puducherry">Puducherry</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Manipur">Manipur</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Mizoram">Mizoram</option>
-                <option value="Nagaland">Nagaland</option>
-                <option value="Odisha">Odisha</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Sikkim">Sikkim</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Tripura">Tripura</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="West Bengal">West Bengal</option>
-                
-                </select>
-            
-          </div><br>
-          <div>
-            <label>Select City</label>
-            <div class="form-group">
-                <input class="form-control" type="text" placeholder="Select your  city" name="city" ngModel #city="ngModel" required [class.is-invalid]="city.invalid && city.touched"><small class="text-danger "[class.d-none]="city.valid || city.untouched" >enter city</small> 
-                <span class="form-label"></span>
-            </div>
-            
-            <label>Password</label>
-            <div class="form-group">
-                <input class="form-control" type="password" placeholder="enter your  Password" name="password" ngModel #password="ngModel" required [class.is-invalid]="password.invalid && password.touched"><small class="text-danger "[class.d-none]="password.valid || password.untouched" >enter password</small> 
-                <span class="form-label"></span>
-            </div>
-            <br>
-
-          </div>
-    
-         
-            
-            
-          <div>
-             <button  class="btn btn-danger" [disabled]="LoginForm.form.invalid || SValue" (click)="submit(fname.value,lname.value,email.value,PhoneNumber.value,password.value)">submit the details</button>
-             </div> 
-          
-        </form>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+/>
+<body>
+  <div class="container-fluid my-3">
+    <form #LoginForm="ngForm">
+      <div class="form-group">
+        <label>first name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter your first name"
+          name="fname"
+          ngModel
+          #fname="ngModel"
+          required
+          [class.is-invalid]="fname.invalid && fname.touched"
+        /><small
+          class="text-danger"
+          [class.d-none]="fname.valid || fname.untouched"
+          >please enter the name , it is required</small
+        >
       </div>
+      <div class="form-group">
+        <label>Last name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter your last name"
+          name="lname"
+          ngModel
+          #lname="ngModel"
+          required
+          [class.is-invalid]="lname.invalid && lname.touched"
+        /><small
+          class="text-danger"
+          [class.d-none]="fname.valid || lname.untouched"
+          >please enter the name , it is required</small
+        >
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input
+          type="tel"
+          class="form-control"
+          placeholder="enter your Phone Number"
+          name="Phone Number"
+          ngModel
+          pattern="^\d{10}$"
+          #PhoneNumber="ngModel"
+          required
+          [class.is-invalid]="PhoneNumber.invalid && PhoneNumber.touched"
+        /><small
+          class="text-danger"
+          [class.d-none]="PhoneNumber.valid || PhoneNumber.untouched"
+          >enter 10 digit number</small
+        >
+      </div>
+      <div class="text-danger" *ngIf="PhoneNumber.errors?.['pattern']">
+        phone number must be of 10 digits
+      </div>
+      <div class="form-group">
+        <label>Email id</label>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="enter your email"
+          name="email"
+          ngModel
+          #email="ngModel"
+          required
+          [class.is-invalid]="email.invalid && email.touched"
+        /><small
+          class="text-danger"
+          [class.d-none]="email.valid || email.untouched"
+          >enter email</small
+        >
+      </div>
+
+      <div>
+        <label>Select State</label>
+        <select
+          name="state"
+          id="state"
+          class="form-control"
+          (change)="SetDropDownValue($event)"
+          name="sname"
+          ngModel
+          #sname="ngModel"
+          [class.is-invalid]="SValue && sname.touched"
+          (blur)="selectValidate(sname.value)"
+          (change)="selectValidate(sname.touched)"
+        >
+          <small
+            class="text-danger"
+            [class.d-none]="sname.valid || sname.untouched"
+            >State Required</small
+          >
+          <option value="">Select state</option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Andaman and Nicobar Islands">
+            Andaman and Nicobar Islands
+          </option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chandigarh">Chandigarh</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+          <option value="Daman and Diu">Daman and Diu</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Lakshadweep">Lakshadweep</option>
+          <option value="Puducherry">Puducherry</option>
+          <option value="Goa">Goa</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Manipur">Manipur</option>
+          <option value="Meghalaya">Meghalaya</option>
+          <option value="Mizoram">Mizoram</option>
+          <option value="Nagaland">Nagaland</option>
+          <option value="Odisha">Odisha</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Sikkim">Sikkim</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Tripura">Tripura</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Uttarakhand">Uttarakhand</option>
+          <option value="West Bengal">West Bengal</option>
+        </select>
+      </div>
+      <br />
+      <div>
+        <label>Select City</label>
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Select your  city"
+            name="city"
+            ngModel
+            #city="ngModel"
+            required
+            [class.is-invalid]="city.invalid && city.touched"
+          /><small
+            class="text-danger"
+            [class.d-none]="city.valid || city.untouched"
+            >enter city</small
+          >
+          <span class="form-label"></span>
+        </div>
+
+        <label>Password</label>
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="password"
+            placeholder="enter your  Password"
+            name="password"
+            ngModel
+            #password="ngModel"
+            required
+            [class.is-invalid]="password.invalid && password.touched"
+          /><small
+            class="text-danger"
+            [class.d-none]="password.valid || password.untouched"
+            >enter password</small
+          >
+          <span class="form-label"></span>
+        </div>
+        <br />
+      </div>
+
+      <div>
+        <button
+          class="btn btn-danger"
+          [disabled]="LoginForm.form.invalid || SValue"
+          (click)="
+            submit(
+              fname.value,
+              lname.value,
+              email.value,
+              PhoneNumber.value,
+              password.value
+            )
+          "
+        >
+          submit the details
+        </button>
+      </div>
+    </form>
+  </div>
 </body>
-</mat-card>
-    

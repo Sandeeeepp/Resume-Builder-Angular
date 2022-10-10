@@ -1,0 +1,46 @@
+<mat-card style="background-color: rgb(252, 78, 78); height: 85%">
+  <mat-card-title
+    ><h1 style="padding-top: 5%; padding-left: 35%; color: white">
+      Login
+    </h1></mat-card-title
+  ><br /><br />
+  <mat-card-subtitle>
+    <form class="example-form">
+      <mat-form-field
+        class="example-full-width"
+        appearance="fill"
+        style="color: white"
+      >
+        <input
+          matInput
+          type="email"
+          placeholder="Enter your email"
+          id="email"
+        />
+      </mat-form-field>
+      <br /><br />
+      <mat-form-field
+        class="example-full-width"
+        appearance="fill"
+        style="color: white"
+      >
+        <input
+          matInput
+          type="password"
+          placeholder="Enter your password"
+          id="password"
+        />
+      </mat-form-field>
+      <br /><br />
+    </form>
+  </mat-card-subtitle>
+  <mat-card-actions align="end">
+    <button
+      mat-button
+      style="color: white; font-size: 20px; padding-bottom: 5%"
+      (click)="login()"
+    >
+      Signin
+    </button>
+  </mat-card-actions>
+</mat-card>

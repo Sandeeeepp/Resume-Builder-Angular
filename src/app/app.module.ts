@@ -21,6 +21,8 @@ import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService
 import {AngularFireModule} from '@angular/fire/compat'
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import { RegisterComponent } from './register/register.component';
+import {MatInputModule} from '@angular/material/input';
+import { CvTemplateComponent } from './cv-template/cv-template.component';
 
 
 
@@ -33,6 +35,7 @@ import { RegisterComponent } from './register/register.component';
     FAQsComponent,
     ResumeTemplateComponent,
     RegisterComponent,
+    CvTemplateComponent,
     
     
   ],
@@ -48,8 +51,8 @@ import { RegisterComponent } from './register/register.component';
     MatFormFieldModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-   
     
+    MatInputModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
