@@ -15,7 +15,8 @@
           matInput
           type="email"
           placeholder="Enter your email"
-          id="email"
+          name="email"
+          [(ngModel)]="email"
         />
       </mat-form-field>
       <br /><br />
@@ -28,7 +29,8 @@
           matInput
           type="password"
           placeholder="Enter your password"
-          id="password"
+          name="password"
+          [(ngModel)]="password"
         />
       </mat-form-field>
       <br /><br />
@@ -44,3 +46,8 @@
     </button>
   </mat-card-actions>
 </mat-card>
+
+<!-- <div
+  *ngFor="let items of dataSource"
+  [(ngModel)]="dataSource"
+>{{items.fName}}</div> -->

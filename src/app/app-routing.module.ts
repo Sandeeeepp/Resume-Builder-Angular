@@ -7,9 +7,10 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { ResumeTemplateComponent } from './resume-template/resume-template.component';
+import { ToolsComponent } from './tools/tools.component';
 
 const routes: Routes = [
-  {path:'register',component:RegisterComponent},
+  {path:'tools',component:ToolsComponent},
    {path:'faqs',component:FAQsComponent},
   {path:'resume',component:ResumeTemplateComponent},
   // {path: '**', component:PageNotFoundComponent},

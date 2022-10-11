@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   submit() {
     this.show = !this.show;
-    this.router.navigateByUrl('register');
+    // this.router.navigateByUrl('register');
     let el = document.getElementById('action');
     if (el != null) {
       if (this.show == false) {

@@ -5,26 +5,31 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { FAQsComponent } from './faqs/faqs.component';
 import { ResumeTemplateComponent } from './resume-template/resume-template.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
-import {AngularFireModule} from '@angular/fire/compat'
-import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
+import {
+  provideAnalytics,
+  getAnalytics,
+  ScreenTrackingService,
+  UserTrackingService,
+} from '@angular/fire/analytics';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { RegisterComponent } from './register/register.component';
-import {MatInputModule} from '@angular/material/input';
-import { CvTemplateComponent } from './cv-template/cv-template.component';
-
-
+import { MatInputModule } from '@angular/material/input';
+import { ToolsComponent } from './tools/tools.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -35,9 +40,7 @@ import { CvTemplateComponent } from './cv-template/cv-template.component';
     FAQsComponent,
     ResumeTemplateComponent,
     RegisterComponent,
-    CvTemplateComponent,
-    
-    
+    ToolsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,12 +54,11 @@ import { CvTemplateComponent } from './cv-template/cv-template.component';
     MatFormFieldModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    
-    MatInputModule
+    MatSidenavModule,
+    MatInputModule,
+    ScrollingModule,
   ],
-  providers: [
-    ScreenTrackingService,UserTrackingService
-  ],
-  bootstrap: [AppComponent]
+  providers: [ScreenTrackingService, UserTrackingService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

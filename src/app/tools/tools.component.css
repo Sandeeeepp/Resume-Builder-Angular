@@ -1,0 +1,38 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-events {
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+  border: 1px solid #555;
+}
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height: 90%;
+  margin-left: 1%;
+}
+
+.scrolling-wrapper .card {
+  display: inline-block;
+  width: 40%;
+  height: 80%;
+  margin-top: 2%;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-left: 3%;
+
+}
+
+.scrolling-wrapper .card:hover {
+  box-shadow: 5px 6px 6px 2px #e9ecef;
+  transform: scale(1.1);
+}

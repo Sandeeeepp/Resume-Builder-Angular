@@ -1,0 +1,80 @@
+<!-- <p>tools works!</p>  -->
+<mat-sidenav-container class="example-container">
+  <mat-sidenav
+    style="background-color: black; color: white; width: 25%; cursor: pointer;"
+    #sidenav
+    mode="side"
+  >
+    <!--     [(opened)]="opened"
+        (opened)="events.push('open!')" (closed)="events.push('close!')" Sidenav
+    content -->
+
+    <h2 (click)="showResumeOptions = !showResumeOptions">Resume</h2>
+    <br />
+    <ul *ngIf="showResumeOptions == true">
+      <li (click)="display = 'resumeTemplate'">Templates</li>
+      <li>Related Articles</li>
+    </ul>
+    <br />
+    <h2 (click)="showCVOptins = !showCVOptins">CV</h2>
+    <br />
+    <ul *ngIf="showCVOptins == true">
+      <li (click)="display = 'cvTemplate'">Templates</li>
+      <li>Related Articles</li>
+    </ul>
+    <br />
+    <h2 (click)="showCoverLetterOptions = !showCoverLetterOptions">
+      Cover Letters
+    </h2>
+    <br />
+    <ul *ngIf="showCoverLetterOptions == true">
+      <li (click)="display = 'CoverLetterTemplate'">Templates</li>
+    </ul>
+    <br />
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>  -->
+    <h3>
+      <button mat-button (click)="sidenav.toggle()">
+        <h2 *ngIf="opened == false; else elseblock">→</h2>
+        <ng-template #elseblock>
+          <h2>←</h2>
+        </ng-template>
+      </button>
+      Choose Templates
+    </h3>
+    <!-- <p>Events:</p>
+    <div class="example-events">
+      <div *ngFor="let e of events">{{ e }}</div>
+    </div> -->
+    <!-- <div class="data-source-example">
+          <span *ngFor="let item of items" class="example-item">
+            <img src="{{ item }}" alt="image" />
+          </span>
+      </div> -->
+    <div *ngIf="display == 'resumeTemplate'" class="scrolling-wrapper">
+      <div class="card"><h2>Resume template</h2></div>
+      <div class="card"><h2>Resume template</h2></div>
+      <div class="card"><h2>Resume template</h2></div>
+      <div class="card"><h2>Resume template</h2></div>
+      <div class="card"><h2>Resume template</h2></div>
+    </div>
+    <div *ngIf="display == 'cvTemplate'" class="scrolling-wrapper">
+      <div class="card"><h2>CV template</h2></div>
+      <div class="card"><h2>CV template</h2></div>
+      <div class="card"><h2>CV template</h2></div>
+      <div class="card"><h2>CV template</h2></div>
+      <div class="card"><h2>CV template</h2></div>
+    </div>
+    <div *ngIf="display == 'CoverLetterTemplate'" class="scrolling-wrapper">
+      <div class="card"><h2>Cover Letter template</h2></div>
+      <div class="card"><h2>Cover Letter template</h2></div>
+      <div class="card"><h2>Cover Letter template</h2></div>
+      <div class="card"><h2>Cover Letter template</h2></div>
+      <div class="card"><h2>Cover Letter template</h2></div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>-->

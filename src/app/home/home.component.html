@@ -3,10 +3,10 @@
     <img class="pull-left" [src]="image" routerLink="/" />
 
     <div class="text-center">
-      <button mat-button [matMenuTriggerFor]="Tools">
+      <!-- <button mat-button [matMenuTriggerFor]="Tools">
         <h2>Tools</h2>
-      </button>
-      <mat-menu #Tools="matMenu">
+      </button> -->
+      <!-- <mat-menu #Tools="matMenu">
         <button mat-menu-item [matMenuTriggerFor]="Resume">Resume</button>
 
         <button mat-menu-item [matMenuTriggerFor]="CVs">CVs</button>
@@ -27,7 +27,7 @@
 
       <mat-menu #CoverLetters="matMenu">
         <button mat-menu-item>Templates</button>
-      </mat-menu>
+      </mat-menu> -->
 
       <button mat-button color="grey">
         <h2>Pricing</h2>
@@ -63,8 +63,9 @@
         </div>
       </div>
       <ng-template #elseblock>
-        <router-outlet></router-outlet>
+        <app-register></app-register>
       </ng-template>
     </div>
   </div>
+  <router-outlet></router-outlet>
 </body>

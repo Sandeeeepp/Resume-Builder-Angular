@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CvTemplateComponent } from './cv-template.component';
+import { Template1Component } from './template1.component';
 
-describe('CvTemplateComponent', () => {
-  let component: CvTemplateComponent;
-  let fixture: ComponentFixture<CvTemplateComponent>;
+describe('Template1Component', () => {
+  let component: Template1Component;
+  let fixture: ComponentFixture<Template1Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CvTemplateComponent ]
+      declarations: [ Template1Component ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CvTemplateComponent);
+    fixture = TestBed.createComponent(Template1Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

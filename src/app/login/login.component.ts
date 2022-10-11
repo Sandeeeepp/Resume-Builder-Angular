@@ -32,6 +32,10 @@ export class LoginComponent implements OnInit {
   constructor(private store: AngularFirestore) {}
   ngOnInit() {}
 
+  dataSource: any;
+  email = '';
+  password = '';
+
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -40,10 +44,15 @@ export class LoginComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   login() {
-    let email = document.getElementById('email')?.innerHTML;
-    let password = document.getElementById('password')?.innerHTML;
-    if (email != null && password != null) {
-      // alert(this.store.collection('login', ref=>ref.where('email',"==",email).where('password','==',password)).g)
-    }
+    //  if (this.email != null && password != null) {
+    //   alert(this.store.collection('login', ref=>ref.where('Email',"==",email).where('password','==',password)));
+    // }
+    //   this.store.collection('login',ref=>ref.where("Email",'==',this.email)).snapshotChanges().subscribe((response=>{
+    //     this.dataSource=response.map(item=>
+    //       Object.assign({id:item.payload.doc.id},item.payload.doc.data()))
+    //   }))
+    //   for(let item of this.dataSource){
+    //     alert(item.fName)
+    //   }
   }
 }
