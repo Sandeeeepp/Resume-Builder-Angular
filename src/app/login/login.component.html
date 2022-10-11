@@ -16,6 +16,8 @@
           type="email"
           placeholder="Enter your email"
           id="email"
+          name="email"
+          [(ngModel)]="email"
         />
       </mat-form-field>
       <br /><br />
@@ -27,8 +29,10 @@
         <input
           matInput
           type="password"
+          name="password"
+          [(ngModel)]="password"
           placeholder="Enter your password"
-          id="password"
+          
         />
       </mat-form-field>
       <br /><br />

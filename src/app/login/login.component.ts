@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {
   FormControl,
@@ -8,8 +9,15 @@ import {
   Validators,
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Auth } from '@angular/fire/auth/firebase';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AuthService } from '../auth.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
+
+
+dataSource:any
+
   isErrorState(
     control: FormControl | null,
     form: FormGroupDirective | NgForm | null
@@ -29,21 +37,60 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private store: AngularFirestore) {}
-  ngOnInit() {}
+  email:string=''
+  password:string=''
+   
+  constructor(private store: AngularFirestore,private auth:AuthService) { }
+  ngOnInit() {
+    
+   }
 
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
 
+  
+
+
+  login(){
+    // alert(this.store.collection('login',ref=>ref.where('Email','==',this.email)).doc())
+    
+      if(this.email==''){
+        alert('please enter email')
+        return;
+      }if(this.password==''){
+        alert('please enter password')
+        return
+      }
+      this.auth.login(this.email,this.password)
+      this.email='';
+      this.password=''
+        }
+  
+ 
+  
+
   matcher = new MyErrorStateMatcher();
 
-  login() {
-    let email = document.getElementById('email')?.innerHTML;
-    let password = document.getElementById('password')?.innerHTML;
-    if (email != null && password != null) {
-      // alert(this.store.collection('login', ref=>ref.where('email',"==",email).where('password','==',password)).g)
-    }
-  }
+
+
+
+
+
+
+
+
+
+
+  // login(email:string,password:string) {
+  //   var doc=this.store.collection('login').doc('Email')
+    
+    
+  //    if ( email) {
+  //      alert("login successful")
+  //      }else{
+  //      alert("Login failed")
+  //    }
+  // }
 }

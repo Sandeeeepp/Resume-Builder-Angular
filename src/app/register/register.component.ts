@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { collection, query, where, getDocs } from 'firebase/firestore';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,8 @@ export class RegisterComponent implements OnInit {
   SValue: boolean = true;
   userdata: any;
   name = '';
+  email:string=''
+  password:string=''
 
   dataSource: any;
   schoolnames = ['ComputerScience', 'engineering', 'management'];
@@ -19,22 +22,21 @@ export class RegisterComponent implements OnInit {
   submit(
     fname: string,
     lname: string,
-    email: string,
+    
     PhoneNumber: string,
-    password: string
+    
   ) {
-    localStorage.setItem('email', email);
     this.store
       .collection('login')
       .add({
         fName: fname,
         lName: lname,
-        Email: email,
+        Email: this.email,
         Phone: PhoneNumber,
-        Password: password,
+        Password: this.password,
       });
   }
-
+  
   dropDownValue1 = '';
   SetDropDownValue(drpValue: any) {
     this.dropDownValue1 = drpValue.target.value;
@@ -47,6 +49,21 @@ export class RegisterComponent implements OnInit {
       this.SValue = false;
     }
   }
-  constructor(private store: AngularFirestore) {}
+  constructor(private store: AngularFirestore,private auth:AuthService) {}
   ngOnInit() {}
+
+
+  register(){
+    
+if(this.email==''){
+  alert('please enter email')
+  return;
+}if(this.password==''){
+  alert('please enter password')
+  return
+}
+this.auth.register(this.email,this.password)
+this.email='';
+this.password=''
+  }
 }

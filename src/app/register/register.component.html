@@ -67,15 +67,11 @@
           class="form-control"
           placeholder="enter your email"
           name="email"
-          ngModel
-          #email="ngModel"
+          
+          [(ngModel)]="email"
+          
           required
-          [class.is-invalid]="email.invalid && email.touched"
-        /><small
-          class="text-danger"
-          [class.d-none]="email.valid || email.untouched"
-          >enter email</small
-        >
+          />
       </div>
 
       <div>
@@ -151,7 +147,8 @@
             #city="ngModel"
             required
             [class.is-invalid]="city.invalid && city.touched"
-          /><small
+          />
+          <small
             class="text-danger"
             [class.d-none]="city.valid || city.untouched"
             >enter city</small
@@ -166,15 +163,9 @@
             type="password"
             placeholder="enter your  Password"
             name="password"
-            ngModel
-            #password="ngModel"
-            required
-            [class.is-invalid]="password.invalid && password.touched"
-          /><small
-            class="text-danger"
-            [class.d-none]="password.valid || password.untouched"
-            >enter password</small
-          >
+            [(ngModel)]="password"
+          />
+          
           <span class="form-label"></span>
         </div>
         <br />
@@ -185,14 +176,10 @@
           class="btn btn-danger"
           [disabled]="LoginForm.form.invalid || SValue"
           (click)="
-            submit(
-              fname.value,
-              lname.value,
-              email.value,
-              PhoneNumber.value,
-              password.value
+            register(
             )
           "
+          (click)="submit(fname.value,lname.value,PhoneNumber.value)"
         >
           submit the details
         </button>

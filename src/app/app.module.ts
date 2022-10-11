@@ -23,6 +23,7 @@ import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import { RegisterComponent } from './register/register.component';
 import {MatInputModule} from '@angular/material/input';
 import { CvTemplateComponent } from './cv-template/cv-template.component';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 
 
@@ -52,7 +53,9 @@ import { CvTemplateComponent } from './cv-template/cv-template.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     
-    MatInputModule
+    
+    MatInputModule,
+          provideAuth(() => getAuth())
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
