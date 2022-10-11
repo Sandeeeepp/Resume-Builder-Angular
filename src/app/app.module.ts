@@ -26,10 +26,12 @@ import {
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { RegisterComponent } from './register/register.component';
-import { MatInputModule } from '@angular/material/input';
+import {MatInputModule} from '@angular/material/input';
 import { ToolsComponent } from './tools/tools.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ScrollingModule } from '@angular/cdk/scrolling';
+import { ScrollingModule } from '@angular/cdk/scrolling';import { provideAuth,getAuth } from '@angular/fire/auth';
+
+
 
 @NgModule({
   declarations: [
