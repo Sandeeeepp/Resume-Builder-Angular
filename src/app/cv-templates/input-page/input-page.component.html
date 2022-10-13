@@ -1,0 +1,334 @@
+<!-- <p>input-page works!</p> -->
+<div class="card">
+  <div>
+    <figure class="text-center">
+      <h2
+        style="
+          font-size: 50px;
+          background-color: black;
+          color: white;
+          margin-left: 5%;
+          margin-right: 5%;
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        "
+      >
+        Fill your details
+      </h2>
+    </figure>
+  </div>
+  <div>
+    <mat-horizontal-stepper>
+      <mat-step label="Personal Details">
+        <form class="example-form">
+          <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput type="text" name="fname" [(ngModel)]="fname" />
+            <button
+              *ngIf="fname"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="fname = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button> </mat-form-field
+          >&nbsp;&nbsp;
+
+          <mat-form-field
+            class="example-form-field"
+            appearance="fill"
+            *ngIf="addMiddleName == true"
+          >
+            <mat-label>Middle Name</mat-label>
+            <input matInput type="text" name="mname" [(ngModel)]="mname" />
+            <button
+              *ngIf="mname"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="mname = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button> </mat-form-field
+          >&nbsp;&nbsp;
+
+          <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" name="lname" [(ngModel)]="lname" />
+            <button
+              *ngIf="lname"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="lname = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button> </mat-form-field
+          >&nbsp;&nbsp;&nbsp;
+
+          <button matSuffix (click)="addMiddleName = !addMiddleName">+</button>
+          <span> Add middle name</span>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              matInput
+              [formControl]="emailFormControl"
+              placeholder="Ex. pat@example.com"
+            />
+            <mat-error
+              *ngIf="
+                emailFormControl.hasError('email') &&
+                !emailFormControl.hasError('required')
+              "
+            >
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Phone number</mat-label>
+            <span matPrefix>+91 &nbsp;</span>
+            <input type="tel" matInput placeholder="555-555-1234" />
+            <mat-icon matSuffix>mode_edit</mat-icon>
+          </mat-form-field>
+
+          <section>
+            <section class="showLinks" *ngFor="let row of linkRows">
+              <mat-form-field appearance="fill">
+                <mat-label>Choose a website</mat-label>
+                <mat-select>
+                  <mat-option value="option1">LinkedIn</mat-option>
+                  <mat-option value="option2">Github</mat-option>
+                </mat-select> </mat-form-field
+              >&nbsp;&nbsp;
+
+              <mat-form-field
+                class="example-form-field"
+                appearance="fill"
+                style="width: 50%"
+              >
+                <input
+                  type="text"
+                  matInput
+                  placeholder="Enter your website's link"
+                />
+                <button matSuffix (click)="remove()">
+                  --
+                </button> </mat-form-field
+              >&nbsp;&nbsp;
+            </section>
+
+            <button matSuffix (click)="add()">+</button>
+            <span> Add more links</span>&nbsp;&nbsp;&nbsp;
+          </section>
+          <br />
+
+          <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>Add your skills</mat-label>
+            <mat-chip-list #chipList aria-label="Skills selection">
+              <mat-chip
+                *ngFor="let skill of skills"
+                (removed)="removeSkills(skill)"
+              >
+                {{ skill.name }}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input
+                placeholder="New skill..."
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="addSkills($event)"
+              />
+            </mat-chip-list>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Objective/ Description</mat-label>
+            <textarea matInput placeholder="Tell us about yourself"></textarea>
+          </mat-form-field>
+        </form>
+      </mat-step>
+
+      <mat-step label="Education & Certifications">
+        <mat-accordion>
+          <mat-expansion-panel
+            class="mat-expansion-panel"
+            *ngFor="let row of eduRows; let i = index"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <button
+                  *ngIf="i != 0"
+                  id="{{ i }}"
+                  matSuffix
+                  (click)="removeEducation()"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+                &nbsp;&nbsp;&nbsp; Education &nbsp;&nbsp;&nbsp;
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+              <form class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Education</label>
+                  <input type="text" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">School/University</label>
+                  <input type="text" class="form-control" />
+                </div>
+                <div class="col-12">
+                  <label class="form-label">City</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="enter city"
+                  />
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Start Date</label>
+                  <input type="date" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">End Date</label>
+                  <input type="date" class="form-control" />
+                </div>
+              </form></div
+          ></mat-expansion-panel> </mat-accordion
+        ><br />
+        <a (click)="addEducation()">+ Add Education</a><br /><br />
+
+        <mat-accordion>
+          <mat-expansion-panel
+            class="mat-expansion-panel"
+            *ngFor="let row of projectRows; let i = index"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <button
+                  *ngIf="i != 0"
+                  id="{{ i }}"
+                  matSuffix
+                  (click)="removeProjects()"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+                &nbsp;&nbsp;&nbsp; Projects &nbsp;&nbsp;&nbsp;
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+              <form class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" placeholder="Title" />
+                </div>
+                <div class="col-md-6">
+                  <textarea
+                    class="form-control"
+                    placeholder="Description"
+                  ></textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Start Date</label>
+                  <input type="date" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">End Date</label>
+                  <input type="date" class="form-control" />
+                </div>
+              </form></div
+          ></mat-expansion-panel> </mat-accordion
+        ><br />
+        <a (click)="addProjects()">+ Add Projects</a><br /><br />
+
+        <mat-accordion>
+          <mat-expansion-panel
+            class="mat-expansion-panel"
+            *ngFor="let row of certificateRows; let i = index"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <button
+                  *ngIf="i != 0"
+                  id="{{ i }}"
+                  matSuffix
+                  (click)="removeCertificates()"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+                &nbsp;&nbsp;&nbsp; Certifications &nbsp;&nbsp;&nbsp;
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+              <form class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" placeholder="Title" />
+                </div>
+              </form></div
+          ></mat-expansion-panel> </mat-accordion
+        ><br />
+        <a (click)="addCertificates()">+ Add Certificates</a>
+      </mat-step>
+
+      <mat-step label="Hands-on Experience">
+        <mat-tab-group>
+          <mat-tab label="Internships">
+            <section *ngFor="let row of internshipRows">
+              <mat-card class="example-card">
+                <mat-card-title>
+                  <input matInput type="text" placeholder="Company Name" />
+                </mat-card-title>
+                <mat-card-subtitle>
+                  <input matInput type="text" placeholder="Designation" />
+                </mat-card-subtitle>
+                <mat-card-content>
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput></textarea>
+                  </mat-form-field>
+                </mat-card-content>
+                <button (click)="removeInternships()" style="float: right;">
+                  <mat-icon>delete</mat-icon>
+                </button>  
+              </mat-card><br>
+            </section>
+            <br />
+            <a (click)="addInternships()">Add More...</a>
+          </mat-tab>
+          <mat-tab label="Jobs"> 
+            <section *ngFor="let row of jobRows">
+              <mat-card class="example-card">
+                <mat-card-title>
+                  <input matInput type="text" placeholder="Company Name" />
+                </mat-card-title>
+                <mat-card-subtitle>
+                  <input matInput type="text" placeholder="Job Role" />
+                </mat-card-subtitle>
+                <mat-card-content>
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput></textarea>
+                  </mat-form-field>
+                </mat-card-content>
+                <button (click)="removeJobs()" style="float: right;">
+                  <mat-icon>delete</mat-icon>
+                </button>  
+              </mat-card><br>
+            </section>
+            <br />
+            <a (click)="addJobs()">Add More...</a>
+          </mat-tab>
+        </mat-tab-group>
+        <br />
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>

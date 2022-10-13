@@ -15,23 +15,19 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { FAQsComponent } from './faqs/faqs.component';
 import { ResumeTemplateComponent } from './resume-template/resume-template.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
+import { MatInputModule } from '@angular/material/input';
 import {
-  provideAnalytics,
-  getAnalytics,
   ScreenTrackingService,
   UserTrackingService,
 } from '@angular/fire/analytics';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { RegisterComponent } from './register/register.component';
-import {MatInputModule} from '@angular/material/input';
 import { ToolsComponent } from './tools/tools.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ScrollingModule } from '@angular/cdk/scrolling';import { provideAuth,getAuth } from '@angular/fire/auth';
-
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CvTemplatesModule } from './cv-templates/cv-templates.module';
 
 @NgModule({
   declarations: [
@@ -59,6 +55,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling';import { provideAuth,ge
     MatSidenavModule,
     MatInputModule,
     ScrollingModule,
+    CvTemplatesModule,
+    MatInputModule,
+
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
