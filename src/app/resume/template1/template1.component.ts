@@ -2,14 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
-  selector: 'app-resume-template',
-  templateUrl: './resume-template.component.html',
-  styleUrls: ['./resume-template.component.css']
+  selector: 'app-template1',
+  templateUrl: './template1.component.html',
+  styleUrls: ['./template1.component.css']
 })
-export class ResumeTemplateComponent implements OnInit {
+export class Template1Component implements OnInit {
    dataSource!:any;
   name='';
-  value='clear me'
   constructor(private store:AngularFirestore) { }
 
   ngOnInit(): void {

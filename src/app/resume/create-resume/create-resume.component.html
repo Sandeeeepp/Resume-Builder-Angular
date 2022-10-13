@@ -1,0 +1,230 @@
+<!-- Personal Details -->
+
+
+
+
+<mat-card class="example-card ">
+  <div *ngIf="show=='step1'">
+  <form #detailsForm="ngForm" action="">
+  
+    <div class="mb-3">
+        <input type="file" class="form-control" name="img" aria-label="file example" required #img>
+        <div class="invalid-feedback">Example invalid form file feedback</div>
+      </div>
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">First Name</span>
+    <input type="text" class="form-control" placeholder="first name" aria-label="fname" aria-describedby="basic-addon1"  #fname required>
+    
+    <span class="input-group-text" id="basic-addon1">Last Name</span>
+    <input type="text" aria-label="Last name" placeholder="last name" class="form-control" #lname required>
+</div>
+
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon2">Email</span>
+  <input type="text" class="form-control" placeholder="Recipient's email" aria-label="Recipient's Email" aria-describedby="basic-addon2" #Email required>
+  
+</div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon2">Phone Number</span>
+    <input type="text" class="form-control" placeholder="Recipient's contact" aria-label="Recipient's contact" aria-describedby="basic-addon2" #phone required>
+    
+  </div>
+  
+  <label for="basic-url" class="form-label">Your github URL</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+    <input type="text" class="form-control" id="basic-url" name="url" aria-describedby="basic-addon3" required #url>
+  </div>
+  
+  
+  <div class="input-group">
+    <span class="input-group-text">HeadLine</span>
+    <textarea class="form-control" aria-label="With textarea" #headline></textarea>
+  </div>
+  <br>
+  <div class>
+    <button  class="btn btn-danger"
+    [disabled]="detailsForm.form.invalid " (click)="save(img.value,fname.value,lname.value,phone.value,url.value,headline.value)">Save and Proceed</button>
+  </div>
+
+
+</form>
+<!-- </mat-card> -->
+
+
+</div>
+
+
+<!-- Education -->
+<div *ngIf="show=='step2'">
+    <!-- <mat-card class="example-card " *ngIf="show=='step2'"> -->
+    <mat-accordion>
+    
+  <mat-expansion-panel class="mat-expansion-panel" *ngFor="let row of rows; let i =index" >
+      <mat-expansion-panel-header>
+      <mat-panel-title>
+        <button matSuffix (click)="addEdu()"><mat-icon>note_add</mat-icon></button>
+        &nbsp;&nbsp;&nbsp;
+       Education 
+       &nbsp;&nbsp;&nbsp;
+        <button *ngIf="i!=0" id="{{i}}" matSuffix (click)="removeEdu()"><mat-icon>delete</mat-icon></button>     
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+      <form class="row g-3">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Education</label>
+          <input type="text" class="form-control" id="edu">
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">School/University</label>
+          <input type="text" class="form-control" id="uni">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">City</label>
+          <input type="text" class="form-control" id="city" placeholder="enter city">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Start Date</label>
+          <input type="date" class="form-control" id="sdate">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">End Date</label>
+          <input type="date" class="form-control" id="edate">
+        </div>
+        <div class="col-12">
+          <button type="submit"  class="btn btn-primary">Save</button>
+        </div>
+
+
+          
+      </form>
+  
+    </div></mat-expansion-panel>
+    
+
+ 
+</mat-accordion>
+
+
+
+<!-- Skill -->
+
+
+<mat-accordion>
+    
+  <mat-expansion-panel>
+      <mat-expansion-panel-header>
+      <mat-panel-title>
+        Skill
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+      <form class="row g-3">
+        
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping"><mat-icon>subject</mat-icon></span>
+          <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>skill</mat-label>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+                {{fruit.name}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="skill..."
+                     [matChipInputFor]="chipList"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [matChipInputAddOnBlur]="addOnBlur"
+                     (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+
+      </form>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+<!-- Projects -->
+
+
+  <mat-accordion>
+  
+<mat-expansion-panel class="mat-expansion-panel" *ngFor="let row of row; let i =index" >
+    <mat-expansion-panel-header>
+    <mat-panel-title>
+      <button matSuffix (click)="addP()"><mat-icon>note_add</mat-icon></button>
+      &nbsp;&nbsp;&nbsp;
+     Projects
+     &nbsp;&nbsp;&nbsp;
+      <button *ngIf="i!=0" id="{{i}}" matSuffix (click)="removeP()"><mat-icon>delete</mat-icon></button>     
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Project Title</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" >
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Project Description</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+
+
+
+  </mat-expansion-panel>
+  
+
+
+</mat-accordion>
+
+
+<!-- Interests -->
+
+<mat-accordion>
+    
+  <mat-expansion-panel>
+      <mat-expansion-panel-header>
+      <mat-panel-title>
+        Interests
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+      <form class="row g-3">
+        
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping"><mat-icon>subject</mat-icon></span>
+          <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>Interests</mat-label>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+                {{fruit.name}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="skill..."
+                     [matChipInputFor]="chipList"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [matChipInputAddOnBlur]="addOnBlur"
+                     (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+
+      </form>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
+
+</div>
+
+</mat-card>
