@@ -13,8 +13,9 @@ export class AuthService {
   
   login(email:string,password:string){
     this.fireauth.signInWithEmailAndPassword(email,password).then(()=>{
+      localStorage.setItem('email',email)
       localStorage.setItem('token','true');
-      this.router.navigate(['/tools']);
+      this.router.navigate(['create']);
     },err=>{
       alert(err.message);
       this.router.navigate(['/login'])
@@ -22,6 +23,7 @@ export class AuthService {
   }
 
   register(email:string,password:string){
+    
     this.fireauth.createUserWithEmailAndPassword(email,password).then(()=>{
       alert("registration successful")
       this.router.navigate(['/login'])

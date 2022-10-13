@@ -14,9 +14,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { FAQsComponent } from './faqs/faqs.component';
-import { ResumeTemplateComponent } from './resume-template/resume-template.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { MatInputModule } from '@angular/material/input';
+
 import {
   ScreenTrackingService,
   UserTrackingService,
@@ -26,8 +26,11 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { RegisterComponent } from './register/register.component';
 import { ToolsComponent } from './tools/tools.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ScrollingModule } from '@angular/cdk/scrolling';
-import { CvTemplatesModule } from './cv-templates/cv-templates.module';
+import { ScrollingModule } from '@angular/cdk/scrolling';import { provideAuth,getAuth } from '@angular/fire/auth';
+import { ResumeModule } from './resume/resume.module';
+import { MatInputModule } from '@angular/material/input';
+
+
 
 @NgModule({
   declarations: [
@@ -36,9 +39,9 @@ import { CvTemplatesModule } from './cv-templates/cv-templates.module';
     PageNotFoundComponent,
     HomeComponent,
     FAQsComponent,
-    ResumeTemplateComponent,
     RegisterComponent,
     ToolsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -55,9 +58,7 @@ import { CvTemplatesModule } from './cv-templates/cv-templates.module';
     MatSidenavModule,
     MatInputModule,
     ScrollingModule,
-    CvTemplatesModule,
-    MatInputModule,
-
+    ResumeModule,
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
