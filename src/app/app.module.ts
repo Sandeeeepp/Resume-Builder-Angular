@@ -26,11 +26,10 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { RegisterComponent } from './register/register.component';
 import { ToolsComponent } from './tools/tools.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ScrollingModule } from '@angular/cdk/scrolling';import { provideAuth,getAuth } from '@angular/fire/auth';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 import { ResumeModule } from './resume/resume.module';
 import { MatInputModule } from '@angular/material/input';
-
-
 
 @NgModule({
   declarations: [
@@ -41,7 +40,6 @@ import { MatInputModule } from '@angular/material/input';
     FAQsComponent,
     RegisterComponent,
     ToolsComponent,
-    
   ],
   imports: [
     BrowserModule,

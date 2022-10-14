@@ -64,5 +64,9 @@ export class LoginComponent implements OnInit {
     this.password = '';
   }
 
+  enter() {
+    this.login();
+  }
+
   matcher = new MyErrorStateMatcher();
 }

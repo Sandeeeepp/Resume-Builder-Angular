@@ -32,7 +32,7 @@
           name="password"
           [(ngModel)]="password"
           placeholder="Enter your password"
-          
+          (keydown.enter)="enter()"
         />
       </mat-form-field>
       <br /><br />
@@ -53,4 +53,4 @@
   *ngFor="let items of dataSource"
   [(ngModel)]="dataSource"
 >{{items.fName}}</div> -->
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->

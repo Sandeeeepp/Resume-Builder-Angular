@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatAccordion } from '@angular/material/expansion';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
-import {MatChipInputEvent} from '@angular/material/chips';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { Router } from '@angular/router';
+import { CursorError } from '@angular/compiler/src/ml_parser/lexer';
 
 export interface Fruit {
   name: string;
@@ -12,23 +14,18 @@ export interface Fruit {
 @Component({
   selector: 'app-create-resume',
   templateUrl: './create-resume.component.html',
-  styleUrls: ['./create-resume.component.css']
+  styleUrls: ['./create-resume.component.css'],
 })
 export class CreateResumeComponent implements OnInit {
-  
   @ViewChild(MatAccordion) accordion!: MatAccordion;
   panelOpenState = false;
-  email=localStorage.getItem('Email')
-  constructor(private store:AngularFirestore) { }
+  email = localStorage.getItem('Email');
+  constructor(private store: AngularFirestore, private router: Router) {}
 
-  ngOnInit(): void {
-  }
-
-  
-
+  ngOnInit(): void {}
 
   //chips
- addOnBlur = true;
+  addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   fruits: Fruit[] = [];
 
@@ -37,7 +34,7 @@ export class CreateResumeComponent implements OnInit {
 
     // Add our fruit
     if (value) {
-      this.fruits.push({name: value});
+      this.fruits.push({ name: value });
     }
 
     // Clear the input value
@@ -52,7 +49,6 @@ export class CreateResumeComponent implements OnInit {
     }
   }
 
-
   //add
   rows = [1];
 
@@ -65,7 +61,7 @@ export class CreateResumeComponent implements OnInit {
   }
 
   row = [1];
-  
+
   addP() {
     this.row.push(2);
   }
@@ -74,15 +70,23 @@ export class CreateResumeComponent implements OnInit {
     this.row.pop();
   }
 
-
-
-  
-//save
-show='step1'
-  save(img:string,fname:string,lname:string,phone:string,url:string,headline:string){
+  //save
+  show = 'step1';
+  save(
+    img: string,
+    fname: string,
+    lname: string,
+    phone: string,
+    url: string,
+    headline: string
+  ) {
     // this.store.collection('ResumeDetails').add({image:img,fName:fname,lName:lname,Phone:phone,Url:url,Email:this.email,HeadLine:headline});
-    this.show='step2';
+    this.show = 'step2';
   }
 
-
+  createResume() {
+    let currentTemplate = localStorage.getItem('currentTemplate');
+    // alert(currentTemplate)
+    if (currentTemplate != null) this.router.navigateByUrl(currentTemplate);
+  }
 }

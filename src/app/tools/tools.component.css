@@ -23,16 +23,20 @@
 
 .scrolling-wrapper .card {
   display: inline-block;
-  width: 40%;
+  width: 35%;
   height: 80%;
   margin-top: 2%;
   transition: all 0.2s ease;
   cursor: pointer;
   margin-left: 3%;
-
 }
 
 .scrolling-wrapper .card:hover {
   box-shadow: 5px 6px 6px 2px #e9ecef;
   transform: scale(1.1);
+}
+
+.vertical-center {
+  margin-top: 60%;
+  margin-left: 37%;
 }
