@@ -48,6 +48,10 @@ export class LoginComponent implements OnInit {
     Validators.email,
   ]);
 
+
+
+
+    
   login() {
     // alert(this.store.collection('login',ref=>ref.where('Email','==',this.email)).doc())
 

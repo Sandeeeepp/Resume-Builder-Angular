@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
     this.fireauth.signInWithEmailAndPassword(email,password).then(()=>{
       localStorage.setItem('email',email)
       localStorage.setItem('token','true');
-      this.router.navigate(['create']);
+      this.router.navigate(['create'])
     },err=>{
       alert(err.message);
       this.router.navigate(['/login'])
@@ -43,4 +44,12 @@ export class AuthService {
     })
   }
 
+
+
+  
+ messageSource=new BehaviorSubject<string[]>([])
+ 
+ msgSource=new BehaviorSubject<string[]>([])
+
+ messageSrc=new BehaviorSubject<string[]>([])
 }
