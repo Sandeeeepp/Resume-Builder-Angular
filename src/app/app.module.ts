@@ -18,21 +18,18 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 
 import {
-  provideAnalytics,
-  getAnalytics,
   ScreenTrackingService,
   UserTrackingService,
 } from '@angular/fire/analytics';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { RegisterComponent } from './register/register.component';
-import {MatInputModule} from '@angular/material/input';
 import { ToolsComponent } from './tools/tools.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ScrollingModule } from '@angular/cdk/scrolling';import { provideAuth,getAuth } from '@angular/fire/auth';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 import { ResumeModule } from './resume/resume.module';
-
-
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -43,7 +40,6 @@ import { ResumeModule } from './resume/resume.module';
     FAQsComponent,
     RegisterComponent,
     ToolsComponent,
-    
   ],
   imports: [
     BrowserModule,

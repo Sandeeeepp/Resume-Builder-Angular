@@ -1,11 +1,11 @@
 <!-- <p>tools works!</p>  -->
 <mat-sidenav-container class="example-container">
   <mat-sidenav
-    style="background-color: black; color: white; width: 25%; cursor: pointer;"
+    style="background-color: black; color: white; width: 25%; cursor: pointer"
     #sidenav
     mode="side"
   >
-    <!--     [(opened)]="opened"
+    <!-- [(opened)]="opened"
         (opened)="events.push('open!')" (closed)="events.push('close!')" Sidenav
     content -->
 
@@ -37,7 +37,7 @@
     <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>  -->
     <h3>
       <button mat-button (click)="sidenav.toggle()">
-        <h2 *ngIf="opened == false; else elseblock">→</h2>
+        <h2 *ngIf="sidenav.opened == false; else elseblock">→</h2>
         <ng-template #elseblock>
           <h2>←</h2>
         </ng-template>
@@ -54,19 +54,91 @@
           </span>
       </div> -->
     <div *ngIf="display == 'resumeTemplate'" class="scrolling-wrapper">
-      <div class="card"><h2>Resume template</h2></div>
-      <div class="card"><h2>Resume template</h2></div>
-      <div class="card"><h2>Resume template</h2></div>
-      <div class="card"><h2>Resume template</h2></div>
-      <div class="card"><h2>Resume template</h2></div>
+      <div class="card" id="res1" #res1>
+        <span
+          >Resume template
+          <div *ngIf="sidenav.opened == false" class="vertical-center">
+            <button (click)="redirectTo(res1.id)">Use Template</button>
+          </div>
+        </span>
+      </div>
+      <div class="card">
+        <span
+          >Resume template
+          <div *ngIf="sidenav.opened == false" class="vertical-center">
+            <button (click)="redirectTo(res1.id)">Use Template</button>
+          </div>
+        </span>
+      </div>
+      <div class="card">
+        <span
+          >Resume template
+          <div *ngIf="sidenav.opened == false" class="vertical-center">
+            <button (click)="redirectTo(res1.id)">Use Template</button>
+          </div>
+        </span>
+      </div>
+      <div class="card">
+        <span
+          >Resume template
+          <div *ngIf="sidenav.opened == false" class="vertical-center">
+            <button (click)="redirectTo(res1.id)">Use Template</button>
+          </div>
+        </span>
+      </div>
+      <div class="card">
+        <span
+          >Resume template
+          <div *ngIf="sidenav.opened == false" class="vertical-center">
+            <button (click)="redirectTo(res1.id)">Use Template</button>
+          </div>
+        </span>
+      </div>
     </div>
+
     <div *ngIf="display == 'cvTemplate'" class="scrolling-wrapper">
-      <div class="card"><h2>CV template</h2></div>
-      <div class="card"><h2>CV template</h2></div>
-      <div class="card"><h2>CV template</h2></div>
-      <div class="card"><h2>CV template</h2></div>
-      <div class="card"><h2>CV template</h2></div>
+      <div class="card" id="cv1" #cv1>
+        <span
+          >CV template
+          <div *ngIf="sidenav.opened == false" class="vertical-center">
+            <button (click)="redirectTo(cv1.id)">Use Template</button>
+          </div>
+        </span>
+      </div>
+      <div class="card">
+        <span
+          >CV template
+          <div *ngIf="sidenav.opened == false" class="vertical-center">
+            <button (click)="redirectTo(cv1.id)">Use Template</button>
+          </div>
+        </span>
+      </div>
+      <div class="card">
+        <span
+          >CV template
+          <div *ngIf="sidenav.opened == false" class="vertical-center">
+            <button (click)="redirectTo(cv1.id)">Use Template</button>
+          </div>
+        </span>
+      </div>
+      <div class="card">
+        <span
+          >CV template
+          <div *ngIf="sidenav.opened == false" class="vertical-center">
+            <button (click)="redirectTo(cv1.id)">Use Template</button>
+          </div>
+        </span>
+      </div>
+      <div class="card">
+        <span
+          >CV template
+          <div *ngIf="sidenav.opened == false" class="vertical-center">
+            <button (click)="redirectTo(cv1.id)">Use Template</button>
+          </div>
+        </span>
+      </div>
     </div>
+
     <div *ngIf="display == 'CoverLetterTemplate'" class="scrolling-wrapper">
       <div class="card"><h2>Cover Letter template</h2></div>
       <div class="card"><h2>Cover Letter template</h2></div>

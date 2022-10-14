@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { TemplateOneComponent } from './cv-templates/template-one/template-one.component';
 import { FAQsComponent } from './faqs/faqs.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -11,6 +12,7 @@ import { Template1Component } from './resume/template1/template1.component';
 import { ToolsComponent } from './tools/tools.component';
 
 const routes: Routes = [
+<<<<<<< HEAD
   {path:'tools',component:ToolsComponent},
    {path:'faqs',component:FAQsComponent},
    {path:'create',component:CreateResumeComponent},
@@ -20,10 +22,19 @@ const routes: Routes = [
   {path:'',component:HomeComponent},
   
 
+=======
+  { path: 'tools', component: ToolsComponent },
+  { path: 'faqs', component: FAQsComponent },
+  { path: 'create', component: CreateResumeComponent },
+  // {path: '**', component:PageNotFoundComponent},
+  { path: '',component:HomeComponent},
+  { path: 'resumeTemp1',component:Template1Component},
+  { path: 'cvTemp1',component:TemplateOneComponent},
+>>>>>>> d14fb63521a368bf3c447bf76dea85a0b4f0a33f
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
