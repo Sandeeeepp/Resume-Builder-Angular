@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatAccordion } from '@angular/material/expansion';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
