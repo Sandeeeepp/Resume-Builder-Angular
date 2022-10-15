@@ -22,7 +22,7 @@
         <form class="example-form">
           <mat-form-field class="example-form-field" appearance="fill">
             <mat-label>First Name</mat-label>
-            <input matInput type="text" name="fname" [(ngModel)]="fname" />
+            <input matInput type="text" name="fname" [(ngModel)]="fname" value="{{fname}}" />
             <button
               *ngIf="fname"
               matSuffix
@@ -40,7 +40,7 @@
             *ngIf="addMiddleName == true"
           >
             <mat-label>Middle Name</mat-label>
-            <input matInput type="text" name="mname" [(ngModel)]="mname" />
+            <input matInput type="text" name="mname" [(ngModel)]="mname" value="{{mname}}"/>
             <button
               *ngIf="mname"
               matSuffix
@@ -54,7 +54,7 @@
 
           <mat-form-field class="example-form-field" appearance="fill">
             <mat-label>Last Name</mat-label>
-            <input matInput type="text" name="lname" [(ngModel)]="lname" />
+            <input matInput type="text" name="lname" [(ngModel)]="lname" value="{{lname}}"/>
             <button
               *ngIf="lname"
               matSuffix
@@ -76,6 +76,8 @@
               matInput
               [formControl]="emailFormControl"
               placeholder="Ex. pat@example.com"
+              [(ngModel)]="email"
+              value="{{email}}"
             />
             <mat-error
               *ngIf="
@@ -93,7 +95,7 @@
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Phone number</mat-label>
             <span matPrefix>+91 &nbsp;</span>
-            <input type="tel" matInput placeholder="555-555-1234" />
+            <input type="tel" matInput placeholder="555-555-1234" [(ngModel)]="phoneno" value="{{phoneno}}"/>
             <mat-icon matSuffix>mode_edit</mat-icon>
           </mat-form-field>
 
@@ -152,7 +154,7 @@
 
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Objective/ Description</mat-label>
-            <textarea matInput placeholder="Tell us about yourself"></textarea>
+            <textarea matInput placeholder="Tell us about yourself" name="objective" [(ngModel)]="objective" value="{{objective}}"></textarea>
           </mat-form-field>
         </form>
       </mat-step>
@@ -328,6 +330,7 @@
           </mat-tab>
         </mat-tab-group>
         <br />
+        <button class="btn btn-danger" style="margin-left:85%" (click)="createCV()">Create CV</button>
       </mat-step>
     </mat-horizontal-stepper>
   </div>

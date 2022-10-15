@@ -30,7 +30,12 @@ export class ToolsComponent implements OnInit {
 
   toCreateResume(currentTemplate:string){
     localStorage.setItem('currentTemplate',currentTemplate)
-    this.router.navigateByUrl('create');
+    this.router.navigateByUrl('createResume');
+  }
+
+  toCreateCV(currentTemplate:string){
+    localStorage.setItem('currentTemplate',currentTemplate)
+    this.router.navigateByUrl('createCV');
   }
 
   redirectTo(temp: string) {
@@ -40,7 +45,11 @@ export class ToolsComponent implements OnInit {
         break
       }
       case 'cv1':{
-        this.toCreateResume("cvTemp1")
+        this.toCreateCV("cvTemp1")
+        break
+      }
+      case 'cv2':{
+        this.toCreateCV("cvTemp2")
         break
       }
     }

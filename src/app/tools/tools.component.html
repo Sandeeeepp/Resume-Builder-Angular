@@ -86,14 +86,6 @@
           </div>
         </span>
       </div>
-      <div class="card">
-        <span
-          >Resume template
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(res1.id)">Use Template</button>
-          </div>
-        </span>
-      </div>
     </div>
 
     <div *ngIf="display == 'cvTemplate'" class="scrolling-wrapper">
@@ -105,19 +97,11 @@
           </div>
         </span>
       </div>
-      <div class="card">
+      <div class="card" id="cv2" #cv2>
         <span
           >CV template
           <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(cv1.id)">Use Template</button>
-          </div>
-        </span>
-      </div>
-      <div class="card">
-        <span
-          >CV template
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(cv1.id)">Use Template</button>
+            <button (click)="redirectTo(cv2.id)">Use Template</button>
           </div>
         </span>
       </div>
@@ -140,7 +124,6 @@
     </div>
 
     <div *ngIf="display == 'CoverLetterTemplate'" class="scrolling-wrapper">
-      <div class="card"><h2>Cover Letter template</h2></div>
       <div class="card"><h2>Cover Letter template</h2></div>
       <div class="card"><h2>Cover Letter template</h2></div>
       <div class="card"><h2>Cover Letter template</h2></div>

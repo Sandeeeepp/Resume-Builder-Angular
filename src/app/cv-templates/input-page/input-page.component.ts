@@ -8,6 +8,8 @@ import {
 } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 export interface Skills {
   name: string;
@@ -19,18 +21,38 @@ export interface Skills {
   styleUrls: ['./input-page.component.css'],
 })
 export class InputPageComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router, private store: AngularFirestore) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAll()
+  }
 
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
 
+  dataSource: any = {};
+
+  getAll() {
+    this.store
+      .collection('cv-inputs', (ref) =>
+        ref.where('email', '==', localStorage.getItem('email'))
+      )
+      .snapshotChanges()
+      .subscribe((response) => {
+        this.dataSource = response.map((item) =>
+          Object.assign({ id: item.payload.doc.id }, item.payload.doc.data())
+        );
+      });
+  }
+
   fname = '';
   lname = '';
   mname = '';
+  email = '';
+  phoneno = '';
+  objective = '';
   addMiddleName = false;
 
   linkRows = [0];
@@ -67,7 +89,7 @@ export class InputPageComponent implements OnInit {
     }
   }
 
-  eduRows=[0]
+  eduRows = [0];
 
   addEducation() {
     this.eduRows.push(0);
@@ -77,7 +99,7 @@ export class InputPageComponent implements OnInit {
     this.eduRows.pop();
   }
 
-  projectRows=[0]
+  projectRows = [0];
 
   addProjects() {
     this.projectRows.push(0);
@@ -87,8 +109,7 @@ export class InputPageComponent implements OnInit {
     this.projectRows.pop();
   }
 
-
-  certificateRows=[0]
+  certificateRows = [0];
 
   addCertificates() {
     this.certificateRows.push(0);
@@ -98,7 +119,7 @@ export class InputPageComponent implements OnInit {
     this.certificateRows.pop();
   }
 
-  internshipRows=[0]
+  internshipRows = [0];
 
   addInternships() {
     this.internshipRows.push(0);
@@ -108,7 +129,7 @@ export class InputPageComponent implements OnInit {
     this.internshipRows.pop();
   }
 
-  jobRows=[0]
+  jobRows = [0];
 
   addJobs() {
     this.jobRows.push(0);
@@ -118,6 +139,19 @@ export class InputPageComponent implements OnInit {
     this.jobRows.pop();
   }
 
-
-
+  createCV() {
+    let currentTemplate = localStorage.getItem('currentTemplate');
+    // alert(currentTemplate)
+    if (currentTemplate != null) this.router.navigateByUrl(currentTemplate);
+    this.store
+      .collection('cv-inputs')
+      .add({
+        email: this.email,
+        fname: this.fname,
+        mname: this.mname,
+        lname: this.lname,
+        phoneno: this.phoneno,
+        objective: this.objective,
+      });
+  }
 }
