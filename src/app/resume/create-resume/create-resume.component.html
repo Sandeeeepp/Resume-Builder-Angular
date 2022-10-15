@@ -133,13 +133,13 @@
           <form class="row g-3">
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Education</label>
-              <input type="text" class="form-control" id="edu" />
+              <input type="text" class="form-control" id="edu" name="education" [(ngModel)]="education"  />
             </div>
             <div class="col-md-6">
               <label for="inputPassword4" class="form-label"
                 >School/University</label
               >
-              <input type="text" class="form-control" id="uni" />
+              <input type="text" class="form-control" id="uni" name="school" [(ngModel)]="school"/>
             </div>
             <div class="col-12">
               <label for="inputAddress" class="form-label">City</label>
@@ -148,18 +148,20 @@
                 class="form-control"
                 id="city"
                 placeholder="enter city"
+                name="city"
+                [(ngModel)]="city"
               />
             </div>
             <div class="col-12">
               <label for="inputAddress2" class="form-label">Start Date</label>
-              <input type="date" class="form-control" id="sdate" />
+              <input type="date" class="form-control" id="sdate" name="sdate" [(ngModel)]="sdate" />
             </div>
             <div class="col-md-6">
               <label for="inputCity" class="form-label">End Date</label>
-              <input type="date" class="form-control" id="edate" />
+              <input type="date" class="form-control" id="edate" name="edate" [(ngModel)]="edate" />
             </div>
             <div class="col-12">
-              <button type="submit" class="btn btn-primary">Save</button>
+              <button (click)="submit()">Save</button>
             </div>
           </form>
         </div>
@@ -233,6 +235,8 @@
             type="text"
             class="form-control"
             id="exampleFormControlInput1"
+            name="title"
+            [(ngModel)]="title"
           />
         </div>
         <div class="mb-3">
@@ -243,6 +247,8 @@
             class="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
+            name="title"
+            [(ngModel)]="title"
           ></textarea>
         </div>
       </mat-expansion-panel>

@@ -12,17 +12,6 @@ import { Template1Component } from './resume/template1/template1.component';
 import { ToolsComponent } from './tools/tools.component';
 
 const routes: Routes = [
-<<<<<<< HEAD
-  {path:'tools',component:ToolsComponent},
-   {path:'faqs',component:FAQsComponent},
-   {path:'create',component:CreateResumeComponent},
-   {path:'temp1',component:Template1Component},
-  // {path: '**', component:PageNotFoundComponent},
-  { path: '.',   redirectTo: '/Home', pathMatch: 'full' },
-  {path:'',component:HomeComponent},
-  
-
-=======
   { path: 'tools', component: ToolsComponent },
   { path: 'faqs', component: FAQsComponent },
   { path: 'create', component: CreateResumeComponent },
@@ -30,7 +19,6 @@ const routes: Routes = [
   { path: '',component:HomeComponent},
   { path: 'resumeTemp1',component:Template1Component},
   { path: 'cvTemp1',component:TemplateOneComponent},
->>>>>>> d14fb63521a368bf3c447bf76dea85a0b4f0a33f
 ];
 
 @NgModule({

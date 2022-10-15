@@ -6,6 +6,9 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
 import { CursorError } from '@angular/compiler/src/ml_parser/lexer';
+import { AuthService } from 'src/app/auth.service';
+import { project } from 'src/app/project';
+import { education } from 'src/app/education';
 
 export interface Fruit {
   name: string;
@@ -17,12 +20,42 @@ export interface Fruit {
   styleUrls: ['./create-resume.component.css'],
 })
 export class CreateResumeComponent implements OnInit {
+  proj!:project[];
+  edu!:education[]
   @ViewChild(MatAccordion) accordion!: MatAccordion;
   panelOpenState = false;
   email = localStorage.getItem('Email');
-  constructor(private store: AngularFirestore, private router: Router) {}
+  constructor(private store: AngularFirestore, private router: Router,private serv:AuthService) {
+    this.proj=[{
+      title:this.title,
+      desc:this.desc,
+    }]
+    this.edu=[{
+      education:this.education,
+    school:this.school,
+    city:this.city,
+    sdate:this.sdate,
+    edate:this.edate,
+    }]
+  }
 
   ngOnInit(): void {}
+
+
+
+
+  /// project variables
+  title=''
+  desc=''
+
+
+  // education variables
+
+  education!:string;
+    school!:string;
+    city!:string;
+    sdate!:string;
+    edate!:string
 
   //chips
   addOnBlur = true;
@@ -88,5 +121,11 @@ export class CreateResumeComponent implements OnInit {
     let currentTemplate = localStorage.getItem('currentTemplate');
     // alert(currentTemplate)
     if (currentTemplate != null) this.router.navigateByUrl(currentTemplate);
+  }
+  submit(){
+    
+    this.serv.messageSource.next([this.title,this.desc])
+    this.serv.msgSource.next([this.education,this.school,this.city,this.sdate,this.edate])
+    this.router.navigate(['/resumeTemp1'])
   }
 }
