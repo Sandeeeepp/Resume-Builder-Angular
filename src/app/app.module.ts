@@ -31,6 +31,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { ResumeModule } from './resume/resume.module';
 import { MatInputModule } from '@angular/material/input';
 import { CvTemplatesModule } from './cv-templates/cv-templates.module';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { CvTemplatesModule } from './cv-templates/cv-templates.module';
     MatInputModule,
     ScrollingModule,
     ResumeModule,
-    CvTemplatesModule
+    CvTemplatesModule,
+    MatTabsModule
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],

@@ -12,6 +12,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { Auth } from '@angular/fire/auth/firebase';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthService } from '../auth.service';
+import { ServiceService } from '../service.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   dataSource: any;
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
   email: string = '';
   password: string = '';
 
-  constructor(private store: AngularFirestore, private auth: AuthService) {}
+  constructor(private store: AngularFirestore, private auth: AuthService, private service:ServiceService) {}
   ngOnInit() {}
 
   dataSource: any;
@@ -66,6 +67,7 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.email, this.password);
     this.email = '';
     this.password = '';
+    this.service.routerDecider.next('routingtonextpage')
   }
 
   enter() {

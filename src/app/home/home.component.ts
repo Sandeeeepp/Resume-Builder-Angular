@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,15 @@ export class HomeComponent implements OnInit {
   Home(): void {
     window.location.reload();
   }
-  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  routerDecider = '';
+  constructor(private router: Router, private service: ServiceService) {}
+
+  ngOnInit(): void {
+    // this.service.routerDecider.subscribe((value) => {
+    //   this.routerDecider = value;
+    // });
+  }
 
   submit() {
     this.show = !this.show;

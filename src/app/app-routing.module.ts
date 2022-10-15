@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { InputPageComponent } from './cv-templates/input-page/input-page.component';
@@ -16,11 +16,13 @@ import { ToolsComponent } from './tools/tools.component';
 const routes: Routes = [
   { path: 'tools', component: ToolsComponent },
   { path: 'faqs', component: FAQsComponent },
-  { path: 'create', component: CreateResumeComponent },
+  { path: 'createResume', component: CreateResumeComponent },
+  { path: 'createCV', component: InputPageComponent },
   // {path: '**', component:PageNotFoundComponent},
   { path: '',component:HomeComponent},
   { path: 'resumeTemp1',component:Template1Component},
   { path: 'cvTemp1',component:TemplateOneComponent},
+
 ];
 
 @NgModule({

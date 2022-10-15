@@ -1,9 +1,7 @@
-<div>
-    FAQS page
-</div>
-<div class="footer">
-  <h2>Contact Us:</h2>
-  <div class="row">
+<div style="margin-top: 12%; margin-right: 30%">
+  <h2><mat-icon>contacts</mat-icon> Contact Us:</h2>
+  <br />
+  <!-- <div class="row">
     <div class="col-5">
       <br />
       <h3>Call Us</h3>
@@ -13,9 +11,28 @@
     <div class="col-7">
       <br />
       <h3>Mail Us</h3>
-
       <p>Any queries mail us on the given id below</p>
       <a href="mitwpu@edu.in">mitwpu@edu.in</a>
-    </div>
-  </div>
+    </div> 
+  </div> -->
+
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">call</mat-icon>
+        Call us
+      </ng-template><br><br>
+      <p>Want to Connect to our Customer care click on the given number</p>
+      <a href="tel:123-456-7890">123-456-7890</a>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">email</mat-icon>
+        Mail us
+      </ng-template><br><br>
+      <p>Any queries mail us on the given id below</p>
+      <a href="mitwpu@edu.in">mitwpu@edu.in</a>
+    </mat-tab>
+  </mat-tab-group>
 </div>

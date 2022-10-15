@@ -1,5 +1,10 @@
 <div>
-  <img class="pull-left" [src]="image" routerLink="/" />
+  <img
+    class="pull-left"
+    [src]="image"
+    (click)="routerDecider = ''"
+    routerLink="/"
+  />
 
   <div class="text-center">
     <!-- <button mat-button [matMenuTriggerFor]="Tools">
@@ -28,13 +33,9 @@
         <button mat-menu-item>Templates</button>
       </mat-menu> -->
 
-    <button mat-button color="grey">
+    <!-- <button mat-button color="grey">
       <h2>Pricing</h2>
-    </button>
-
-    <button mat-button color="grey" routerLink="/faqs">
-      <h2>FAQs</h2>
-    </button>
+    </button> -->
 
     <link
       rel="stylesheet"
@@ -49,12 +50,27 @@
     >
       Register
     </button>
+    <button
+      class="btn btn-lg"
+      mat-button
+      style="margin-left: 70%"
+      color="accent"
+      routerLink="/faqs"
+      (click)="routerDecider = 'routingonsamepage'"
+    >
+      FAQs
+    </button>
   </div>
 </div>
 
 <div class="row">
   <div class="col">
-    <img style="height: 100%; width: 100%" src="../assets/home-page.png" />
+    <div *ngIf="routerDecider == ''">
+      <img style="height: 100%; width: 100%" src="../assets/home-page.png" />
+    </div>
+    <div *ngIf="routerDecider == 'routingonsamepage'">
+      <router-outlet></router-outlet>
+    </div>
   </div>
   <div class="col-4">
     <div *ngIf="show == true; else elseblock">
@@ -67,3 +83,4 @@
     </ng-template>
   </div>
 </div>
+<!-- <router-outlet></router-outlet> -->

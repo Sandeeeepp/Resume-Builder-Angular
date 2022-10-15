@@ -1,4 +1,4 @@
- <!-- <app-home></app-home>   -->
+<!-- <app-home></app-home>   -->
 
 <!-- <app-resume-template></app-resume-template> -->
 <!-- <app-tools></app-tools> -->
@@ -6,6 +6,9 @@
 <!-- <app-create-resume></app-create-resume> -->
 <!-- <app-login></app-login> -->
 
-
-
-<router-outlet></router-outlet>
+<div *ngIf="routerDecider == 'routingtonextpage'; else elseBlock">
+  <router-outlet></router-outlet>
+</div>
+<ng-template #elseBlock>
+    <app-home></app-home>
+</ng-template>

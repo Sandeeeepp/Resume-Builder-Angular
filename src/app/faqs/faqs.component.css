@@ -1,13 +1,18 @@
-
 .footer {
-    position:fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
- }
-
-div{
-    color:cadetblue;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
+
+div {
+  color: cadetblue;
+}
+
+img {
+    margin-left: 2%;
+    width: 10%;
+  }
+  

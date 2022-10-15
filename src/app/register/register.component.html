@@ -3,14 +3,13 @@
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
 />
 <body>
-  <div class="container-fluid my-3">
+  <div class="container-fluid my-5">
     <form #LoginForm="ngForm">
       <div class="form-group">
         <label>First Name</label>
         <input
           type="text"
           class="form-control"
-          placeholder="enter your first name"
           name="fname"
           ngModel
           #fname="ngModel"
@@ -27,7 +26,6 @@
         <input
           type="text"
           class="form-control"
-          placeholder="enter your last name"
           name="lname"
           ngModel
           #lname="ngModel"
@@ -44,7 +42,6 @@
         <input
           type="tel"
           class="form-control"
-          placeholder="enter your Phone Number"
           name="Phone Number"
           ngModel
           pattern="^\d{10}$"
@@ -65,7 +62,6 @@
         <input
           type="email"
           class="form-control"
-          placeholder="enter your email"
           name="email"
           [(ngModel)]="email"
           required
@@ -159,7 +155,6 @@
           <input
             class="form-control"
             type="password"
-            placeholder="enter your  Password"
             name="password"
             [(ngModel)]="password"
           />

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { ServiceService } from './service.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,15 +10,19 @@ export class AppComponent {
   title = 'project';
   image = '../assets/resumebuilder-logo.png';
   dataSource: any;
+  routerDecider=''
 
   Home(): void {
     window.location.reload();
   }
 
-  constructor(private store: AngularFirestore) {}
+  constructor(private store: AngularFirestore, private service:ServiceService) {}
   
   ngOnInit() {
     this.getAll();
+    this.service.routerDecider.subscribe(value=>{
+      this.routerDecider=value
+    })
   }
 
   getAll() {
