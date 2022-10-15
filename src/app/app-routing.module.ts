@@ -1,7 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { InputPageComponent } from './cv-templates/input-page/input-page.component';
 import { TemplateOneComponent } from './cv-templates/template-one/template-one.component';
+import { TemplateTwoComponent } from './cv-templates/template-two/template-two.component';
 import { FAQsComponent } from './faqs/faqs.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';

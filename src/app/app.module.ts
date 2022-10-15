@@ -30,6 +30,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { ResumeModule } from './resume/resume.module';
 import { MatInputModule } from '@angular/material/input';
+import { CvTemplatesModule } from './cv-templates/cv-templates.module';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     ScrollingModule,
     ResumeModule,
+    CvTemplatesModule
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
