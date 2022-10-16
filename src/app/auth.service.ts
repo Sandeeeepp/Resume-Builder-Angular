@@ -2,12 +2,17 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { ServiceService } from './service.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private fireauth: AngularFireAuth, private router: Router) {}
+  constructor(
+    private fireauth: AngularFireAuth,
+    private router: Router,
+    private service: ServiceService
+  ) {}
 
   login(email: string, password: string) {
     this.fireauth.signInWithEmailAndPassword(email, password).then(
@@ -18,7 +23,7 @@ export class AuthService {
       },
       (err) => {
         alert(err.message);
-        this.router.navigate(['/login']);
+        // this.router.navigate(['/login']);
       }
     );
   }
@@ -27,11 +32,12 @@ export class AuthService {
     this.fireauth.createUserWithEmailAndPassword(email, password).then(
       () => {
         alert('registration successful');
-        this.router.navigate(['/login']);
+        this.service.changeShow(true);
+        // this.router.navigate(['/login']);
       },
       (err) => {
         alert(err.message);
-        this.router.navigate(['/register']);
+        // this.router.navigate(['/register']);
       }
     );
   }
@@ -48,9 +54,7 @@ export class AuthService {
     );
   }
 
-
-
-  messageSource=new BehaviorSubject<string[]>([]);
-  msgSource=new BehaviorSubject<string[]>([]);
-  messageSrc=new BehaviorSubject<string[]>([]);
+  messageSource = new BehaviorSubject<string[]>([]);
+  msgSource = new BehaviorSubject<string[]>([]);
+  messageSrc = new BehaviorSubject<string[]>([]);
 }

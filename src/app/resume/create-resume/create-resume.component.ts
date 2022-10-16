@@ -128,4 +128,20 @@ export class CreateResumeComponent implements OnInit {
     this.serv.msgSource.next([this.education,this.school,this.city,this.sdate,this.edate])
     this.router.navigate(['/resumeTemp1'])
   }
+
+  dropDownValue1 = '';
+
+  SetDropDownValue(drpValue: any) {
+    this.dropDownValue1 = drpValue.target.value;
+  }
+
+  SValue: boolean = true;
+
+  selectValidate(sname: any) {
+    if (sname == false) {
+      this.SValue = true;
+    } else {
+      this.SValue = false;
+    }
+  }
 }
