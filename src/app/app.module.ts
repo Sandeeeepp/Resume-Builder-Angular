@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import {CoverLetterModule} from './cover-letter/cover-letter.module'
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { FAQsComponent } from './faqs/faqs.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
+import { CoverLetterTemplatesModule } from './cover-letter-templates/cover-letter-templates.module';
 
 import {
   ScreenTrackingService,
@@ -48,7 +48,6 @@ import {MatTabsModule} from '@angular/material/tabs';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CoverLetterModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatMenuModule,
@@ -62,7 +61,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     ScrollingModule,
     ResumeModule,
     CvTemplatesModule,
-    MatTabsModule
+    MatTabsModule,
+    CoverLetterTemplatesModule
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
