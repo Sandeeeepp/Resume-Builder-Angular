@@ -1,167 +1,117 @@
-<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+<link
+  href="https://fonts.googleapis.com/css?family=Lato:400,300,700"
+  rel="stylesheet"
+  type="text/css"
+/>
 
 <div class="container">
-  <div  *ngFor="let pro of projects;let i=index">
-  <div class="header">
-    <div>
-    <div class="full-name">
-      <span class="first-name">John</span> 
-      <span class="last-name">Doe</span>
-    </div>
-    </div>
-    <div class="contact-info">
-      <span class="email">Email: </span>
-      <span class="email-val">john.doe@gmail.com</span>
-      <span class="separator"></span>
-      <span class="phone">Phone: </span>
-      <span class="phone-val">111-222-3333</span>
-    </div>
-    
-    <div class="about">
-      <span class="position">Front-End Developer </span>
-      <span class="desc">
-        I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow. 
-      </span>
-    </div>
-  </div>
-   <div class="details">
-    <div class="section">
-      <div class="section__title">Experience</div>
-      <div class="section__list">
-        <div class="section__list-item">
-          <div class="left">
-            <div class="name">KlowdBox</div>
-            <div class="addr">San Fr, CA</div>
-            <div class="duration">Jan 2011 - Feb 2015</div>
-          </div>
-          <div class="right">
-            <div class="name">Fr developer</div>
-            <div class="desc">did This and that</div>
-          </div>
-        </div>
-                <div class="section__list-item">
-          <div class="left">
-            <div class="name">Akount</div>
-            <div class="addr">San Monica, CA</div>
-            <div class="duration">Jan 2011 - Feb 2015</div>
-          </div>
-          <div class="right">
-            <div class="name">Fr developer</div>
-            <div class="desc">did This and that</div>
-          </div>
-        </div>
+  <div *ngFor="let item of dataSource; let i = index">
+    <div class="header">
+      <div>
 
+        <div>
+          <img [src]="item.image" width="100px" height="100px">
+        </div>
+        <div class="full-name">
+          <span class="first-name">{{ item.fName }}</span>
+          <span class="last-name">{{ item.lName }}</span>
+        </div>
+      </div>
+      <div class="contact-info">
+        <span class="email">Email: </span>
+        <span class="email-val">{{ item.Email }}</span>
+        <span class="separator"></span>
+        <span class="phone">Phone: </span>
+        <span class="phone-val">{{ item.Phone }}</span>
+      </div>
+
+      <div class="about">
+        <span class="position">{{ item.Url }} </span>
+        <span class="desc">{{ item.Headline }} </span>
       </div>
     </div>
+  </div>
 
-
-
-    <div *ngFor="let ed of educate;let i=index">
+  <div class="details">
     <div class="section">
+      
       <div class="section__title">Education</div>
-      <div class="section__list">
-        <div class="section__list-item">
-          <div class="left">
-            <div class="course">{{ed.education}}</div>
-            <div class="name">{{ed.school}}</div>
-            <div class="addr">{{ed.city}}</div>
-            <div class="duration">{{ed.sdate}} - {{ed.edate}}</div>
-          </div>
-          <div class="right">
-            <div class="name">Fr developer</div>
-            <div class="desc">did This and that</div>
-          </div>
-        </div>
-        <div class="section__list-item">
-          <div class="left">
-            <div class="name">Akount</div>
-            <div class="addr">San Monica, CA</div>
-            <div class="duration">Jan 2011 - Feb 2015</div>
-          </div>
-          <div class="right">
-            <div class="name">Fr developer</div>
-            <div class="desc">did This and that</div>
+      <div *ngFor="let ed of educate; let i = index">
+        <div class="section">
+          <div class="section__list">
+            <div class="section__list-item">
+              <div class="left">
+                <div class="course">{{ educate[i].course }}</div>
+                <div class="name">{{ educate[i].school }}</div>
+                <div class="addr">{{ educate[i].city }}</div>
+                <div class="duration">
+                  {{ educate[i].sdate }} - {{ educate[i].edate }}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
       
-  </div>
-</div>
-
-     <div class="section">
-      <div class="section__title">Projects</div> 
-       <div class="section__list">
-         <div class="section__list-item">
-           <div class="name">{{pro.title}}</div>
-           <div class="text">{{pro.desc}}</div>
-         </div>
-         
-         <div class="section__list-item">
-                    <div class="name">DSP</div>
-           <div class="text">I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow. <a href="/login">link</a>
-           </div>
-         </div>
-       </div>
-    </div>
-     <div class="section">
-       <div class="section__title">Skills</div>
-       <div class="skills">
-         <div class="skills__item">
-           <div class="left"><div class="name">
-             Javascript
-             </div></div>
-           <div class="right">
-                          <input  id="ck1" type="checkbox" checked/>
-
-             <label for="ck1"></label>
-                          <input id="ck2" type="checkbox" checked/>
-
-              <label for="ck2"></label>
-                         <input id="ck3" type="checkbox" />
-
-              <label for="ck3"></label>
-                           <input id="ck4" type="checkbox" />
-            <label for="ck4"></label>
-                          <input id="ck5" type="checkbox" />
-              <label for="ck5"></label>
-
-           </div>
-         </div>
-         
-       </div>
-       <div class="skills__item">
-           <div class="left"><div class="name">
-             CSS</div></div>
-           <div class="right">
-                          <input  id="ck1" type="checkbox" checked/>
-
-             <label for="ck1"></label>
-                          <input id="ck2" type="checkbox" checked/>
-
-              <label for="ck2"></label>
-                         <input id="ck3" type="checkbox" />
-
-              <label for="ck3"></label>
-                           <input id="ck4" type="checkbox" />
-            <label for="ck4"></label>
-                          <input id="ck5" type="checkbox" />
-              <label for="ck5"></label>
-
-           </div>
-         </div>
-         
-       </div>
-     <div class="section">
-     <div class="section__title">
-       Interests
-       </div>
-       <div class="section__list">
-         <div class="section__list-item">
-                  Football, programming.
+      <div class="section__title">Projects</div>
+      <div *ngFor="let pro of projects; let i = index">
+        <div class="section">
+          <div class="section__list">
+            <div class="section__list-item">
+              <div class="name">{{ projects[i].title }}</div>
+              <div class="text">{{ projects[i].desc }}</div>
+            </div>
           </div>
-       </div>
-     </div>
-     </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section__title">Skills</div>
+        <div class="skills">
+          <div class="skills__item">
+            <div class="left"><div class="name">Javascript</div></div>
+            <div class="right">
+              <input id="ck1" type="checkbox" checked />
+
+              <label for="ck1"></label>
+              <input id="ck2" type="checkbox" checked />
+
+              <label for="ck2"></label>
+              <input id="ck3" type="checkbox" />
+
+              <label for="ck3"></label>
+              <input id="ck4" type="checkbox" />
+              <label for="ck4"></label>
+              <input id="ck5" type="checkbox" />
+              <label for="ck5"></label>
+            </div>
+          </div>
+        </div>
+        <div class="skills__item">
+          <div class="left"><div class="name">CSS</div></div>
+          <div class="right">
+            <input id="ck1" type="checkbox" checked />
+
+            <label for="ck1"></label>
+            <input id="ck2" type="checkbox" checked />
+
+            <label for="ck2"></label>
+            <input id="ck3" type="checkbox" />
+
+            <label for="ck3"></label>
+            <input id="ck4" type="checkbox" />
+            <label for="ck4"></label>
+            <input id="ck5" type="checkbox" />
+            <label for="ck5"></label>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section__title">Interests</div>
+        <div class="section__list">
+          <div class="section__list-item">Football, programming.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

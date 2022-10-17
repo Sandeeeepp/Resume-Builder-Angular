@@ -13,57 +13,48 @@ import { project } from 'src/app/project';
 })
 export class Template1Component implements OnInit {
   dataSource!: any;
-  proj!: project;
+  // proj!: project;
   projects: project[] = [];
-  edu!: education;
+  // edu!: education;
   educate: education[] = [];
+
+
+  //education variables
+  course!:string
+  school!:string
+  city!:string
+  sdate!:string
+  edate!:string
+
+//projects variable
   name = '';
   title!: string;
   desc!: string;
   constructor(private store: AngularFirestore, private serv: AuthService) {}
 
-  pushing(data: project) {
-    this.projects.push(data);
-  }
-  pushing1(data: education) {
-    this.educate.push(data);
-  }
 
   ngOnInit(): void {
-    // this.getAll();
+    this.getAll();
 
     this.serv.messageSource.subscribe((message) => {
-      this.proj = {
-        title: message[0],
-        desc: message[1],
-      };
-
-      this.pushing(this.proj);
+      
+        this.projects = message
+        
+       
     });
     this.serv.msgSource.subscribe((message) => {
-      this.edu = {
-        education: message[0],
-        school: message[1],
-        city: message[2],
-        sdate: message[3],
-        edate: message[4],
-      };
-      console.log(this.edu.school);
-      this.pushing1(this.edu);
+     
+      this.educate = message
+     
     });
   }
 
   getAll() {
-    this.store
-      .collection('ResumeDetails', (ref) =>
-        ref.where('Email', '==', localStorage.getItem('email'))
-      )
-      .snapshotChanges()
-      .subscribe((response) => {
-        this.dataSource = response.map((item) =>
-          Object.assign({ id: item.payload.doc.id }, item.payload.doc.data())
-        );
-        // console.log(this.dataSource.Email)
-      });
+    this.store.collection('ResumeDetails',ref=>ref.where('Email','==',localStorage.getItem('email'))).snapshotChanges().subscribe((response=>{
+      this.dataSource=response.map(item=>
+        Object.assign({id:item.payload.doc.id},item.payload.doc.data()))
+      
+    }))
   }
+  
 }

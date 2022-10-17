@@ -2,7 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatAccordion } from '@angular/material/expansion';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-
+import * as uuid from 'uuid';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
 import { CursorError } from '@angular/compiler/src/ml_parser/lexer';
@@ -20,18 +20,22 @@ export interface Fruit {
   styleUrls: ['./create-resume.component.css'],
 })
 export class CreateResumeComponent implements OnInit {
-  proj!:project[];
+  proj:project[]=[];
   edu!:education[]
   @ViewChild(MatAccordion) accordion!: MatAccordion;
   panelOpenState = false;
-  email = localStorage.getItem('Email');
+
+  
+  email = localStorage.getItem('email');
+  dataSource:any;
   constructor(private store: AngularFirestore, private router: Router,private serv:AuthService) {
     this.proj=[{
       title:this.title,
       desc:this.desc,
     }]
     this.edu=[{
-      education:this.education,
+      // id:this.id,
+      course:this.course,
     school:this.school,
     city:this.city,
     sdate:this.sdate,
@@ -50,8 +54,8 @@ export class CreateResumeComponent implements OnInit {
 
 
   // education variables
-
-  education!:string;
+// id!:string
+  course!:string;
     school!:string;
     city!:string;
     sdate!:string;
@@ -113,20 +117,49 @@ export class CreateResumeComponent implements OnInit {
     url: string,
     headline: string
   ) {
-    // this.store.collection('ResumeDetails').add({image:img,fName:fname,lName:lname,Phone:phone,Url:url,Email:this.email,HeadLine:headline});
+     this.store.collection('ResumeDetails').add({image:img,fName:fname,lName:lname,Phone:phone,Url:url,Email:this.email,HeadLine:headline});
     this.show = 'step2';
   }
 
   createResume() {
     let currentTemplate = localStorage.getItem('currentTemplate');
-    // alert(currentTemplate)
     if (currentTemplate != null) this.router.navigateByUrl(currentTemplate);
   }
   submit(){
     
-    this.serv.messageSource.next([this.title,this.desc])
-    this.serv.msgSource.next([this.education,this.school,this.city,this.sdate,this.edate])
+    this.serv.messageSource.next(this.proj)
+    this.serv.msgSource.next(this.edu)
     this.router.navigate(['/resumeTemp1'])
+    
+
+  }
+
+
+
+  getAll() {
+    this.store.collection('ResumeDetails',ref=>ref.where('Email','==',localStorage.getItem('email'))).snapshotChanges().subscribe((response=>{
+      this.dataSource=response.map(item=>
+        Object.assign({id:item.payload.doc.id},item.payload.doc.data()))
+      
+    }))
+  }
+
+  addEducation() {
+    const uniqueID = uuid.v4();
+    this.edu.push({
+      course: '',
+      school: '',
+      city: '',
+      sdate: '',
+      edate:'',
+    });
+  }
+
+  addProjects(){
+    this.proj.push({
+      title:'',
+      desc:''
+    })
   }
 
   dropDownValue1 = '';
