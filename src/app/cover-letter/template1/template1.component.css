@@ -1,0 +1,23 @@
+.container{
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.text-align{
+    text-align: right;
+}
+
+hr{
+    border: none;
+    height: 2px;
+    background: black;
+    width:100%;    
+}
+
+.text-center{
+    /* text-align: center; */
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
