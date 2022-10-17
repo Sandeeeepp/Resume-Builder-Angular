@@ -199,7 +199,7 @@ body {
 .timeline-block:not(:last-of-type) {
   margin-bottom: 1rem;
 }
-.timeline-block h1 {
+/* .timeline-block h1 {
   font-size: 1rem;
   margin: 5px 0;
   transition: all 0.3s;
@@ -211,7 +211,7 @@ body {
 .timeline-block time {
   font-size: 0.8rem;
   color: var(--color-gray-dark-2);
-}
+} */
 .timeline-block::before {
   position: absolute;
   content: "";
@@ -243,7 +243,7 @@ body {
 .pg-list,
 .tool-list,
 .favor-list {
-  padding: 0;
+  padding-left: 30px;
   list-style: none;
 }
 .pg-list > li {
@@ -410,3 +410,7 @@ body {
     font-size: 70%;
   }
 } */
+
+mat-slider {
+  width: 70%;
+}

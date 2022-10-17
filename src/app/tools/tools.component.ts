@@ -52,6 +52,10 @@ export class ToolsComponent implements OnInit {
         this.toCreateCV("cvTemp2")
         break
       }
+      case 'cl1':{
+        this.router.navigateByUrl('coverLetterTemp1')
+        break
+      }
     }
   }
 }

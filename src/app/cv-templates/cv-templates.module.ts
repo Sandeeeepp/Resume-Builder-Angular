@@ -12,6 +12,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatCardModule} from '@angular/material/card';
     MatChipsModule,
     MatExpansionModule,
     MatTabsModule,
-    MatCardModule
+    MatCardModule,
+    MatSliderModule
   ],
   exports: [TemplateOneComponent, TemplateTwoComponent, InputPageComponent],
 })

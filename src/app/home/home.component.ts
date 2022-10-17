@@ -18,10 +18,10 @@ export class HomeComponent implements OnInit {
   routerDecider = '';
   constructor(private router: Router, private service: ServiceService) {}
 
-  ngOnInit(): void {
-    // this.service.routerDecider.subscribe((value) => {
-    //   this.routerDecider = value;
-    // });
+  ngOnInit() {
+    this.service.show.subscribe((value) => {
+      this.show = value;
+    });
   }
 
   submit() {

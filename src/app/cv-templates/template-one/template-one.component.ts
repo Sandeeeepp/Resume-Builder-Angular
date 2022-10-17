@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { FormArrayName } from '@angular/forms';
+import { ServiceService } from 'src/app/service.service';
+import { details } from '../input-page-class';
 
 @Component({
   selector: 'app-template-one',
@@ -7,10 +10,17 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./template-one.component.css'],
 })
 export class TemplateOneComponent implements OnInit {
-  constructor(private store: AngularFirestore) {}
+  details!: details;
+  constructor(
+    private store: AngularFirestore,
+    private service: ServiceService
+  ) {}
 
   ngOnInit(): void {
-    this.getAll();
+    // this.getAll();
+    this.service.details.subscribe((value) => {
+      this.details = value;
+    });
   }
 
   dataSource: any = {};
@@ -26,5 +36,16 @@ export class TemplateOneComponent implements OnInit {
           Object.assign({ id: item.payload.doc.id }, item.payload.doc.data())
         );
       });
+  }
+
+  valueLabel = '';
+
+  formatLabel(value: number) {
+    if(value==1) this.valueLabel='Beginner'
+    if(value==1) this.valueLabel='Beginner'
+
+    if(value==1) this.valueLabel='Beginner'
+
+    return value;
   }
 }

@@ -150,4 +150,20 @@ export class CreateResumeComponent implements OnInit {
       desc:''
     })
   }
+
+  dropDownValue1 = '';
+
+  SetDropDownValue(drpValue: any) {
+    this.dropDownValue1 = drpValue.target.value;
+  }
+
+  SValue: boolean = true;
+
+  selectValidate(sname: any) {
+    if (sname == false) {
+      this.SValue = true;
+    } else {
+      this.SValue = false;
+    }
+  }
 }

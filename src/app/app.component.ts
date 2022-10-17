@@ -19,20 +19,21 @@ export class AppComponent {
   constructor(private store: AngularFirestore, private service:ServiceService) {}
   
   ngOnInit() {
-    this.getAll();
+
+    // this.getAll();
     this.service.routerDecider.subscribe(value=>{
       this.routerDecider=value
     })
   }
 
-  getAll() {
-    this.store
-      .collection('login')
-      .snapshotChanges()
-      .subscribe((response) => {
-        this.dataSource = response.map((item) =>
-          Object.assign({ id: item.payload.doc.id }, item.payload.doc.data())
-        );
-      });
-  }
+  // getAll() {
+  //   this.store
+  //     .collection('login')
+  //     .snapshotChanges()
+  //     .subscribe((response) => {
+  //       this.dataSource = response.map((item) =>
+  //         Object.assign({ id: item.payload.doc.id }, item.payload.doc.data())
+  //       );
+  //     });
+  // }
 }

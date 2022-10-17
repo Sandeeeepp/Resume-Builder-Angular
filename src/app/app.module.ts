@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { FAQsComponent } from './faqs/faqs.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
+import { CoverLetterTemplatesModule } from './cover-letter-templates/cover-letter-templates.module';
 
 import {
   ScreenTrackingService,
@@ -60,7 +61,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     ScrollingModule,
     ResumeModule,
     CvTemplatesModule,
-    MatTabsModule
+    MatTabsModule,
+    CoverLetterTemplatesModule
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
