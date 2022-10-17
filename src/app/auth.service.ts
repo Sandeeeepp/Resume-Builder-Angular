@@ -19,11 +19,11 @@ export class AuthService {
       () => {
         localStorage.setItem('email', email);
         localStorage.setItem('token', 'true');
-        this.router.navigate(['/tools']);
+        this.router.navigate(['/createCV']);
       },
       (err) => {
         alert(err.message);
-        // this.router.navigate(['/login']);
+        this.router.navigate(['/']);
       }
     );
   }
@@ -33,13 +33,12 @@ export class AuthService {
       () => {
         alert('registration successful');
         this.service.changeShow(true);
-        // this.router.navigate(['/login']);
       },
       (err) => {
         alert(err.message);
-        // this.router.navigate(['/register']);
       }
     );
+    this.router.navigate(['/']);
   }
 
   logout() {

@@ -10,20 +10,22 @@ export class AppComponent {
   title = 'project';
   image = '../assets/resumebuilder-logo.png';
   dataSource: any;
-  routerDecider=''
+  routerDecider = '';
 
   Home(): void {
     window.location.reload();
   }
 
-  constructor(private store: AngularFirestore, private service:ServiceService) {}
-  
-  ngOnInit() {
+  constructor(
+    private store: AngularFirestore,
+    private service: ServiceService
+  ) {}
 
+  ngOnInit() {
     // this.getAll();
-    this.service.routerDecider.subscribe(value=>{
-      this.routerDecider=value
-    })
+    this.service.routerDecider.subscribe((value) => {
+      this.routerDecider = value;
+    });
   }
 
   // getAll() {

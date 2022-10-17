@@ -11,7 +11,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ServiceService } from 'src/app/service.service';
-import { details }  from '../input-page-class';
+import { details } from '../input-page-class';
 
 export interface Skills {
   name: string;
@@ -223,7 +223,7 @@ export class InputPageComponent implements OnInit {
       linkWebsite: this.linkWebsite,
       links: this.links,
 
-      skills: this.skillsValue,
+      skills: this.skillsValue.slice(0, this.skillsValue.length - 1),
       objective: this.objective,
 
       degree: this.degree,
