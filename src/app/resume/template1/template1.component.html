@@ -5,36 +5,39 @@
 />
 
 <div class="container">
-  <div *ngFor="let item of dataSource;let i=index">
+  <div *ngFor="let item of dataSource; let i = index">
     <div class="header">
       <div>
+
+        <div>
+          <img [src]="item.image" width="100px" height="100px">
+        </div>
         <div class="full-name">
-          <span class="first-name">{{item.fName}}</span>
-          <span class="last-name">{{item.lName}}</span>
+          <span class="first-name">{{ item.fName }}</span>
+          <span class="last-name">{{ item.lName }}</span>
         </div>
       </div>
       <div class="contact-info">
         <span class="email">Email: </span>
-        <span class="email-val">{{item.Email}}</span>
+        <span class="email-val">{{ item.Email }}</span>
         <span class="separator"></span>
         <span class="phone">Phone: </span>
-        <span class="phone-val">{{item.Phone}}</span>
+        <span class="phone-val">{{ item.Phone }}</span>
       </div>
 
       <div class="about">
-        <span class="position">{{item.Url}} </span>
-        <span class="desc">{{item.Headline}}
-        </span>
+        <span class="position">{{ item.Url }} </span>
+        <span class="desc">{{ item.Headline }} </span>
       </div>
     </div>
   </div>
-    <div class="details">
-      <div class="section">
-        
 
+  <div class="details">
+    <div class="section">
+      
+      <div class="section__title">Education</div>
       <div *ngFor="let ed of educate; let i = index">
         <div class="section">
-          <div class="section__title">Education</div>
           <div class="section__list">
             <div class="section__list-item">
               <div class="left">
@@ -48,42 +51,25 @@
             </div>
           </div>
         </div>
-        <div *ngFor="let pro of projects; let i = index">
-          <div class="section">
-            <div class="section__title">Projects</div>
-            <div class="section__list">
-              <div class="section__list-item">
-                <div class="name">{{ projects[i].title }}</div>
-                <div class="text">{{ projects[i].desc }}</div>
-              </div>
-
+      </div>
+      
+      <div class="section__title">Projects</div>
+      <div *ngFor="let pro of projects; let i = index">
+        <div class="section">
+          <div class="section__list">
+            <div class="section__list-item">
+              <div class="name">{{ projects[i].title }}</div>
+              <div class="text">{{ projects[i].desc }}</div>
             </div>
           </div>
         </div>
-        <div class="section">
-          <div class="section__title">Skills</div>
-          <div class="skills">
-            <div class="skills__item">
-              <div class="left"><div class="name">Javascript</div></div>
-              <div class="right">
-                <input id="ck1" type="checkbox" checked />
+      </div>
 
-                <label for="ck1"></label>
-                <input id="ck2" type="checkbox" checked />
-
-                <label for="ck2"></label>
-                <input id="ck3" type="checkbox" />
-
-                <label for="ck3"></label>
-                <input id="ck4" type="checkbox" />
-                <label for="ck4"></label>
-                <input id="ck5" type="checkbox" />
-                <label for="ck5"></label>
-              </div>
-            </div>
-          </div>
+      <div class="section">
+        <div class="section__title">Skills</div>
+        <div class="skills">
           <div class="skills__item">
-            <div class="left"><div class="name">CSS</div></div>
+            <div class="left"><div class="name">Javascript</div></div>
             <div class="right">
               <input id="ck1" type="checkbox" checked />
 
@@ -101,13 +87,31 @@
             </div>
           </div>
         </div>
-        <div class="section">
-          <div class="section__title">Interests</div>
-          <div class="section__list">
-            <div class="section__list-item">Football, programming.</div>
+        <div class="skills__item">
+          <div class="left"><div class="name">CSS</div></div>
+          <div class="right">
+            <input id="ck1" type="checkbox" checked />
+
+            <label for="ck1"></label>
+            <input id="ck2" type="checkbox" checked />
+
+            <label for="ck2"></label>
+            <input id="ck3" type="checkbox" />
+
+            <label for="ck3"></label>
+            <input id="ck4" type="checkbox" />
+            <label for="ck4"></label>
+            <input id="ck5" type="checkbox" />
+            <label for="ck5"></label>
           </div>
         </div>
       </div>
+      <div class="section">
+        <div class="section__title">Interests</div>
+        <div class="section__list">
+          <div class="section__list-item">Football, programming.</div>
+        </div>
+      </div>
     </div>
-  
+  </div>
 </div>

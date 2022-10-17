@@ -27,6 +27,7 @@ export class CreateResumeComponent implements OnInit {
 
   
   email = localStorage.getItem('email');
+  dataSource:any;
   constructor(private store: AngularFirestore, private router: Router,private serv:AuthService) {
     this.proj=[{
       title:this.title,
@@ -131,6 +132,16 @@ export class CreateResumeComponent implements OnInit {
     this.router.navigate(['/resumeTemp1'])
     
 
+  }
+
+
+
+  getAll() {
+    this.store.collection('ResumeDetails',ref=>ref.where('Email','==',localStorage.getItem('email'))).snapshotChanges().subscribe((response=>{
+      this.dataSource=response.map(item=>
+        Object.assign({id:item.payload.doc.id},item.payload.doc.data()))
+      
+    }))
   }
 
   addEducation() {
