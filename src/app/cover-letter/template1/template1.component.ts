@@ -60,7 +60,7 @@ console.log(data['candidate_name'])
         this.candidate_details = data
       }
       else{
-        console.log("Lavdya")
+        console.log("Error!!")
       }
     })
 
