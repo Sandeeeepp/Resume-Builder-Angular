@@ -1,5 +1,6 @@
 export class education{
-    education!:string;
+    
+    course!:string;
     school!:string;
     city!:string;
     sdate!:string;

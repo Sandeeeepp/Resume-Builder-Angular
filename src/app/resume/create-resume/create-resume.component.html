@@ -120,26 +120,31 @@
       >
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <button matSuffix (click)="addEdu()">
+            <!-- <button matSuffix (click)="addEdu()">
               <mat-icon>note_add</mat-icon>
             </button>
             &nbsp;&nbsp;&nbsp; Education &nbsp;&nbsp;&nbsp;
             <button *ngIf="i != 0" id="{{ i }}" matSuffix (click)="removeEdu()">
               <mat-icon>delete</mat-icon>
+            </button> -->
+            <button type="button" (click)="addEducation()"><mat-icon>note_add</mat-icon></button> 
+            &nbsp;&nbsp;&nbsp; Education &nbsp;&nbsp;&nbsp;
+            <button *ngIf="i != 0" id="{{ i }}" matSuffix (click)="removeP()">
+              <mat-icon>delete</mat-icon>
             </button>
           </mat-panel-title>
         </mat-expansion-panel-header>
         <div>
-          <form class="row g-3">
+          <form class="row g-3" *ngFor="let ed of edu;let i=index">
             <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Education</label>
-              <input type="text" class="form-control" id="edu" name="education" [(ngModel)]="education"  />
+              <label for="inputEmail4" class="form-label">Course</label>
+              <input type="text" class="form-control" id="edu" name="course_{{i}}" [(ngModel)]="ed.course"  />
             </div>
             <div class="col-md-6">
               <label for="inputPassword4" class="form-label"
                 >School/University</label
               >
-              <input type="text" class="form-control" id="uni" name="school" [(ngModel)]="school"/>
+              <input type="text" class="form-control" id="uni" name="school_{{i}}" [(ngModel)]="ed.school"/>
             </div>
             <div class="col-12">
               <label for="inputAddress" class="form-label">City</label>
@@ -148,17 +153,17 @@
                 class="form-control"
                 id="city"
                 placeholder="enter city"
-                name="city"
-                [(ngModel)]="city"
+                name="city_{{i}}"
+                [(ngModel)]="ed.city"
               />
             </div>
             <div class="col-12">
               <label for="inputAddress2" class="form-label">Start Date</label>
-              <input type="date" class="form-control" id="sdate" name="sdate" [(ngModel)]="sdate" />
+              <input type="date" class="form-control" id="sdate" name="sdate_{{i}}" [(ngModel)]="ed.sdate" />
             </div>
             <div class="col-md-6">
               <label for="inputCity" class="form-label">End Date</label>
-              <input type="date" class="form-control" id="edate" name="edate" [(ngModel)]="edate" />
+              <input type="date" class="form-control" id="edate" name="edate_{{i}}" [(ngModel)]="ed.edate" />
             </div>
             <div class="col-12">
               <button (click)="submit()">Save</button>
@@ -217,9 +222,7 @@
       >
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <button matSuffix (click)="addP()">
-              <mat-icon>note_add</mat-icon>
-            </button>
+            <button type="button" (click)="addProjects()"><mat-icon>note_add</mat-icon></button> 
             &nbsp;&nbsp;&nbsp; Projects &nbsp;&nbsp;&nbsp;
             <button *ngIf="i != 0" id="{{ i }}" matSuffix (click)="removeP()">
               <mat-icon>delete</mat-icon>
@@ -227,7 +230,7 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <div class="mb-3">
+        <div class="mb-3" *ngFor="let pro of proj;let i=index">
           <label for="exampleFormControlInput1" class="form-label"
             >Project Title</label
           >
@@ -235,11 +238,9 @@
             type="text"
             class="form-control"
             id="exampleFormControlInput1"
-            name="title"
-            [(ngModel)]="title"
+            name="title_{{i}}"
+            [(ngModel)]="pro.title"
           />
-        </div>
-        <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label"
             >Project Description</label
           >
@@ -247,9 +248,13 @@
             class="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
-            name="title"
-            [(ngModel)]="title"
+            name="desc_{{i}}"
+            [(ngModel)]="pro.desc"
           ></textarea>
+          
+          <div class="col-12">
+            <button (click)="submit()">Save</button>
+          </div>
         </div>
       </mat-expansion-panel>
     </mat-accordion>
