@@ -16,7 +16,8 @@
       <p class="paragraph">
         {{ details.objective }}
       </p>
-    </div><br>
+    </div>
+    <br />
     <div class="intro-section contact">
       <h1 class="title">Contact</h1>
       <div class="info-section">
@@ -31,7 +32,8 @@
         <i class="fas fa-paper-plane"></i>
         <span>{{ details.email }}</span>
       </div>
-    </div><br>
+    </div>
+    <br />
     <div class="intro-section follow">
       <h1 class="title">Follow</h1>
       <div *ngFor="let userLink of details.links; let i = index">
@@ -42,7 +44,8 @@
           </a>
         </div>
       </div>
-    </div><br>
+    </div>
+    <br />
     <div
       class="intro-section follow"
       *ngIf="details.certificateTitle.length != 0"
@@ -66,19 +69,19 @@
         </div>
         <span>Education</span>
       </div>
-      <div
+      <ul
         class="detail-content"
         *ngFor="let userEducation of details.degree; let i = index"
       >
-        <div class="timeline-block">
-          <h1>{{ details.degree[i] }}</h1>
-          <p>{{ details.school[i] }}, {{ details.cities[i] }}</p>
+        <li class="timeline-block">
+          <h4>{{ details.degree[i] }}</h4>
+          <h5>{{ details.school[i] }}, {{ details.cities[i] }}</h5>
           <time
             >{{ details.educationStartDate[i] }} -
             {{ details.educationEndDate[i] }}</time
           >
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
     <div class="detail-section pg-skill">
       <div class="detail-title">
@@ -87,13 +90,23 @@
         </div>
         <span>Skills</span>
       </div>
-      <div class="detail-content">
-        <ul class="pg-list" *ngFor="let userSkill of details.skills">
-          <li>
-            <span>{{ userSkill }}</span>
-          </li>
-        </ul>
-      </div>
+      <ul class="detail-content">
+        <li class="pg-list" *ngFor="let userSkill of details.skills">
+          <span id="area"
+            >{{ userSkill }}
+            <mat-slider
+              thumbLabel
+              [displayWith]="formatLabel"
+              tickInterval="1"
+              step="1"
+              min="1"
+              max="3"
+              aria-label="units"
+            ></mat-slider>
+            <p style="color: pink;">{{valueLabel}}</p>
+          </span>
+        </li>
+      </ul>
     </div>
     <div
       class="detail-section tool-skill"
@@ -113,8 +126,8 @@
           "
         >
           <li>
-            <h3>{{ details.jobRole[i] }}, {{ details.jobCompanyName[i] }}</h3>
-            <p>{{ details.jobDescription[i] }}</p>
+            <h4>{{ details.jobRole[i] }}, {{ details.jobCompanyName[i] }}</h4>
+            <h6>{{ details.jobDescription[i] }}</h6>
           </li>
         </ul>
       </div>
@@ -137,11 +150,11 @@
           "
         >
           <li>
-            <h3>
+            <h4>
               {{ details.internshipDesignation[i] }},
               {{ details.internshipCompanyName[i] }}
-            </h3>
-            <p>{{ details.internshipDescription[i] }}</p>
+            </h4>
+            <h6>{{ details.internshipDescription[i] }}</h6>
           </li>
         </ul>
       </div>
@@ -163,8 +176,8 @@
           >
             <li>
               <i class="fas fa-gamepad"></i>
-              <h3>{{ details.projectTitle[i] }}</h3>
-              <p>{{ details.projectDescription[i] }}</p>
+              <h4>{{ details.projectTitle[i] }}</h4>
+              <h6>{{ details.projectDescription[i] }}</h6>
               <time
                 >{{ details.projectStartDate[i] }} -
                 {{ details.projectEndDate[i] }}</time

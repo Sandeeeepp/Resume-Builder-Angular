@@ -10,7 +10,7 @@ import { details } from '../input-page-class';
   styleUrls: ['./template-one.component.css'],
 })
 export class TemplateOneComponent implements OnInit {
-  details!:details;
+  details!: details;
   constructor(
     private store: AngularFirestore,
     private service: ServiceService
@@ -19,9 +19,8 @@ export class TemplateOneComponent implements OnInit {
   ngOnInit(): void {
     // this.getAll();
     this.service.details.subscribe((value) => {
-      this.details=value
+      this.details = value;
     });
-    console.log(this.details)
   }
 
   dataSource: any = {};
@@ -37,5 +36,16 @@ export class TemplateOneComponent implements OnInit {
           Object.assign({ id: item.payload.doc.id }, item.payload.doc.data())
         );
       });
+  }
+
+  valueLabel = '';
+
+  formatLabel(value: number) {
+    if(value==1) this.valueLabel='Beginner'
+    if(value==1) this.valueLabel='Beginner'
+
+    if(value==1) this.valueLabel='Beginner'
+
+    return value;
   }
 }
