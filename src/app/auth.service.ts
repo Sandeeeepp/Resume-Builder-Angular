@@ -21,7 +21,7 @@ export class AuthService {
       () => {
         localStorage.setItem('email', email);
         localStorage.setItem('token', 'true');
-        this.router.navigate(['/createCV']);
+        this.router.navigate(['/tools']);
       },
       (err) => {
         alert(err.message);
