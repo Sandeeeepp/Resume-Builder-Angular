@@ -11,7 +11,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ServiceService } from 'src/app/service.service';
-import { details }  from '../input-page-class';
+import { details } from '../input-page-class';
 
 export interface Skills {
   name: string;
@@ -42,8 +42,8 @@ export class InputPageComponent implements OnInit {
 
   getAll() {
     this.store
-      .collection('cv-inputs', (ref) =>
-        ref.where('email', '==', localStorage.getItem('email'))
+      .collection('registeredUsersDetails', (ref) =>
+        ref.where('email', '==', localStorage.getItem('currentUserEmail'))
       )
       .snapshotChanges()
       .subscribe((response) => {
@@ -51,6 +51,7 @@ export class InputPageComponent implements OnInit {
           Object.assign({ id: item.payload.doc.id }, item.payload.doc.data())
         );
       });
+    
   }
 
   fname = '';
@@ -223,7 +224,7 @@ export class InputPageComponent implements OnInit {
       linkWebsite: this.linkWebsite,
       links: this.links,
 
-      skills: this.skillsValue,
+      skills: this.skillsValue.slice(0, this.skillsValue.length - 1),
       objective: this.objective,
 
       degree: this.degree,

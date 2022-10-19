@@ -168,8 +168,7 @@
         <button
           class="btn btn-danger"
           [disabled]="LoginForm.form.invalid"
-          (click)="register()"
-          (click)="submit(fname.value, lname.value, PhoneNumber.value)"
+          (click)="register(fname.value, lname.value, PhoneNumber.value)"
         >
           Register
         </button>

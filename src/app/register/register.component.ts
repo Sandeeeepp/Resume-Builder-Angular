@@ -20,22 +20,22 @@ export class RegisterComponent implements OnInit {
   dataSource: any;
   schoolnames = ['ComputerScience', 'engineering', 'management'];
 
-  submit(fname: string, lname: string, PhoneNumber: string) {
-    this.store.collection('resumeDetails').add({
-      fName: fname,
-      lName: lname,
-      email: this.email,
-      phoneno: PhoneNumber,
-      // Password: this.password,
-    });
-    this.store.collection('cvDetails').add({
-      fName: fname,
-      lName: lname,
-      email: this.email,
-      phoneno: PhoneNumber,
-      // Password: this.password,
-    });
-  }
+  // submit(fname: string, lname: string, PhoneNumber: string) {
+  //   this.store.collection('resumeDetails').add({
+  //     fName: fname,
+  //     lName: lname,
+  //     email: this.email,
+  //     phoneno: PhoneNumber,
+  //     // Password: this.password,
+  //   });
+  //   this.store.collection('cvDetails').add({
+  //     fName: fname,
+  //     lName: lname,
+  //     email: this.email,
+  //     phoneno: PhoneNumber,
+  //     // Password: this.password,
+  //   });
+  // }
 
   // dropDownValue1 = '';
   // SetDropDownValue(drpValue: any) {
@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
   constructor(private store: AngularFirestore, private auth: AuthService, private service:ServiceService) {}
   ngOnInit() {}
 
-  register() {
+  register(fName:string, lName:string, phoneNo:string) {
     if (this.email == '') {
       alert('please enter email');
       return;
@@ -61,6 +61,6 @@ export class RegisterComponent implements OnInit {
       alert('please enter password');
       return;
     }
-    this.auth.register(this.email, this.password);
+    this.auth.register(this.email, this.password, fName, lName, phoneNo);
   }
 }

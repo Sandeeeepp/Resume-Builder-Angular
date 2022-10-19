@@ -1,9 +1,14 @@
 <!-- <p>template-one works!</p> -->
-<div class="wrapper">
+<button (click)="downloadPDF()">Download as pdf</button>
+<div class="wrapper" id="content">
   <div class="intro">
     <div class="profile">
       <div class="photo">
-        <img src="https://i.imgur.com/zh9eNsh.jpg" />
+        <div class="circle">
+          <p class="circle-inner">
+            {{ details.fname[0] }} {{ details.lname[0] }}
+          </p>
+        </div>
       </div>
       <div class="bio">
         <h2 class="name">
@@ -90,10 +95,13 @@
         </div>
         <span>Skills</span>
       </div>
-      <ul class="detail-content">
-        <li class="pg-list" *ngFor="let userSkill of details.skills">
-          <span id="area"
-            >{{ userSkill }}
+      <div class="detail-content">
+        <ul
+          class="pg-list"
+          *ngFor="let userSkill of details.skills; let i = index"
+        >
+          <li>
+            {{ userSkill }}&nbsp;&nbsp;&nbsp;
             <mat-slider
               thumbLabel
               [displayWith]="formatLabel"
@@ -102,11 +110,15 @@
               min="1"
               max="3"
               aria-label="units"
-            ></mat-slider>
-            <p style="color: pink;">{{valueLabel}}</p>
-          </span>
-        </li>
-      </ul>
+              [(ngModel)]="value[i]"
+            ></mat-slider
+            >&nbsp;&nbsp;&nbsp;
+            <p style="color: rgb(189, 51, 74)">
+              {{ valueLabel[value[i] - 1] }}
+            </p>
+          </li>
+        </ul>
+      </div>
     </div>
     <div
       class="detail-section tool-skill"
