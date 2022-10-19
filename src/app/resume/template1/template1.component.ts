@@ -18,43 +18,40 @@ export class Template1Component implements OnInit {
   // edu!: education;
   educate: education[] = [];
 
-
   //education variables
-  course!:string
-  school!:string
-  city!:string
-  sdate!:string
-  edate!:string
+  course!: string;
+  school!: string;
+  city!: string;
+  sdate!: string;
+  edate!: string;
 
-//projects variable
+  //projects variable
   name = '';
   title!: string;
   desc!: string;
   constructor(private store: AngularFirestore, private serv: AuthService) {}
 
-
   ngOnInit(): void {
     this.getAll();
 
     this.serv.messageSource.subscribe((message) => {
-      
-        this.projects = message
-        
-       
+      this.projects = message;
     });
     this.serv.msgSource.subscribe((message) => {
-     
-      this.educate = message
-     
+      this.educate = message;
     });
   }
 
   getAll() {
-    this.store.collection('ResumeDetails',ref=>ref.where('Email','==',localStorage.getItem('email'))).snapshotChanges().subscribe((response=>{
-      this.dataSource=response.map(item=>
-        Object.assign({id:item.payload.doc.id},item.payload.doc.data()))
-      
-    }))
+    this.store
+      .collection('ResumeDetails', (ref) =>
+        ref.where('Email', '==', localStorage.getItem('email'))
+      )
+      .snapshotChanges()
+      .subscribe((response) => {
+        this.dataSource = response.map((item) =>
+          Object.assign({ id: item.payload.doc.id }, item.payload.doc.data())
+        );
+      });
   }
-  
 }

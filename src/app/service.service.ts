@@ -8,11 +8,13 @@ import { details } from './cv-templates/input-page-class';
 export class ServiceService {
   constructor() {}
 
-  defaultDetails!:details
+  defaultDetails!: details;
 
   show = new BehaviorSubject(true);
   routerDecider = new BehaviorSubject('');
   details = new BehaviorSubject<details>(this.defaultDetails);
+
+  createCV = new BehaviorSubject('no');
 
   changeShow(param: boolean) {
     this.show.next(param);
@@ -22,7 +24,7 @@ export class ServiceService {
     this.routerDecider.next(param);
   }
 
-  sendDetails(params:details) {
+  sendDetails(params: details) {
     this.details.next(params);
   }
 }

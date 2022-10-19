@@ -13,12 +13,15 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import {MatSliderModule} from '@angular/material/slider';
+import { DialogElementComponent } from './dialog-element/dialog-element.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     TemplateOneComponent,
     TemplateTwoComponent,
     InputPageComponent,
+    DialogElementComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatExpansionModule,
     MatTabsModule,
     MatCardModule,
-    MatSliderModule
+    MatSliderModule,
+    MatDialogModule
   ],
   exports: [TemplateOneComponent, TemplateTwoComponent, InputPageComponent],
 })

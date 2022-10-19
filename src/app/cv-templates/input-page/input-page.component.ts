@@ -12,10 +12,19 @@ import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ServiceService } from 'src/app/service.service';
 import { details } from '../input-page-class';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore';
+import { environment } from 'src/environments/environment.prod';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogElementComponent } from '../dialog-element/dialog-element.component';
 
 export interface Skills {
   name: string;
 }
+
+const app = initializeApp(environment.firebase);
+const db = getFirestore(app);
 
 @Component({
   selector: 'app-input-page',
@@ -26,11 +35,19 @@ export class InputPageComponent implements OnInit {
   constructor(
     private router: Router,
     private store: AngularFirestore,
-    private service: ServiceService
+    private service: ServiceService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.getAll();
+    this.service.createCV.subscribe((value) => {
+      if (value == 'yes') this.createCV();
+    });
+  }
+
+  openDialog() {
+    this.dialog.open(DialogElementComponent);
   }
 
   emailFormControl = new FormControl('', [
@@ -43,21 +60,26 @@ export class InputPageComponent implements OnInit {
   getAll() {
     this.store
       .collection('registeredUsersDetails', (ref) =>
-        ref.where('email', '==', localStorage.getItem('currentUserEmail'))
+        ref.where('email', '==', this.email)
       )
       .snapshotChanges()
       .subscribe((response) => {
         this.dataSource = response.map((item) =>
           Object.assign({ id: item.payload.doc.id }, item.payload.doc.data())
         );
+        this.fname = this.dataSource[0].firstName;
+        this.lname = this.dataSource[0].lastName;
+        this.mname = this.dataSource[0].middleName;
+        this.phoneno = this.dataSource[0].phoneNumber;
+        this.selectedCity = this.dataSource[0].city;
+        this.objective = this.dataSource[0].objective;
       });
-    
   }
 
   fname = '';
   lname = '';
   mname = '';
-  email = '';
+  email = localStorage.getItem('currentUserEmail') || '';
   phoneno = '';
   objective = '';
   selectedCity = '';
@@ -155,14 +177,6 @@ export class InputPageComponent implements OnInit {
     let currentTemplate = localStorage.getItem('currentTemplate');
     // alert(currentTemplate)
     if (currentTemplate != null) this.router.navigateByUrl(currentTemplate);
-    // this.store.collection('cv-inputs').add({
-    //   email: this.email,
-    //   fname: this.fname,
-    //   mname: this.mname,
-    //   lname: this.lname,
-    //   phoneno: this.phoneno,
-    //   objective: this.objective,
-    // });
   }
 
   selectedState = '';
@@ -248,6 +262,26 @@ export class InputPageComponent implements OnInit {
       jobRole: this.jobRole,
       jobDescription: this.jobDescription,
     };
+
+    let id = '';
+    this.store
+      .collection('registeredUsersDetails', (ref) =>
+        ref.where('email', '==', this.email)
+      )
+      .snapshotChanges()
+      .subscribe((response) => {
+        response.map((item) => (id = item.payload.doc.id));
+        const details = doc(db, 'registeredUsersDetails', id);
+        updateDoc(details, {
+          firstName: this.fname,
+          lastName: this.lname,
+          middleName: this.mname,
+          phoneNumber: this.phoneno,
+          city: this.selectedCity,
+          objective: this.objective,
+        });
+      });
+
     this.service.sendDetails(details);
   }
 }

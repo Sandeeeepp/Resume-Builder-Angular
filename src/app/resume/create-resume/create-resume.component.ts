@@ -20,46 +20,49 @@ export interface Fruit {
   styleUrls: ['./create-resume.component.css'],
 })
 export class CreateResumeComponent implements OnInit {
-  proj:project[]=[];
-  edu!:education[]
+  proj: project[] = [];
+  edu!: education[];
   @ViewChild(MatAccordion) accordion!: MatAccordion;
   panelOpenState = false;
 
-  
   email = localStorage.getItem('email');
-  dataSource:any;
-  constructor(private store: AngularFirestore, private router: Router,private serv:AuthService) {
-    this.proj=[{
-      title:this.title,
-      desc:this.desc,
-    }]
-    this.edu=[{
-      // id:this.id,
-      course:this.course,
-    school:this.school,
-    city:this.city,
-    sdate:this.sdate,
-    edate:this.edate,
-    }]
+  dataSource: any;
+  constructor(
+    private store: AngularFirestore,
+    private router: Router,
+    private serv: AuthService
+  ) {
+    this.proj = [
+      {
+        title: this.title,
+        desc: this.desc,
+      },
+    ];
+    this.edu = [
+      {
+        // id:this.id,
+        course: this.course,
+        school: this.school,
+        city: this.city,
+        sdate: this.sdate,
+        edate: this.edate,
+      },
+    ];
   }
 
   ngOnInit(): void {}
 
-
-
-
   /// project variables
-  title=''
-  desc=''
-
+  title = '';
+  desc = '';
 
   // education variables
-// id!:string
-  course!:string;
-    school!:string;
-    city!:string;
-    sdate!:string;
-    edate!:string
+  // id!:string
+  course!: string;
+  school!: string;
+  city!: string;
+  sdate!: string;
+  edate!: string;
 
   //chips
   addOnBlur = true;
@@ -117,7 +120,17 @@ export class CreateResumeComponent implements OnInit {
     url: string,
     headline: string
   ) {
-     this.store.collection('ResumeDetails').add({image:img,fName:fname,lName:lname,Phone:phone,Url:url,Email:this.email,HeadLine:headline});
+    this.store
+      .collection('ResumeDetails')
+      .add({
+        image: img,
+        fName: fname,
+        lName: lname,
+        Phone: phone,
+        Url: url,
+        Email: this.email,
+        HeadLine: headline,
+      });
     this.show = 'step2';
   }
 
@@ -125,23 +138,23 @@ export class CreateResumeComponent implements OnInit {
     let currentTemplate = localStorage.getItem('currentTemplate');
     if (currentTemplate != null) this.router.navigateByUrl(currentTemplate);
   }
-  submit(){
-    
-    this.serv.messageSource.next(this.proj)
-    this.serv.msgSource.next(this.edu)
-    this.router.navigate(['/resumeTemp1'])
-    
-
+  submit() {
+    this.serv.messageSource.next(this.proj);
+    this.serv.msgSource.next(this.edu);
+    this.router.navigate(['/resumeTemp1']);
   }
 
-
-
   getAll() {
-    this.store.collection('ResumeDetails',ref=>ref.where('Email','==',localStorage.getItem('email'))).snapshotChanges().subscribe((response=>{
-      this.dataSource=response.map(item=>
-        Object.assign({id:item.payload.doc.id},item.payload.doc.data()))
-      
-    }))
+    this.store
+      .collection('ResumeDetails', (ref) =>
+        ref.where('Email', '==', localStorage.getItem('email'))
+      )
+      .snapshotChanges()
+      .subscribe((response) => {
+        this.dataSource = response.map((item) =>
+          Object.assign({ id: item.payload.doc.id }, item.payload.doc.data())
+        );
+      });
   }
 
   addEducation() {
@@ -151,15 +164,15 @@ export class CreateResumeComponent implements OnInit {
       school: '',
       city: '',
       sdate: '',
-      edate:'',
+      edate: '',
     });
   }
 
-  addProjects(){
+  addProjects() {
     this.proj.push({
-      title:'',
-      desc:''
-    })
+      title: '',
+      desc: '',
+    });
   }
 
   dropDownValue1 = '';

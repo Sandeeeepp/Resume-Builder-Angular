@@ -54,8 +54,6 @@ export class LoginComponent implements OnInit {
 
     
   login() {
-    // alert(this.store.collection('login',ref=>ref.where('Email','==',this.email)).doc())
-
     if (this.email == '') {
       alert('please enter email');
       return;

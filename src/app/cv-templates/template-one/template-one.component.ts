@@ -37,7 +37,6 @@ export class TemplateOneComponent implements OnInit {
     this.service.details.subscribe((value) => {
       this.details = value;
     });
-    console.log(this.details.fname[0])
   }
 
   dataSource: any = {};
