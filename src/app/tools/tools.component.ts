@@ -44,6 +44,18 @@ export class ToolsComponent implements OnInit {
         this.toCreateResume("resumeTemp1")
         break
       }
+      case 'res2': {
+        this.toCreateResume("resumeTemp2")
+        break
+      }
+      case 'res3': {
+        this.toCreateResume("resumeTemp3")
+        break
+      }
+      case 'res4': {
+        this.toCreateResume("resumeTemp4")
+        break
+      }
       case 'cv1':{
         this.toCreateCV("cvTemp1")
         break
