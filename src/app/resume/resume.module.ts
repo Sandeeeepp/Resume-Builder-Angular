@@ -10,12 +10,18 @@ import {  MatFormFieldModule } from '@angular/material/form-field';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
+import { Template2Component } from './template2/template2.component';
+import { Template3Component } from './template3/template3.component';
+import { Template4Component } from './template4/template4.component';
 
 
 @NgModule({
   declarations: [
     Template1Component,
     CreateResumeComponent,
+    Template2Component,
+    Template3Component,
+    Template4Component,
   ],
   imports: [
     CommonModule,
@@ -34,6 +40,9 @@ import {MatSelectModule} from '@angular/material/select';
   exports:[
     Template1Component,
     CreateResumeComponent,
+    Template2Component,
+    Template3Component,
+    Template4Component
   ],
 })
 export class ResumeModule { 
