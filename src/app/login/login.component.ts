@@ -36,7 +36,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  email: string = '';
+  email: any = localStorage.getItem('recentRegisteredUserEmail');
   password: string = '';
 
   constructor(private store: AngularFirestore, private auth: AuthService, private service:ServiceService) {}

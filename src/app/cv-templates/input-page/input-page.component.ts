@@ -42,8 +42,8 @@ export class InputPageComponent implements OnInit {
 
   getAll() {
     this.store
-      .collection('cv-inputs', (ref) =>
-        ref.where('email', '==', localStorage.getItem('email'))
+      .collection('registeredUsersDetails', (ref) =>
+        ref.where('email', '==', localStorage.getItem('currentUserEmail'))
       )
       .snapshotChanges()
       .subscribe((response) => {
@@ -51,6 +51,7 @@ export class InputPageComponent implements OnInit {
           Object.assign({ id: item.payload.doc.id }, item.payload.doc.data())
         );
       });
+    
   }
 
   fname = '';
