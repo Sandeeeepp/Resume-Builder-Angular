@@ -17,7 +17,7 @@ import { getFirestore } from 'firebase/firestore';
 import { doc, updateDoc } from 'firebase/firestore';
 import { environment } from 'src/environments/environment.prod';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogElementComponent } from '../dialog-element/dialog-element.component';
+import { DialogElementComponent } from 'src/app/dialog-element/dialog-element.component';
 
 export interface Skills {
   name: string;
@@ -41,12 +41,13 @@ export class InputPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAll();
-    this.service.createCV.subscribe((value) => {
-      if (value == 'yes') this.createCV();
+    this.service.createTemplate.subscribe((value) => {
+      if (value == 'create CV') this.createCV();
     });
   }
 
   openDialog() {
+    localStorage.setItem('createTemplate', 'create CV');
     this.dialog.open(DialogElementComponent);
   }
 

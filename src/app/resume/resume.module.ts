@@ -13,7 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { Template2Component } from './template2/template2.component';
 import { Template3Component } from './template3/template3.component';
 import { Template4Component } from './template4/template4.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -34,8 +34,7 @@ import { Template4Component } from './template4/template4.component';
     MatChipsModule,
     MatSelectModule,
     ReactiveFormsModule,
-    
-    
+    MatDialogModule
   ],
   exports:[
     Template1Component,

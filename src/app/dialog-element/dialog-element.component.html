@@ -1,0 +1,17 @@
+<!-- <p>dialog-element works!</p> -->
+<h1 mat-dialog-title>Confirm</h1>
+<div mat-dialog-content>
+  Are you sure you want to {{templateType}} with the given details?
+</div>
+<div mat-dialog-actions style="margin-left: 60%; margin-top: 5%;">
+  <button class="btn btn-danger" mat-button mat-dialog-close>No</button
+  >&nbsp;&nbsp;&nbsp;
+  <button
+    class="btn btn-success"
+    mat-button
+    mat-dialog-close
+    (click)="callCreate()"
+  >
+    Yes
+  </button>
+</div>

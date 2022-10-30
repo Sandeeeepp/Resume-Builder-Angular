@@ -165,9 +165,9 @@
               <label for="inputCity" class="form-label">End Date</label>
               <input type="date" class="form-control" id="edate" name="edate_{{i}}" [(ngModel)]="ed.edate" />
             </div>
-            <div class="col-12">
+            <!-- <div class="col-12">
               <button (click)="submit()">Save</button>
-            </div>
+            </div> -->
           </form>
         </div>
       </mat-expansion-panel>
@@ -252,9 +252,9 @@
             [(ngModel)]="pro.desc"
           ></textarea>
           
-          <div class="col-12">
+          <!-- <div class="col-12">
             <button (click)="submit()">Save</button>
-          </div>
+          </div> -->
         </div>
       </mat-expansion-panel>
     </mat-accordion>
@@ -298,7 +298,7 @@
         </div>
       </mat-expansion-panel>
     </mat-accordion><br><br>
-    <button class="btn btn-danger" (click)="createResume()">Create Resume</button>
+    <button class="btn btn-danger" (click)="openDialog()">Create Resume</button>
 
   </div>
 

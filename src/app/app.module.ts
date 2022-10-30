@@ -17,6 +17,7 @@ import { FAQsComponent } from './faqs/faqs.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { CoverLetterTemplatesModule } from './cover-letter-templates/cover-letter-templates.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import {
   ScreenTrackingService,
@@ -28,11 +29,12 @@ import { RegisterComponent } from './register/register.component';
 import { ToolsComponent } from './tools/tools.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { provideAuth, getAuth } from '@angular/fire/auth';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ResumeModule } from './resume/resume.module';
 import { MatInputModule } from '@angular/material/input';
 import { CvTemplatesModule } from './cv-templates/cv-templates.module';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { DialogElementComponent } from './dialog-element/dialog-element.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     FAQsComponent,
     RegisterComponent,
     ToolsComponent,
+    DialogElementComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     ResumeModule,
     CvTemplatesModule,
     MatTabsModule,
-    CoverLetterTemplatesModule
+    CoverLetterTemplatesModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],

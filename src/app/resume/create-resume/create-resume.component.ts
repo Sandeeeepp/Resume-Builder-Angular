@@ -9,6 +9,9 @@ import { CursorError } from '@angular/compiler/src/ml_parser/lexer';
 import { AuthService } from 'src/app/auth.service';
 import { project } from 'src/app/project';
 import { education } from 'src/app/education';
+import { ServiceService } from 'src/app/service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogElementComponent } from 'src/app/dialog-element/dialog-element.component';
 
 export interface Fruit {
   name: string;
@@ -30,7 +33,9 @@ export class CreateResumeComponent implements OnInit {
   constructor(
     private store: AngularFirestore,
     private router: Router,
-    private serv: AuthService
+    private serv: AuthService,
+    private service: ServiceService,
+    public dialog: MatDialog
   ) {
     this.proj = [
       {
@@ -50,7 +55,16 @@ export class CreateResumeComponent implements OnInit {
     ];
   }
 
-  ngOnInit(): void {}
+  openDialog() {
+    localStorage.setItem('createTemplate', 'create Resume');
+    this.dialog.open(DialogElementComponent);
+  }
+
+  ngOnInit(): void {
+    this.service.createTemplate.subscribe((value) => {
+      if (value == 'create Resume') this.createResume();
+    });
+  }
 
   /// project variables
   title = '';
@@ -120,28 +134,24 @@ export class CreateResumeComponent implements OnInit {
     url: string,
     headline: string
   ) {
-    this.store
-      .collection('ResumeDetails')
-      .add({
-        image: img,
-        fName: fname,
-        lName: lname,
-        Phone: phone,
-        Url: url,
-        Email: this.email,
-        HeadLine: headline,
-      });
+    this.store.collection('ResumeDetails').add({
+      image: img,
+      fName: fname,
+      lName: lname,
+      Phone: phone,
+      Url: url,
+      Email: this.email,
+      HeadLine: headline,
+    });
     this.show = 'step2';
   }
 
   createResume() {
     let currentTemplate = localStorage.getItem('currentTemplate');
     if (currentTemplate != null) this.router.navigateByUrl(currentTemplate);
-  }
-  submit() {
     this.serv.messageSource.next(this.proj);
     this.serv.msgSource.next(this.edu);
-    this.router.navigate(['/resumeTemp1']);
+    // this.router.navigate(['/resumeTemp1']);
   }
 
   getAll() {

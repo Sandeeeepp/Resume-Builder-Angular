@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 import { education } from './education';
 import { project } from './project';
 import { ServiceService } from './service.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,8 @@ export class AuthService {
     private fireauth: AngularFireAuth,
     private router: Router,
     private service: ServiceService,
-    private store: AngularFirestore
+    private store: AngularFirestore,
+    private _snackBar: MatSnackBar
   ) {}
 
   login(email: string, password: string) {
@@ -42,7 +44,8 @@ export class AuthService {
   ) {
     this.fireauth.createUserWithEmailAndPassword(email, password).then(
       () => {
-        alert('registration successful');
+        // alert('registration successful');
+        this._snackBar.open("Registration successfull", "Ok");
         this.service.changeShow(true);
         localStorage.setItem('recentRegisteredUserEmail', email);
         this.store

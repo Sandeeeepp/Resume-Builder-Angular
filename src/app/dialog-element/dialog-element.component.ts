@@ -6,10 +6,11 @@ import { ServiceService } from 'src/app/service.service';
   templateUrl: './dialog-element.component.html',
 })
 export class DialogElementComponent {
-  constructor(private service:ServiceService) {}
+  constructor(private service: ServiceService) {}
 
-  callCreateCV(){
-    
+  templateType=localStorage.getItem('createTemplate');
+
+  callCreate() {
+    if (this.templateType != null) this.service.createTemplate.next(this.templateType);
   }
-  
 }

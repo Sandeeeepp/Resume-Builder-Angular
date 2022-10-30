@@ -14,7 +14,7 @@ export class ServiceService {
   routerDecider = new BehaviorSubject('');
   details = new BehaviorSubject<details>(this.defaultDetails);
 
-  createCV = new BehaviorSubject('no');
+  createTemplate = new BehaviorSubject('');
 
   changeShow(param: boolean) {
     this.show.next(param);
