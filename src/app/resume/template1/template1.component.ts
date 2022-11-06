@@ -7,6 +7,7 @@ import jsPDF from 'jspdf';
 import { AuthService } from 'src/app/auth.service';
 import { education } from 'src/app/education';
 import { project } from 'src/app/project';
+import { Fruit, Interest } from '../create-resume/create-resume.component';
 
 @Component({
   selector: 'app-template1',
@@ -34,6 +35,8 @@ export class Template1Component implements OnInit {
   projects: project[] = [];
   // edu!: education;
   educate: education[] = [];
+  skills!:Fruit[] ;
+  interest:Interest[]=[]
 
   //education variables
   course!: string;
@@ -57,6 +60,13 @@ export class Template1Component implements OnInit {
     this.serv.msgSource.subscribe((message) => {
       this.educate = message;
     });
+    this.serv.messageSrc.subscribe((message)=>{
+      this.skills=message;
+    })
+    
+    this.serv.msgSrc.subscribe((message)=>{
+      this.interest=message
+    })
   }
 
   getAll() {

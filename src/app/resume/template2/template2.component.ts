@@ -1,6 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { AuthService } from 'src/app/auth.service';
+import { education } from 'src/app/education';
+import { project } from 'src/app/project';
+import { Fruit, Interest } from '../create-resume/create-resume.component';
 
 @Component({
   selector: 'app-template2',
@@ -23,9 +28,56 @@ export class Template2Component implements OnInit {
     });
   }
 
-  constructor() { }
+  
+  dataSource!: any;
+  // proj!: project;
+  projects: project[] = [];
+  // edu!: education;
+  educate: education[] = [];
+  skills:Fruit[]=[];
+  interest:Interest[]=[]
+
+  //education variables
+  course!: string;
+  school!: string;
+  city!: string;
+  sdate!: string;
+  edate!: string;
+
+  //projects variable
+  name = '';
+  title!: string;
+  desc!: string;
+  constructor(private store: AngularFirestore, private serv: AuthService) {}
 
   ngOnInit(): void {
+    this.getAll();
+
+    this.serv.messageSource.subscribe((message) => {
+      this.projects = message;
+    });
+    this.serv.msgSource.subscribe((message) => {
+      this.educate = message;
+    });
+    this.serv.messageSrc.subscribe((message)=>{
+      this.skills=message;
+    })
+    this.serv.msgSrc.subscribe((message)=>{
+      this.interest=message
+    })
+  }
+
+  getAll() {
+    this.store
+      .collection('ResumeDetails', (ref) =>
+        ref.where('Email', '==', localStorage.getItem('email'))
+      )
+      .snapshotChanges()
+      .subscribe((response) => {
+        this.dataSource = response.map((item) =>
+          Object.assign({ id: item.payload.doc.id }, item.payload.doc.data())
+        );
+      });
   }
 
 }

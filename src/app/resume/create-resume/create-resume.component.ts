@@ -17,6 +17,10 @@ export interface Fruit {
   name: string;
 }
 
+export interface Interest{
+  name: string;
+}
+
 @Component({
   selector: 'app-create-resume',
   templateUrl: './create-resume.component.html',
@@ -90,7 +94,7 @@ export class CreateResumeComponent implements OnInit {
     if (value) {
       this.fruits.push({ name: value });
     }
-
+    
     // Clear the input value
     event.chipInput!.clear();
   }
@@ -102,6 +106,33 @@ export class CreateResumeComponent implements OnInit {
       this.fruits.splice(index, 1);
     }
   }
+
+//interest chips
+addOnBlurI = true;
+readonly separatorKeysCodesI = [ENTER, COMMA] as const;
+interests: Interest[] = [];
+
+addI(event: MatChipInputEvent): void {
+  const value = (event.value || '').trim();
+
+  // Add our fruit
+  if (value) {
+    this.interests.push({ name: value });
+  }
+  
+  // Clear the input value
+  event.chipInput!.clear();
+}
+
+removeI(interest: Interest): void {
+  const index = this.interests.indexOf(interest);
+
+  if (index >= 0) {
+    this.interests.splice(index, 1);
+  }
+}
+
+
 
   //add
   rows = [1];
@@ -132,17 +163,19 @@ export class CreateResumeComponent implements OnInit {
     lname: string,
     phone: string,
     url: string,
-    headline: string
+    headline: string,
+    position:string
   ) {
-    this.store.collection('ResumeDetails').add({
-      image: img,
-      fName: fname,
-      lName: lname,
-      Phone: phone,
-      Url: url,
-      Email: this.email,
-      HeadLine: headline,
-    });
+    // this.store.collection('ResumeDetails').add({
+    //   image: img,
+    //   fName: fname,
+    //   lName: lname,
+    //   Phone: phone,
+    //   Url: url,
+    //   Email: this.email,
+    //   HeadLine: headline,
+    //    Position:position
+    // });
     this.show = 'step2';
   }
 
@@ -151,6 +184,8 @@ export class CreateResumeComponent implements OnInit {
     if (currentTemplate != null) this.router.navigateByUrl(currentTemplate);
     this.serv.messageSource.next(this.proj);
     this.serv.msgSource.next(this.edu);
+    this.serv.messageSrc.next(this.fruits)
+    this.serv.msgSrc.next(this.interests)
     // this.router.navigate(['/resumeTemp1']);
   }
 
