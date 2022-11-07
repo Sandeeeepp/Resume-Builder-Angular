@@ -14,6 +14,7 @@ import { Template2Component } from './template2/template2.component';
 import { Template3Component } from './template3/template3.component';
 import { Template4Component } from './template4/template4.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { GetInitialsPipe } from './get-initials.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     Template2Component,
     Template3Component,
     Template4Component,
+    GetInitialsPipe,
   ],
   imports: [
     CommonModule,

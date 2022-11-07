@@ -78,6 +78,21 @@
           #url
         />
       </div>
+      <label for="basic-url" class="form-label">Your desired position</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon3"
+          >JR. Front Developer</span
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="basic-url"
+          name="position"
+          aria-describedby="basic-addon3"
+          required
+          #position
+        />
+      </div>
 
       <div class="input-group">
         <span class="input-group-text">HeadLine</span>
@@ -99,7 +114,8 @@
               lname.value,
               phone.value,
               url.value,
-              headline.value
+              headline.value,
+              position.value
             )
           "
         >
@@ -204,6 +220,7 @@
                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                     [matChipInputAddOnBlur]="addOnBlur"
                     (matChipInputTokenEnd)="add($event)"
+                    
                   />
                 </mat-chip-list>
               </mat-form-field>
@@ -276,10 +293,10 @@
                 <mat-label>Interests</mat-label>
                 <mat-chip-list #chipList aria-label="Fruit selection">
                   <mat-chip
-                    *ngFor="let fruit of fruits"
-                    (removed)="remove(fruit)"
+                    *ngFor="let interest of interests"
+                    (removed)="removeI(interest)"
                   >
-                    {{ fruit.name }}
+                    {{ interest.name }}
                     <button matChipRemove>
                       <mat-icon>cancel</mat-icon>
                     </button>
@@ -288,8 +305,8 @@
                     placeholder="skill..."
                     [matChipInputFor]="chipList"
                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                    [matChipInputAddOnBlur]="addOnBlur"
-                    (matChipInputTokenEnd)="add($event)"
+                    [matChipInputAddOnBlur]="addOnBlurI"
+                    (matChipInputTokenEnd)="addI($event)"
                   />
                 </mat-chip-list>
               </mat-form-field>
