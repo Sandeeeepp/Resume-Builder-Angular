@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'resumeTemp3',component:Template3Component},
   { path: 'resumeTemp4',component:Template4Component},
   { path: 'cvTemp1',component:TemplateOneComponent},
+  { path: 'cvTemp2',component:TemplateTwoComponent},
   { path: 'coverLetterTemp1',component:Temp1Component},
 
 

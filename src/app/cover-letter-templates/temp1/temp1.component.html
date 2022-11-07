@@ -1,94 +1,28 @@
-<!-- <p>temp1 works!</p> -->
-<form #dataForm="ngForm" (ngSubmit)="submitDetails(dataForm.value)">
-    <div class="form-group">
-        <label for="candidate_name">Enter Name</label>
-        <input type="text" class="form-control" placeholder="Candidate Name" ngModel name="candidate_name" #cname>
-    </div>
-
-    <div class="form-group">
-        <label for="candidate_email">Enter Email Address</label>
-        <input type="email" class="form-control" placeholder="Email Address" ngModel name="candidate_email">
-    </div>
-
-    <div class="form-group">
-        <label for="candidate_phone">Enter Phone Number</label>
-        <input type="text" class="form-control" placeholder="Phone Number" ngModel name="phone_number">
-    </div>
-    <hr>
-    <div class="form-group">
-        <label for="recruiter_name">Enter Recruiter Name</label>
-        <input type="text" class="form-control" placeholder="Recruiter Name" ngModel name="recruiter_name">
-    </div>
-
-    <div class="form-group">
-        <label for="recruiter title">Enter Recruiter Title</label>
-        <input type="text" class="form-control" placeholder="Recruiter Title" ngModel name="recruiter_title">
-    </div>
-
-    <div class="form-group">
-        <label for="companyname">Enter Company Name</label>
-        <input type="text" class="form-control" placeholder="Company Name" ngModel name="company_name">
-    </div>
-
-    <div class="form-group">
-        <label for="companyaddr">Enter Company Address</label>
-        <input type="text" class="form-control" placeholder="Company Address" ngModel name="company_address">
-    </div>
-
-    <div class="form-group">
-        <label for="city">Enter City</label>
-        <input type="text" class="form-control" placeholder="City" ngModel name="city">
-    </div>
-
-    <div class="form-group">
-        <label for="province">Enter Province</label>
-        <input type="text" class="form-control" placeholder="Province" ngModel name="province">
-    </div>
-
-    <div class="form-group">
-        <label for="postalcode">Enter Postal Code</label>
-        <input type="text" class="form-control" placeholder="Postal Code" ngModel name="postal_code">
-    </div>
-
-    <div class="form-group">
-        <label for="jobtitle">Enter Job Title</label>
-        <input type="text" class="form-control" placeholder="Job Title" ngModel name="job_title">
-    </div>
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit Details</button>
-    </div>
-    
-    <div class="form-group">
-        <button class="btn btn-primary" (click)="get_details(cname.value)">Fetch Details</button>
-    </div>
-    
-</form>
-    <div class="container">
-        <!-- <p class="text-align">[Date]</p> -->
-        <p>{{candidate_details.candidate_name}}</p> <!-- candidate_name-->
-        <p>{{candidate_details.candidate_email}},</p> <!-- email address-->
-        <p>{{candidate_details.phone_number}}</p>   <!-- phone number -->
-        <hr>
-         <p>{{candidate_details.recruiter_name}},</p>   <!-- recruiter name-->
-         <p>{{candidate_details.recruiter_title}}</p>   <!-- rec title-->
-         <p>{{candidate_details.company_name}}</p>  <!-- company title-->
-         <p>{{candidate_details.company_address}}</p>   <!-- com address-->
-         <p>{{candidate_details.city}},{{candidate_details.province}},{{candidate_details.postal_code}}</p> <!-- city province postal code-->
-         <p>Dear {{candidate_details.recruiter_name}},</p>  <!-- recruiter name -->
-         <p>
-            As a highly motivated and dedicated person with strong communication and interpersonal skills, I would like to apply for the position of {{candidate_details.job_title}} at {{candidate_details.company_name}}.
-            I enjoy working with like-minded people and I am ready to become a team player at {{candidate_details.company_name}}<!-- company name-->. I love a challenge and I know I can help take your social media presence to the next level.
-         </p>
-         <!-- <p>
-            I understand that you will receive a large number of applications for this role. I do, however, believe that my motivation, commitment and pre-existing skills will allow me to fit into your work environment and immediately start supporting the needs of your organisation.
-         </p> -->
-         <p>
-            I would appreciate the opportunity to meet with you to discuss my application at an interview. I have enclosed a copy of my resume for your consideration. I can be contacted at all times on the details provided above.
-         </p>
-         <p>Thank you for your consideration.</p>
-              
+<div class="container">
+   <p class="text-align">[Date of Letter]</p>
+   <p>[candidate_name]</p> <!-- candidate_name-->
+   <p>[candidate_email],</p> <!-- email address-->
+   <p>[phone_number]</p>   <!-- phone number -->
+   <hr>
+    <p>[recruiter_name],</p>   <!-- recruiter name-->
+    <p>[recruiter_title]</p>   <!-- rec title-->
+    <p>[company_name]</p>  <!-- company title-->
+    <p>[company_address]</p>   <!-- com address-->
+    <p>[city],[province],[postal_code]</p> <!-- city province postal code-->
+    <p>Dear [recruiter_name],</p>  <!-- recruiter name -->
+    <p>
+       As a highly motivated and dedicated person with strong communication and interpersonal skills, I would like to apply for the position of [job_title] at [company_name].
+       I enjoy working with like-minded people and I am ready to become a team player at [company_name]<!-- company name-->. I love a challenge and I know I can help take your social media presence to the next level.
+    </p>
+    <p>
+       I understand that you will receive a large number of applications for this role. I do, however, believe that my motivation, commitment and pre-existing skills will allow me to fit into your work environment and immediately start supporting the needs of your organisation.
+    </p>
+    <p>
+       I would appreciate the opportunity to meet with you to discuss my application at an interview. I have enclosed a copy of my resume for your consideration. I can be contacted at all times on the details provided above.
+    </p>
+    <p>Thank you for your consideration.</p>
          
-        <p>Sincerely,</p>
-        <p>{{candidate_details.candidate_name}}</p>
-    </div>
+    
+   <p>Sincerely,</p>
+   <p>[candidate_name]</p>
+</div>

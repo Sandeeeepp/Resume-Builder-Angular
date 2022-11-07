@@ -24,7 +24,7 @@
 .scrolling-wrapper .card {
   display: inline-block;
   width: 35%;
-  height: 80%;
+  height: 85%;
   margin-top: 2%;
   transition: all 0.2s ease;
   cursor: pointer;
@@ -39,4 +39,35 @@
 .vertical-center {
   margin-top: 60%;
   margin-left: 37%;
+}
+
+.cardData {
+  position: relative;
+  width: 50%;
+}
+
+/* Make the image responsive */
+.cardData img {
+  width: 100%;
+  height: auto;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.cardData .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cardData .btn:hover {
+  background-color: black;
 }

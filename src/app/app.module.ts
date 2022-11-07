@@ -16,7 +16,6 @@ import { HomeComponent } from './home/home.component';
 import { FAQsComponent } from './faqs/faqs.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { CoverLetterTemplatesModule } from './cover-letter-templates/cover-letter-templates.module';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import {
@@ -35,6 +34,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CvTemplatesModule } from './cv-templates/cv-templates.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { DialogElementComponent } from './dialog-element/dialog-element.component';
+import { CoverLetterTemplatesModule } from './cover-letter-templates/cover-letter-templates.module';
 
 @NgModule({
   declarations: [
@@ -65,9 +65,9 @@ import { DialogElementComponent } from './dialog-element/dialog-element.componen
     ResumeModule,
     CvTemplatesModule,
     MatTabsModule,
-    CoverLetterTemplatesModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    CoverLetterTemplatesModule
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],

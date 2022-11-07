@@ -13,7 +13,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import {MatSliderModule} from '@angular/material/slider';
-import { DialogElementComponent } from './dialog-element/dialog-element.component';
 import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
@@ -21,7 +20,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     TemplateOneComponent,
     TemplateTwoComponent,
     InputPageComponent,
-    DialogElementComponent,
   ],
   imports: [
     CommonModule,

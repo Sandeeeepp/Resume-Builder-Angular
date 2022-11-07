@@ -55,33 +55,44 @@
       </div> -->
     <div *ngIf="display == 'resumeTemplate'" class="scrolling-wrapper">
       <div class="card" id="res1" #res1>
-        <span
-          >Resume template
+        <span>
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/resumetemplate1.png"
+          />
           <div *ngIf="sidenav.opened == false" class="vertical-center">
             <button (click)="redirectTo(res1.id)">Use Template</button>
           </div>
         </span>
       </div>
       <div class="card" id="res2" #res2>
-        <span
-          >Resume template
+        <span>
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/resumetemplate2.png"
+          />
           <div *ngIf="sidenav.opened == false" class="vertical-center">
             <button (click)="redirectTo(res2.id)">Use Template</button>
           </div>
         </span>
       </div>
       <div class="card" id="res3" #res3>
-        <span
-          >Resume template
+        <span>
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/resumetemplate3.png"
+          />
           <div *ngIf="sidenav.opened == false" class="vertical-center">
             <button (click)="redirectTo(res3.id)">Use Template</button>
           </div>
-          
         </span>
       </div>
       <div class="card" id="res4" #res4>
-        <span
-          >Resume template
+        <span>
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/resumetemplate4.png"
+          />
           <div *ngIf="sidenav.opened == false" class="vertical-center">
             <button (click)="redirectTo(res4.id)">Use Template</button>
           </div>
@@ -91,11 +102,27 @@
 
     <div *ngIf="display == 'cvTemplate'" class="scrolling-wrapper">
       <div class="card" id="cv1" #cv1>
-        <span
-          >CV template
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
+        <!-- <span>
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/cvtemplate1.png"
+          />
+          <!-- <div *ngIf="sidenav.opened == false" class="vertical-center">
             <button (click)="redirectTo(cv1.id)">Use Template</button>
           </div>
+        </span> -->
+        <span class="cardData">
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/cvtemplate1.png"
+          />
+          <button
+            *ngIf="sidenav.opened == false"
+            class="btn"
+            (click)="redirectTo(cv1.id)"
+          >
+            Use Template
+          </button>
         </span>
       </div>
       <div class="card" id="cv2" #cv2>
