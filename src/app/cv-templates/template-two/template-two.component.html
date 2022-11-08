@@ -36,7 +36,12 @@
   <base target="_blank" />
 </head>
 <body>
-  <article class="resume-wrapper text-center position-relative">
+  <div class="fab-container">
+    <div class="button iconbutton">
+      <i class="fa-solid fa-plus" (click)="downloadPDF()"> Download as pdf </i>
+    </div>
+  </div>
+  <article class="resume-wrapper text-center " id="content">
     <div class="resume-wrapper-inner mx-auto text-left bg-white shadow-lg">
       <header class="resume-header pt-4 pt-md-0">
         <div class="media flex-column flex-md-row">
@@ -78,6 +83,7 @@
                     >{{ details.phoneno }}</a
                   >
                 </li>
+                <br />
                 <li>
                   <div *ngFor="let userLink of details.links; let i = index">
                     <div class="info-section link">
@@ -102,7 +108,6 @@
                     >{{ details.city }}</a
                   >
                 </li>
-
                 <li class="mb-3">
                   <a href="https://behance.net/twstrblg"
                     ><span class="fa-container text-center mr-2"
@@ -149,45 +154,45 @@
                     <div class="resume-timeline-item-header mb-2">
                       <div class="d-flex flex-column flex-md-row">
                         <h3 class="resume-position-title font-weight-bold mb-1">
-                          {{ details.jobRole }}
+                          {{ details.jobRole[i] }}
                         </h3>
                         <div class="resume-company-name ml-auto">
-                          {{ details.jobCompanyName }}
+                          {{ details.jobCompanyName[i] }}
                         </div>
                       </div>
                       <!-- <div class="resume-position-time">2018 — 2019</div> -->
                     </div>
                     <!--//resume-timeline-item-header-->
                     <div class="resume-timeline-item-desc">
-                      <p>{{details.jobDescription}</p>
+                      <p>{{ details.jobDescription[i] }}</p>
                     </div>
                   </article>
-                  <h3 *ngIf="details.internshipCompanyName.length != 0">Internships</h3>
-                    <article
-                      class="resume-timeline-item position-relative pb-5"
-                      *ngFor="
-                        let userJobCompanyName of details.internshipCompanyName;
-                        let i = index
-                      "
-                    >
-                      <div class="resume-timeline-item-header mb-2">
-                        <div class="d-flex flex-column flex-md-row">
-                          <h3
-                            class="resume-position-title font-weight-bold mb-1"
-                          >
-                            {{ details.internshipDesignation }}
-                          </h3>
-                          <div class="resume-company-name ml-auto">
-                            {{ details.internshipCompanyName }}
-                          </div>
+                  <h3 *ngIf="details.internshipCompanyName.length != 0">
+                    Internships
+                  </h3>
+                  <article
+                    class="resume-timeline-item position-relative pb-5"
+                    *ngFor="
+                      let userJobCompanyName of details.internshipCompanyName;
+                      let i = index
+                    "
+                  >
+                    <div class="resume-timeline-item-header mb-2">
+                      <div class="d-flex flex-column flex-md-row">
+                        <h3 class="resume-position-title font-weight-bold mb-1">
+                          {{ details.internshipDesignation[i] }}
+                        </h3>
+                        <div class="resume-company-name ml-auto">
+                          {{ details.internshipCompanyName[i] }}
                         </div>
-                        <!-- <div class="resume-position-time">2018 — 2019</div> -->
                       </div>
-                      <!--//resume-timeline-item-header-->
-                      <div class="resume-timeline-item-desc">
-                        <p>{{details.internshipDescription}</p>
-                      </div>
-                    </article>
+                      <!-- <div class="resume-position-time">2018 — 2019</div> -->
+                    </div>
+                    <!--//resume-timeline-item-header-->
+                    <div class="resume-timeline-item-desc">
+                      <p>{{ details.internshipDescription[i] }}</p>
+                    </div>
+                  </article>
                 </div>
               </div>
             </section>

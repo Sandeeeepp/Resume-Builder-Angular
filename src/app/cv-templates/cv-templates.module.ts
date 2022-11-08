@@ -14,12 +14,16 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatDialogModule} from '@angular/material/dialog';
+import { TemplateThreeComponent } from './template-three/template-three.component';
+import { TemplateFourComponent } from './template-four/template-four.component';
 
 @NgModule({
   declarations: [
     TemplateOneComponent,
     TemplateTwoComponent,
     InputPageComponent,
+    TemplateThreeComponent,
+    TemplateFourComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +40,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSliderModule,
     MatDialogModule
   ],
-  exports: [TemplateOneComponent, TemplateTwoComponent, InputPageComponent],
+  exports: [TemplateOneComponent, TemplateTwoComponent, InputPageComponent, TemplateFourComponent, TemplateThreeComponent],
 })
 export class CvTemplatesModule {}

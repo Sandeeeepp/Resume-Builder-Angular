@@ -64,8 +64,16 @@ export class ToolsComponent implements OnInit {
         this.toCreateCV("cvTemp2")
         break
       }
+      case 'cv3':{
+        this.toCreateCV("cvTemp3")
+        break
+      }
+      case 'cv4':{
+        this.toCreateCV("cvTemp4")
+        break
+      }
       case 'cl1':{
-        this.router.navigateByUrl('coverLetterTemp1')
+        this.router.navigateByUrl('CoverInput')
         break
       }
     }

@@ -43,7 +43,6 @@ export class InputPageComponent implements OnInit {
     this.getAll();
     this.service.createTemplate.subscribe((value) => {
       if (value == 'create CV') this.createCV();
-      console.log(value)
     });
   }
 

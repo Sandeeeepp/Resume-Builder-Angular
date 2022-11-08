@@ -37,37 +37,25 @@
 }
 
 .vertical-center {
-  margin-top: 60%;
-  margin-left: 37%;
-}
-
-.cardData {
   position: relative;
-  width: 50%;
 }
 
-/* Make the image responsive */
-.cardData img {
-  width: 100%;
-  height: auto;
-}
-
-/* Style the button and place it in the middle of the container/image */
-.cardData .btn {
+.vertical-center .btn {
   position: absolute;
-  top: 50%;
+  top: 650%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #555;
+  background-color: black;
   color: white;
   font-size: 16px;
-  padding: 12px 24px;
+  padding: 10px 24px;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 100px;
+  opacity: 0.6;
 }
 
-.cardData .btn:hover {
-  background-color: black;
+.vertical-center .btn:hover {
+  opacity: 1;
 }

@@ -8706,3 +8706,34 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     border-radius: 4px;
   }
 }
+
+.fab-container {
+  position: fixed;
+  bottom: 50px;
+  right: 60px;
+  width: 10%;
+  height: 82%;
+  cursor: pointer;
+}
+
+.iconbutton {
+  border-radius: 5%;
+  background: #ff4f79;
+  box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+.button {
+  height: 15%;
+  width: 120%;
+  background: #130101;
+}
+
+.iconbutton i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: white;
+
+}
+

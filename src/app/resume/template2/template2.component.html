@@ -11,8 +11,8 @@
     <div class="button iconbutton">
       <i class="fa-solid fa-plus" (click)="downloadPDF()"> Download as pdf </i>
     </div>
-  </div>
-<div class="rela-block page" >
+</div>
+<div class="rela-block page" id="content">
     <div class="rela-block top-bar" *ngFor="let item of dataSource">
         <div class="caps name"><div class="abs-center">{{item.fName + " "+item.lName }}</div></div>
     </div>

@@ -1,9 +1,12 @@
 import { Component, Input, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { InputComponentComponent } from './cover-letter-templates/input-component/input-component.component';
 import { Temp1Component } from './cover-letter-templates/temp1/temp1.component';
 import { InputPageComponent } from './cv-templates/input-page/input-page.component';
+import { TemplateFourComponent } from './cv-templates/template-four/template-four.component';
 import { TemplateOneComponent } from './cv-templates/template-one/template-one.component';
+import { TemplateThreeComponent } from './cv-templates/template-three/template-three.component';
 import { TemplateTwoComponent } from './cv-templates/template-two/template-two.component';
 import { FAQsComponent } from './faqs/faqs.component';
 import { HomeComponent } from './home/home.component';
@@ -30,7 +33,11 @@ const routes: Routes = [
   { path: 'resumeTemp4',component:Template4Component},
   { path: 'cvTemp1',component:TemplateOneComponent},
   { path: 'cvTemp2',component:TemplateTwoComponent},
-  { path: 'coverLetterTemp1',component:Temp1Component},
+  { path: 'cvTemp3',component:TemplateThreeComponent},
+  { path: 'cvTemp4',component:TemplateFourComponent},
+  {path:'clTemp1',component:Temp1Component},
+  {path:'CoverInput',component:InputComponentComponent},
+
 
 
 ];

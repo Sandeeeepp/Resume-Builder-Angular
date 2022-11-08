@@ -55,133 +55,123 @@
       </div> -->
     <div *ngIf="display == 'resumeTemplate'" class="scrolling-wrapper">
       <div class="card" id="res1" #res1>
-        <span>
+        <span class="vertical-center">
           <img
             style="width: 100%; height: 100%"
             src="../assets/resumetemplate1.png"
           />
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(res1.id)">Use Template</button>
-          </div>
+          <button
+            *ngIf="sidenav.opened == false"
+            class="btn"
+            (click)="redirectTo(res1.id)"
+          >
+            Use Template
+          </button>
         </span>
       </div>
       <div class="card" id="res2" #res2>
-        <span>
+        <span class="vertical-center">
           <img
             style="width: 100%; height: 100%"
             src="../assets/resumetemplate2.png"
           />
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(res2.id)">Use Template</button>
-          </div>
+            <button *ngIf="sidenav.opened == false" class="btn" (click)="redirectTo(res2.id)">Use Template</button>
         </span>
       </div>
-      <div class="card" id="res3" #res3>
-        <span>
+      <div class="card" id="res3" #res3>       
+        <span class="vertical-center">
           <img
             style="width: 100%; height: 100%"
             src="../assets/resumetemplate3.png"
           />
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(res3.id)">Use Template</button>
-          </div>
+            <button *ngIf="sidenav.opened == false" class="btn" (click)="redirectTo(res3.id)">Use Template</button>
         </span>
       </div>
       <div class="card" id="res4" #res4>
-        <span>
+        <span class="vertical-center">
           <img
             style="width: 100%; height: 100%"
             src="../assets/resumetemplate4.png"
           />
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(res4.id)">Use Template</button>
-          </div>
+            <button *ngIf="sidenav.opened == false" class="btn" (click)="redirectTo(res4.id)">Use Template</button>
         </span>
       </div>
     </div>
 
     <div *ngIf="display == 'cvTemplate'" class="scrolling-wrapper">
       <div class="card" id="cv1" #cv1>
-        <!-- <span>
+        <span class="vertical-center">
           <img
             style="width: 100%; height: 100%"
             src="../assets/cvtemplate1.png"
           />
-          <!-- <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(cv1.id)">Use Template</button>
-          </div>
-        </span> -->
-        <span class="cardData">
-          <img
-            style="width: 100%; height: 100%"
-            src="../assets/cvtemplate1.png"
-          />
-          <button
-            *ngIf="sidenav.opened == false"
-            class="btn"
-            (click)="redirectTo(cv1.id)"
-          >
-            Use Template
-          </button>
+            <button *ngIf="sidenav.opened == false" class="btn" (click)="redirectTo(cv1.id)">Use Template</button>
         </span>
       </div>
       <div class="card" id="cv2" #cv2>
-        <span
-          >CV template
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(cv2.id)">Use Template</button>
-          </div>
+        <span class="vertical-center">
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/cvtemplate2.png"
+          />
+            <button *ngIf="sidenav.opened == false" class="btn" (click)="redirectTo(cv2.id)">Use Template</button>
         </span>
       </div>
-      <div class="card">
-        <span
-          >CV template
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(cv1.id)">Use Template</button>
-          </div>
+      <div class="card" id="cv3" #cv3>
+        <span class="vertical-center">
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/cvtemplate3.png"
+          />
+            <button *ngIf="sidenav.opened == false" class="btn" (click)="redirectTo(cv3.id)">Use Template</button>
         </span>
       </div>
-      <div class="card">
-        <span
-          >CV template
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(cv1.id)">Use Template</button>
-          </div>
+      <div class="card" id="cv4" #cv4>
+        <span class="vertical-center">
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/cvtemplate4.png"
+          />
+            <button *ngIf="sidenav.opened == false" class="btn" (click)="redirectTo(cv4.id)">Use Template</button>
         </span>
       </div>
     </div>
 
     <div *ngIf="display == 'CoverLetterTemplate'" class="scrolling-wrapper">
       <div class="card" id="cl1" #cl1>
-        <span
-          >Cover Letter template
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(cl1.id)">Use Template</button>
-          </div>
+        <span class="vertical-center">
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/cltemplate1.png"
+          />
+            <button *ngIf="sidenav.opened == false" class="btn" (click)="redirectTo(cl1.id)">Use Template</button>
         </span>
       </div>
-      <div class="card">
-        <span
-          >Cover Letter template
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(cl1.id)">Use Template</button>
-          </div>
+      <div class="card" id="cl2" #cl2>
+        <span class="vertical-center">
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/cltemplate2.png"
+          />
+            <button *ngIf="sidenav.opened == false" class="btn" (click)="redirectTo(cl2.id)">Use Template</button>
         </span>
       </div>
-      <div class="card">
-        <span
-          >Cover Letter template
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(cl1.id)">Use Template</button>
-          </div>
+      <div class="card" id="cl3" #cl3>
+        <span class="vertical-center">
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/cltemplate3.png"
+          />
+            <button *ngIf="sidenav.opened == false" class="btn" (click)="redirectTo(cl3.id)">Use Template</button>
         </span>
       </div>
-      <div class="card">
-        <span
-          >Cover Letter template
-          <div *ngIf="sidenav.opened == false" class="vertical-center">
-            <button (click)="redirectTo(cl1.id)">Use Template</button>
-          </div>
+      <div class="card" id="cl4" #cl4>
+        <span class="vertical-center">
+          <img
+            style="width: 100%; height: 100%"
+            src="../assets/cltemplate4.png"
+          />
+            <button *ngIf="sidenav.opened == false" class="btn" (click)="redirectTo(cl4.id)">Use Template</button>
         </span>
       </div>
     </div>

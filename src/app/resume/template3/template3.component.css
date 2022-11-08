@@ -2,84 +2,110 @@
 
 @import url(https://fonts.googleapis.com/css?family=Cutive+Mono);
 
-body{
-	font-family: 'Cutive Mono';
-	background-color:rgba(0,0,0,1.00);
-	color:rgba(255,255,255,1.00);
-	/*overflow:hidden;*/
+.fab-container {
+  position: fixed;
+  bottom: 50px;
+  right: 60px;
+  width: 10%;
+  height: 82%;
+  cursor: pointer;
+}
+
+.iconbutton {
+  border-radius: 5%;
+  background: #ff4f79;
+  box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+.button {
+  height: 15%;
+  width: 120%;
+  background: #130101;
+}
+
+.iconbutton i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: white;
+}
+
+body {
+  font-family: "Cutive Mono";
+  background-color: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  /*overflow:hidden;*/
 }
 
 body * {
-    z-index: 20;
-    color: rgba(0,0,0,1.00);
+  z-index: 20;
+  color: rgba(0, 0, 0, 1);
 }
 
 .text-container {
-    position: relative;
+  position: relative;
   width: 80%;
-    top: 50px;
+  top: 50px;
   float: right;
 }
 
 #fs {
-    position: relative;
-    color: #000;
-    margin: 20px;
-    cursor: pointer;
+  position: relative;
+  color: #000;
+  margin: 20px;
+  cursor: pointer;
 }
 
-header{
-	font-family: 'Old Standard TT', serif;
-	font-size:200%;
-	font-weight:700;
-	letter-spacing:1px;
-	margin-bottom:20px;
-	text-decoration:underline;
-	
+header {
+  font-family: "Old Standard TT", serif;
+  font-size: 200%;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-decoration: underline;
 }
 
-h2{
-	font-family: 'Old Standard TT', serif;
-	font-weight:bold;
-	font-size:20px;
-	height:20px;
-	margin:0px;
-
-
+h2 {
+  font-family: "Old Standard TT", serif;
+  font-weight: bold;
+  font-size: 20px;
+  height: 20px;
+  margin: 0px;
 }
 
-h3{
-	font-family: 'Old Standard TT', serif;
-	font-weight:400;
-	margin:0px;
-	margin-top:-10px;
+h3 {
+  font-family: "Old Standard TT", serif;
+  font-weight: 400;
+  margin: 0px;
+  margin-top: -10px;
 }
 
-h4{
-	font-family: 'Old Standard TT', serif;
-	font-style:italic;
-	font-weight:400;
-	font-size:12px;
-	margin:0px;
-	margin-top:-15px;
+h4 {
+  font-family: "Old Standard TT", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  margin: 0px;
+  margin-top: -15px;
 }
 
-.section{
-	margin:10px;
-	margin-left:2%;
-	width:35%;
+.section {
+  margin: 10px;
+  margin-left: 2%;
+  width: 35%;
 }
 
-#experience{
-	float:left;
+#experience {
+  float: left;
 }
 
-#education{
-	float:left;
+#education {
+  float: left;
 }
 
-#skills{
-	float:left;
+#skills {
+  float: left;
 }
 
 /*#fs {
@@ -89,15 +115,13 @@ h4{
     cursor: pointer;
 }*/
 
-#about{
-	float:left;
+#about {
+  float: left;
 }
 
-#contact{
-	float:left;
+#contact {
+  float: left;
 }
-
-
 
 /*/////////////////////////////////  FLASHLIGHT EFFECT ////////////////////////////  */
 /* 
@@ -112,6 +136,5 @@ h4{
     box-shadow: inset 0px 0px 150px 166px rgba(0,0,0,1);
 
 } */
-
 
 /*//////////////////////////////// END FLASHLIGHT EFFECT ///////////////////////////  */

@@ -3,15 +3,14 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 @Component({
-  selector: 'app-template4',
-  templateUrl: './template4.component.html',
-  styleUrls: ['./template4.component.css']
+  selector: 'app-template-four',
+  templateUrl: './template-four.component.html',
+  styleUrls: ['./template-four.component.css']
 })
-export class Template4Component implements OnInit {
+export class TemplateFourComponent implements OnInit {
   @ViewChild('content') content!: ElementRef;
 
   public downloadPDF() {
-    console.log("downloading")
     let DATA: any = document.getElementById('content');
     html2canvas(DATA).then((canvas) => {
       let fileWidth = 208;
