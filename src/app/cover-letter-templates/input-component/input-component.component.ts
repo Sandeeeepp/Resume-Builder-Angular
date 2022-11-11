@@ -1,24 +1,22 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import {MatAccordion} from '@angular/material/expansion';
+import { MatAccordion } from '@angular/material/expansion';
 import { Router } from '@angular/router';
 import { Cover } from '../cover';
 
 @Component({
   selector: 'app-input-component',
   templateUrl: './input-component.component.html',
-  styleUrls: ['./input-component.component.css']
+  styleUrls: ['./input-component.component.css'],
 })
 export class InputComponentComponent implements OnInit {
   @ViewChild(MatAccordion)
   accordion!: MatAccordion;
-  @Input() cover!:Cover
+  @Input() cover!: Cover;
 
-
-
-  id!:string;
+  id!: string;
   cname!: string;
-  cemail!:string;
+  cemail!: string;
   cphno!: string;
   rtitle!: string;
   rname!: string;
@@ -29,13 +27,12 @@ export class InputComponentComponent implements OnInit {
   pcode!: string;
   jobtitle!: string;
 
-  constructor(private store:AngularFirestore,private router:Router) { }
+  constructor(private store: AngularFirestore, private router: Router) {}
 
-  myDate=new Date();
-  ngOnInit(): void {
-  }
+  myDate = new Date();
+  ngOnInit(): void {}
 
-  step = 0
+  step = 0;
   setStep(index: number) {
     this.step = index;
   }
@@ -48,10 +45,9 @@ export class InputComponentComponent implements OnInit {
     this.step--;
   }
 
-  submit(){
-// this.store.collection('Cover').add({Date:this.myDate,Cname:this.cname,Cemail:this.cemail,Phone:this.cphno,Rtitle:this.rtitle,Rname:this.rname,Company:this.companyname,companyAddress:this.companyaddress,City:this.city,State:this.state,Pcode:this.pcode,Jobtitle:this.jobtitle})
-
-this.router.navigateByUrl('clTemp1')
+  submit() {
+    // this.store.collection('Cover').add({Date:this.myDate,Cname:this.cname,Cemail:this.cemail,Phone:this.cphno,Rtitle:this.rtitle,Rname:this.rname,Company:this.companyname,companyAddress:this.companyaddress,City:this.city,State:this.state,Pcode:this.pcode,Jobtitle:this.jobtitle})
+    let currentTemplate = localStorage.getItem('currentTemplate');
+    if (currentTemplate != null) this.router.navigateByUrl(currentTemplate);
   }
-
 }

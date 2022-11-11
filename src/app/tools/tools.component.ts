@@ -28,53 +28,66 @@ export class ToolsComponent implements OnInit {
 
   display = 'resumeTemplate';
 
-  toCreateResume(currentTemplate:string){
-    localStorage.setItem('currentTemplate',currentTemplate)
+  toCreateResume(currentTemplate: string) {
+    localStorage.setItem('currentTemplate', currentTemplate);
     this.router.navigateByUrl('createResume');
   }
 
-  toCreateCV(currentTemplate:string){
-    localStorage.setItem('currentTemplate',currentTemplate)
+  toCreateCV(currentTemplate: string) {
+    localStorage.setItem('currentTemplate', currentTemplate);
     this.router.navigateByUrl('createCV');
+  }
+
+  toCreateCL(currentTemplate: string) {
+    localStorage.setItem('currentTemplate', currentTemplate);
+    this.router.navigateByUrl('CoverInput');
   }
 
   redirectTo(temp: string) {
     switch (temp) {
       case 'res1': {
-        this.toCreateResume("resumeTemp1")
-        break
+        this.toCreateResume('resumeTemp1');
+        break;
       }
       case 'res2': {
-        this.toCreateResume("resumeTemp2")
-        break
+        this.toCreateResume('resumeTemp2');
+        break;
       }
       case 'res3': {
-        this.toCreateResume("resumeTemp3")
-        break
+        this.toCreateResume('resumeTemp3');
+        break;
       }
       case 'res4': {
-        this.toCreateResume("resumeTemp4")
-        break
+        this.toCreateResume('resumeTemp4');
+        break;
       }
-      case 'cv1':{
-        this.toCreateCV("cvTemp1")
-        break
+      case 'cv1': {
+        this.toCreateCV('cvTemp1');
+        break;
       }
-      case 'cv2':{
-        this.toCreateCV("cvTemp2")
-        break
+      case 'cv2': {
+        this.toCreateCV('cvTemp2');
+        break;
       }
-      case 'cv3':{
-        this.toCreateCV("cvTemp3")
-        break
+      case 'cv3': {
+        this.toCreateCV('cvTemp3');
+        break;
       }
-      case 'cv4':{
-        this.toCreateCV("cvTemp4")
-        break
+      case 'cv4': {
+        this.toCreateCV('cvTemp4');
+        break;
       }
-      case 'cl1':{
-        this.router.navigateByUrl('CoverInput')
-        break
+      case 'cl1': {
+        this.toCreateCL('cl1');
+        break;
+      }
+      case 'cl2': {
+        this.toCreateCL('cl2');
+        break;
+      }
+      case 'cl3': {
+        this.toCreateCL('cl3');
+        break;
       }
     }
   }
