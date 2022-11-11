@@ -16,8 +16,8 @@
           <img [src]="item.image" width="100px" height="100px">
         </div> -->
         <div class="full-name">
-          <span class="first-name">{{ item.fName }}</span>
-          <span class="last-name">{{ item.lName }}</span>
+          <span class="name">{{ item.fName }}</span>
+          <span class="name"> {{ item.lName }}</span>
         </div>
       </div>
       <div class="contact-info">
@@ -44,12 +44,12 @@
           <div class="section__list">
             <div class="section__list-item">
               <div class="left">
-                <div class="course">{{ educate[i].course }}</div>
-                <div class="name">{{ educate[i].school }}</div>
+                <div class="name">{{ educate[i].course }}</div>
+                <div class="course">{{ educate[i].school }}</div>
                 <div class="addr">{{ educate[i].city }}</div>
                 <div class="duration">
                   {{ educate[i].sdate }} - {{ educate[i].edate }}
-                </div>
+                </div><br>
               </div>
             </div>
           </div>
