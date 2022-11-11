@@ -39,7 +39,11 @@ export class LoginComponent implements OnInit {
   email: any = localStorage.getItem('recentRegisteredUserEmail');
   password: string = '';
 
-  constructor(private store: AngularFirestore, private auth: AuthService, private service:ServiceService) {}
+  constructor(
+    private store: AngularFirestore,
+    private auth: AuthService,
+    private service: ServiceService
+  ) {}
   ngOnInit() {}
 
   dataSource: any;
@@ -49,10 +53,6 @@ export class LoginComponent implements OnInit {
     Validators.email,
   ]);
 
-
-
-
-    
   login() {
     if (this.email == '') {
       alert('please enter email');
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.email, this.password);
     this.email = '';
     this.password = '';
-    this.service.changeRouterDecider('routingtonextpage')
+    this.service.changeRouterDecider('routingtonextpage');
   }
 
   enter() {

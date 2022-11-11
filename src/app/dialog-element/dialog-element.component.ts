@@ -8,9 +8,10 @@ import { ServiceService } from 'src/app/service.service';
 export class DialogElementComponent {
   constructor(private service: ServiceService) {}
 
-  templateType=localStorage.getItem('createTemplate');
+  templateType = localStorage.getItem('createTemplate');
 
   callCreate() {
-    if (this.templateType != null) this.service.createTemplate.next(this.templateType);
+    if (this.templateType != null)
+      this.service.createTemplate.next(this.templateType);
   }
 }

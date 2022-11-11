@@ -143,7 +143,9 @@
             <button *ngIf="i != 0" id="{{ i }}" matSuffix (click)="removeEdu()">
               <mat-icon>delete</mat-icon>
             </button> -->
-            <button type="button" (click)="addEducation()"><mat-icon>note_add</mat-icon></button> 
+            <button type="button" (click)="addEducation()">
+              <mat-icon>note_add</mat-icon>
+            </button>
             &nbsp;&nbsp;&nbsp; Education &nbsp;&nbsp;&nbsp;
             <button *ngIf="i != 0" id="{{ i }}" matSuffix (click)="removeP()">
               <mat-icon>delete</mat-icon>
@@ -151,16 +153,28 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <div>
-          <form class="row g-3" *ngFor="let ed of edu;let i=index">
+          <form class="row g-3" *ngFor="let ed of edu; let i = index">
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Course</label>
-              <input type="text" class="form-control" id="edu" name="course_{{i}}" [(ngModel)]="ed.course"  />
+              <input
+                type="text"
+                class="form-control"
+                id="edu"
+                name="course_{{ i }}"
+                [(ngModel)]="ed.course"
+              />
             </div>
             <div class="col-md-6">
               <label for="inputPassword4" class="form-label"
                 >School/University</label
               >
-              <input type="text" class="form-control" id="uni" name="school_{{i}}" [(ngModel)]="ed.school"/>
+              <input
+                type="text"
+                class="form-control"
+                id="uni"
+                name="school_{{ i }}"
+                [(ngModel)]="ed.school"
+              />
             </div>
             <div class="col-12">
               <label for="inputAddress" class="form-label">City</label>
@@ -169,17 +183,29 @@
                 class="form-control"
                 id="city"
                 placeholder="enter city"
-                name="city_{{i}}"
+                name="city_{{ i }}"
                 [(ngModel)]="ed.city"
               />
             </div>
             <div class="col-12">
               <label for="inputAddress2" class="form-label">Start Date</label>
-              <input type="date" class="form-control" id="sdate" name="sdate_{{i}}" [(ngModel)]="ed.sdate" />
+              <input
+                type="date"
+                class="form-control"
+                id="sdate"
+                name="sdate_{{ i }}"
+                [(ngModel)]="ed.sdate"
+              />
             </div>
             <div class="col-md-6">
               <label for="inputCity" class="form-label">End Date</label>
-              <input type="date" class="form-control" id="edate" name="edate_{{i}}" [(ngModel)]="ed.edate" />
+              <input
+                type="date"
+                class="form-control"
+                id="edate"
+                name="edate_{{ i }}"
+                [(ngModel)]="ed.edate"
+              />
             </div>
             <!-- <div class="col-12">
               <button (click)="submit()">Save</button>
@@ -220,7 +246,6 @@
                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                     [matChipInputAddOnBlur]="addOnBlur"
                     (matChipInputTokenEnd)="add($event)"
-                    
                   />
                 </mat-chip-list>
               </mat-form-field>
@@ -239,7 +264,9 @@
       >
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <button type="button" (click)="addProjects()"><mat-icon>note_add</mat-icon></button> 
+            <button type="button" (click)="addProjects()">
+              <mat-icon>note_add</mat-icon>
+            </button>
             &nbsp;&nbsp;&nbsp; Projects &nbsp;&nbsp;&nbsp;
             <button *ngIf="i != 0" id="{{ i }}" matSuffix (click)="removeP()">
               <mat-icon>delete</mat-icon>
@@ -247,7 +274,7 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <div class="mb-3" *ngFor="let pro of proj;let i=index">
+        <div class="mb-3" *ngFor="let pro of proj; let i = index">
           <label for="exampleFormControlInput1" class="form-label"
             >Project Title</label
           >
@@ -255,7 +282,7 @@
             type="text"
             class="form-control"
             id="exampleFormControlInput1"
-            name="title_{{i}}"
+            name="title_{{ i }}"
             [(ngModel)]="pro.title"
           />
           <label for="exampleFormControlTextarea1" class="form-label"
@@ -265,10 +292,10 @@
             class="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
-            name="desc_{{i}}"
+            name="desc_{{ i }}"
             [(ngModel)]="pro.desc"
           ></textarea>
-          
+
           <!-- <div class="col-12">
             <button (click)="submit()">Save</button>
           </div> -->
@@ -313,11 +340,8 @@
             </div>
           </form>
         </div>
-      </mat-expansion-panel>
-    </mat-accordion><br><br>
+      </mat-expansion-panel> </mat-accordion
+    ><br /><br />
     <button class="btn btn-danger" (click)="openDialog()">Create Resume</button>
-
   </div>
-
 </mat-card>
-

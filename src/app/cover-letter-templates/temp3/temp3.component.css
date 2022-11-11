@@ -1,0 +1,31 @@
+.heading {
+  background-color: black;
+  margin-top: 20px;
+  height: 90px;
+  color: white;
+}
+
+.t1 {
+  text-align: right;
+  margin-right: 15px;
+  font-size: 15px;
+}
+
+.main {
+  box-sizing: border-box;
+  border: 2px solid black;
+}
+
+.content h5 {
+  margin-left: 15px;
+  font-size: 15px;
+}
+
+.text-center {
+  font-size: 20px;
+}
+
+.para {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

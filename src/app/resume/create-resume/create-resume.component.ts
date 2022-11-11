@@ -17,7 +17,7 @@ export interface Fruit {
   name: string;
 }
 
-export interface Interest{
+export interface Interest {
   name: string;
 }
 
@@ -94,7 +94,7 @@ export class CreateResumeComponent implements OnInit {
     if (value) {
       this.fruits.push({ name: value });
     }
-    
+
     // Clear the input value
     event.chipInput!.clear();
   }
@@ -107,32 +107,30 @@ export class CreateResumeComponent implements OnInit {
     }
   }
 
-//interest chips
-addOnBlurI = true;
-readonly separatorKeysCodesI = [ENTER, COMMA] as const;
-interests: Interest[] = [];
+  //interest chips
+  addOnBlurI = true;
+  readonly separatorKeysCodesI = [ENTER, COMMA] as const;
+  interests: Interest[] = [];
 
-addI(event: MatChipInputEvent): void {
-  const value = (event.value || '').trim();
+  addI(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
 
-  // Add our fruit
-  if (value) {
-    this.interests.push({ name: value });
+    // Add our fruit
+    if (value) {
+      this.interests.push({ name: value });
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
   }
-  
-  // Clear the input value
-  event.chipInput!.clear();
-}
 
-removeI(interest: Interest): void {
-  const index = this.interests.indexOf(interest);
+  removeI(interest: Interest): void {
+    const index = this.interests.indexOf(interest);
 
-  if (index >= 0) {
-    this.interests.splice(index, 1);
+    if (index >= 0) {
+      this.interests.splice(index, 1);
+    }
   }
-}
-
-
 
   //add
   rows = [1];
@@ -164,7 +162,7 @@ removeI(interest: Interest): void {
     phone: string,
     url: string,
     headline: string,
-    position:string
+    position: string
   ) {
     // this.store.collection('ResumeDetails').add({
     //   image: img,
@@ -184,8 +182,8 @@ removeI(interest: Interest): void {
     if (currentTemplate != null) this.router.navigateByUrl(currentTemplate);
     this.serv.messageSource.next(this.proj);
     this.serv.msgSource.next(this.edu);
-    this.serv.messageSrc.next(this.fruits)
-    this.serv.msgSrc.next(this.interests)
+    this.serv.messageSrc.next(this.fruits);
+    this.serv.msgSrc.next(this.interests);
     // this.router.navigate(['/resumeTemp1']);
   }
 

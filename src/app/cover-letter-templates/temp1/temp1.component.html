@@ -1,28 +1,46 @@
 <div class="container" *ngFor="let item of dataSource">
-   <p class="text-align">{{item.Date}}</p>
-   <p>{{item.Cname}}</p> <!-- candidate_name-->
-   <p>{{item.Cemail}},</p> <!-- email address-->
-   <p>{{item.Phone}}</p>   <!-- phone number -->
-   <hr>
-    <p>{{item.Rname}},</p>   <!-- recruiter name-->
-    <p>{{item.Rtitle}}</p>   <!-- rec title-->
-    <p>{{item.Company}}</p>  <!-- company title-->
-    <p>{{item.companyAddress}}</p>   <!-- com address-->
-    <p>{{item.City}},{{item.State}},{{item.Pcode}}</p> <!-- city province postal code-->
-    <p>Dear {{item.Rname}},</p>  <!-- recruiter name -->
-    <p>
-       As a highly motivated and dedicated person with strong communication and interpersonal skills, I would like to apply for the position of [job_title] at [company_name].
-       I enjoy working with like-minded people and I am ready to become a team player at [company_name]<!-- company name-->. I love a challenge and I know I can help take your social media presence to the next level.
-    </p>
-    <p>
-       I understand that you will receive a large number of applications for this role. I do, however, believe that my motivation, commitment and pre-existing skills will allow me to fit into your work environment and immediately start supporting the needs of your organisation.
-    </p>
-    <p>
-       I would appreciate the opportunity to meet with you to discuss my application at an interview. I have enclosed a copy of my resume for your consideration. I can be contacted at all times on the details provided above.
-    </p>
-    <p>Thank you for your consideration.</p>
-         
-    
-   <p>Sincerely,</p>
-   <p>{{item.Cname}}</p>
+  <p class="text-align">{{ item.Date }}</p>
+  <p>{{ item.Cname }}</p>
+  <!-- candidate_name-->
+  <p>{{ item.Cemail }},</p>
+  <!-- email address-->
+  <p>{{ item.Phone }}</p>
+  <!-- phone number -->
+  <hr />
+  <p>{{ item.Rname }},</p>
+  <!-- recruiter name-->
+  <p>{{ item.Rtitle }}</p>
+  <!-- rec title-->
+  <p>{{ item.Company }}</p>
+  <!-- company title-->
+  <p>{{ item.companyAddress }}</p>
+  <!-- com address-->
+  <p>{{ item.City }},{{ item.State }},{{ item.Pcode }}</p>
+  <!-- city province postal code-->
+  <p>Dear {{ item.Rname }},</p>
+  <!-- recruiter name -->
+  <p>
+    As a highly motivated and dedicated person with strong communication and
+    interpersonal skills, I would like to apply for the position of [job_title]
+    at [company_name]. I enjoy working with like-minded people and I am ready to
+    become a team player at [company_name]<!-- company name-->. I love a
+    challenge and I know I can help take your social media presence to the next
+    level.
+  </p>
+  <p>
+    I understand that you will receive a large number of applications for this
+    role. I do, however, believe that my motivation, commitment and pre-existing
+    skills will allow me to fit into your work environment and immediately start
+    supporting the needs of your organisation.
+  </p>
+  <p>
+    I would appreciate the opportunity to meet with you to discuss my
+    application at an interview. I have enclosed a copy of my resume for your
+    consideration. I can be contacted at all times on the details provided
+    above.
+  </p>
+  <p>Thank you for your consideration.</p>
+
+  <p>Sincerely,</p>
+  <p>{{ item.Cname }}</p>
 </div>

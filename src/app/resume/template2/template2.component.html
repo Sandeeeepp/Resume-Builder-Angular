@@ -1,69 +1,104 @@
 <!-- FONTS -->
 <!-- FONTS -->
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<link
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Raleway:100"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Montserrat"
+  rel="stylesheet"
+  type="text/css"
+/>
 
 <!-- PAGE STUFF -->
 
-    
 <div class="fab-container">
-    <div class="button iconbutton">
-      <i class="fa-solid fa-plus" (click)="downloadPDF()"> Download as pdf </i>
-    </div>
+  <div class="button iconbutton">
+    <i class="fa-solid fa-plus" (click)="downloadPDF()"> Download as pdf </i>
+  </div>
 </div>
 <div class="rela-block page" id="content">
-    <div class="rela-block top-bar" *ngFor="let item of dataSource">
-        <div class="caps name"><div class="abs-center">{{item.fName + " "+item.lName }}</div></div>
+  <div class="rela-block top-bar" *ngFor="let item of dataSource">
+    <div class="caps name">
+      <div class="abs-center">{{ item.fName + " " + item.lName }}</div>
     </div>
-    <div class="side-bar">
-        <div class="mugshot">
-            <div class="logo" *ngFor="let item of dataSource">
-                <svg viewbox="0 0 80 80" class="rela-block logo-svg">
-                    <path d="M 10 10 L 52 10 L 72 30 L 72 70 L 30 70 L 10 50 Z" stroke-width="2.5" fill="none"/>
-                </svg>
-                <p class="logo-text">{{item.fName + " "+item.lName | getInitials}}</p>
-            </div>
-        </div>
-        
-        <div *ngFor="let item of dataSource">
-            <p>{{item.Phone}}</p>
-                    <p>{{item.Email}}</p>
-                <p>{{item.Url}}</p>    
-                </div><br>
+  </div>
+  <div class="side-bar">
+    <div class="mugshot">
+      <div class="logo" *ngFor="let item of dataSource">
+        <svg viewbox="0 0 80 80" class="rela-block logo-svg">
+          <path
+            d="M 10 10 L 52 10 L 72 30 L 72 70 L 30 70 L 10 50 Z"
+            stroke-width="2.5"
+            fill="none"
+          />
+        </svg>
+        <p class="logo-text">
+          {{ item.fName + " " + item.lName | getInitials }}
+        </p>
+      </div>
+    </div>
 
-        <p class="rela-block caps side-header">Expertise</p>
-        <p class="rela-block list-thing" *ngFor="let skill of skills;let i=index">{{skills[i].name}}</p>
-       
-        <p class="rela-block caps side-header">Interests</p>
-        <p class="rela-block list-thing" *ngFor="let interests of interest;let i=index">{{interest[i].name}}</p>
-       
+    <div *ngFor="let item of dataSource">
+      <p>{{ item.Phone }}</p>
+      <p>{{ item.Email }}</p>
+      <p>{{ item.Url }}</p>
     </div>
-    <div class="rela-block content-container">
-        <h2 class="rela-block caps title" *ngFor="let item of dataSource;let i=index">{{item.Position}}</h2>
-        <div class="rela-block separator"></div>
-        <div class="rela-block caps greyed">Profile</div>
-        <div *ngFor="let item of dataSource">
-        <p class="long-margin" >{{item.HeadLine}} </p></div>
+    <br />
 
+    <p class="rela-block caps side-header">Expertise</p>
+    <p
+      class="rela-block list-thing"
+      *ngFor="let skill of skills; let i = index"
+    >
+      {{ skills[i].name }}
+    </p>
 
-        <p class="rela-block caps side-header">Education</p>
-        
-        <div *ngFor="let edu of educate;let i=index">
-        <p class="rela-block list-thing">{{educate[i].course}}</p>
-        <p class="rela-block list-thing">{{educate[i].city}}</p>
-        <p class="rela-block list-thing">{{educate[i].school}}</p>
-        <p class="rela-block list-thing">{{educate[i].sdate}} - {{educate[i].edate}}</p>
+    <p class="rela-block caps side-header">Interests</p>
+    <p
+      class="rela-block list-thing"
+      *ngFor="let interests of interest; let i = index"
+    >
+      {{ interest[i].name }}
+    </p>
+  </div>
+  <div class="rela-block content-container">
+    <h2
+      class="rela-block caps title"
+      *ngFor="let item of dataSource; let i = index"
+    >
+      {{ item.Position }}
+    </h2>
+    <div class="rela-block separator"></div>
+    <div class="rela-block caps greyed">Profile</div>
+    <div *ngFor="let item of dataSource">
+      <p class="long-margin">{{ item.HeadLine }}</p>
     </div>
-        
-        <div class="rela-block caps greyed">Project </div>
-        
-        <ul *ngFor="let pro of projects;let i=index">
-        <li><p class="light">{{projects[i].title}}</p>
-        <p class="justified">{{projects[i].desc}} </p></li>
-        </ul>
-        
-        
+
+    <p class="rela-block caps side-header">Education</p>
+
+    <div *ngFor="let edu of educate; let i = index">
+      <p class="rela-block list-thing">{{ educate[i].course }}</p>
+      <p class="rela-block list-thing">{{ educate[i].city }}</p>
+      <p class="rela-block list-thing">{{ educate[i].school }}</p>
+      <p class="rela-block list-thing">
+        {{ educate[i].sdate }} - {{ educate[i].edate }}
+      </p>
     </div>
+
+    <div class="rela-block caps greyed">Project</div>
+
+    <ul *ngFor="let pro of projects; let i = index">
+      <li>
+        <p class="light">{{ projects[i].title }}</p>
+        <p class="justified">{{ projects[i].desc }}</p>
+      </li>
+    </ul>
+  </div>
 </div>
-

@@ -10,7 +10,7 @@ import { Fruit, Interest } from '../create-resume/create-resume.component';
 @Component({
   selector: 'app-template2',
   templateUrl: './template2.component.html',
-  styleUrls: ['./template2.component.css']
+  styleUrls: ['./template2.component.css'],
 })
 export class Template2Component implements OnInit {
   @ViewChild('content') content!: ElementRef;
@@ -28,14 +28,13 @@ export class Template2Component implements OnInit {
     });
   }
 
-  
   dataSource!: any;
   // proj!: project;
   projects: project[] = [];
   // edu!: education;
   educate: education[] = [];
-  skills:Fruit[]=[];
-  interest:Interest[]=[]
+  skills: Fruit[] = [];
+  interest: Interest[] = [];
 
   //education variables
   course!: string;
@@ -59,12 +58,12 @@ export class Template2Component implements OnInit {
     this.serv.msgSource.subscribe((message) => {
       this.educate = message;
     });
-    this.serv.messageSrc.subscribe((message)=>{
-      this.skills=message;
-    })
-    this.serv.msgSrc.subscribe((message)=>{
-      this.interest=message
-    })
+    this.serv.messageSrc.subscribe((message) => {
+      this.skills = message;
+    });
+    this.serv.msgSrc.subscribe((message) => {
+      this.interest = message;
+    });
   }
 
   getAll() {
@@ -79,5 +78,4 @@ export class Template2Component implements OnInit {
         );
       });
   }
-
 }

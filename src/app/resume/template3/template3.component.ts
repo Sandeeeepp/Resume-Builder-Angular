@@ -5,7 +5,7 @@ import jsPDF from 'jspdf';
 @Component({
   selector: 'app-template3',
   templateUrl: './template3.component.html',
-  styleUrls: ['./template3.component.css']
+  styleUrls: ['./template3.component.css'],
 })
 export class Template3Component implements OnInit {
   @ViewChild('content') content!: ElementRef;
@@ -23,9 +23,7 @@ export class Template3Component implements OnInit {
     });
   }
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -1,0 +1,26 @@
+.main {
+  padding: 20px;
+}
+.card {
+  margin-top: 30px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  text-align: justify;
+  /* border: 1px solid black; */
+  width: 1200px;
+}
+
+hr {
+  width: 100%;
+  color: blue;
+}
+
+.heading {
+  margin-top: 15px;
+  background-color: grey;
+  padding: 0 0;
+  width: 100%;
+  height: 120px;
+  color: white;
+}

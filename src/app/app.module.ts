@@ -67,7 +67,7 @@ import { CoverLetterTemplatesModule } from './cover-letter-templates/cover-lette
     MatTabsModule,
     MatDialogModule,
     MatSnackBarModule,
-    CoverLetterTemplatesModule
+    CoverLetterTemplatesModule,
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],

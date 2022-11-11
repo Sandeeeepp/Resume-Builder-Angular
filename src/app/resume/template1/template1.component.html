@@ -69,10 +69,12 @@
       </div>
 
       <div class="section">
-        <div class="section__title" >Skills</div>
-        <div class="skills" *ngFor="let skill of skills;let i=index">
+        <div class="section__title">Skills</div>
+        <div class="skills" *ngFor="let skill of skills; let i = index">
           <div class="skills__item">
-            <div class="left"><div class="name" >{{skills[i].name}}</div></div>
+            <div class="left">
+              <div class="name">{{ skills[i].name }}</div>
+            </div>
             <div class="right">
               <input id="ck1" type="checkbox" checked />
 
@@ -112,7 +114,9 @@
       <div class="section">
         <div class="section__title">Interests</div>
         <!-- <div class="section__list"> -->
-          <div class="name" *ngFor="let interests of interest;let i=index">{{interest[i].name}}</div>
+        <div class="name" *ngFor="let interests of interest; let i = index">
+          {{ interest[i].name }}
+        </div>
         <!-- </div> -->
       </div>
     </div>

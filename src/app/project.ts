@@ -1,4 +1,4 @@
-export class project{
-    title!:string;
-    desc!:string;
+export class project {
+  title!: string;
+  desc!: string;
 }

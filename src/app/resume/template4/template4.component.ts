@@ -5,13 +5,13 @@ import jsPDF from 'jspdf';
 @Component({
   selector: 'app-template4',
   templateUrl: './template4.component.html',
-  styleUrls: ['./template4.component.css']
+  styleUrls: ['./template4.component.css'],
 })
 export class Template4Component implements OnInit {
   @ViewChild('content') content!: ElementRef;
 
   public downloadPDF() {
-    console.log("downloading")
+    console.log('downloading');
     let DATA: any = document.getElementById('content');
     html2canvas(DATA).then((canvas) => {
       let fileWidth = 208;
@@ -24,9 +24,7 @@ export class Template4Component implements OnInit {
     });
   }
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

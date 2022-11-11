@@ -83,10 +83,8 @@
               <mat-icon>close</mat-icon>
             </button> </mat-form-field
           >&nbsp;&nbsp;&nbsp;
-          <span *ngIf="addMiddleName==false">
-            <button matSuffix (click)="addMiddleName = true">
-              +
-            </button>
+          <span *ngIf="addMiddleName == false">
+            <button matSuffix (click)="addMiddleName = true">+</button>
             <span> Add middle name</span>
           </span>
 
@@ -384,7 +382,7 @@
                     name="description"
                   ></textarea>
                 </div>
-                 <div class="col-md-6">
+                <div class="col-md-6">
                   <label class="form-label">Start Date</label>
                   <input
                     type="date"

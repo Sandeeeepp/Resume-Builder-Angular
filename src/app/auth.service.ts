@@ -6,8 +6,11 @@ import { BehaviorSubject } from 'rxjs';
 import { education } from './education';
 import { project } from './project';
 import { ServiceService } from './service.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import { Fruit, Interest } from './resume/create-resume/create-resume.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {
+  Fruit,
+  Interest,
+} from './resume/create-resume/create-resume.component';
 
 @Injectable({
   providedIn: 'root',
@@ -46,17 +49,15 @@ export class AuthService {
     this.fireauth.createUserWithEmailAndPassword(email, password).then(
       () => {
         // alert('registration successful');
-        this._snackBar.open("Registration successfull", "Ok");
+        this._snackBar.open('Registration successfull', 'Ok');
         this.service.changeShow(true);
         localStorage.setItem('recentRegisteredUserEmail', email);
-        this.store
-          .collection('registeredUsersDetails')
-          .add({
-            firstName: fName,
-            lastName: lName,
-            email: email,
-            phoneNumber: phoneNo,
-          });
+        this.store.collection('registeredUsersDetails').add({
+          firstName: fName,
+          lastName: lName,
+          email: email,
+          phoneNumber: phoneNo,
+        });
       },
       (err) => {
         alert(err.message);
@@ -80,5 +81,5 @@ export class AuthService {
   messageSource = new BehaviorSubject<project[]>([]);
   msgSource = new BehaviorSubject<education[]>([]);
   messageSrc = new BehaviorSubject<Fruit[]>([]);
-  msgSrc=new BehaviorSubject<Interest[]>([]);
+  msgSrc = new BehaviorSubject<Interest[]>([]);
 }

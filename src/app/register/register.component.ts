@@ -49,10 +49,14 @@ export class RegisterComponent implements OnInit {
       this.SValue = false;
     }
   }
-  constructor(private store: AngularFirestore, private auth: AuthService, private service:ServiceService) {}
+  constructor(
+    private store: AngularFirestore,
+    private auth: AuthService,
+    private service: ServiceService
+  ) {}
   ngOnInit() {}
 
-  register(fName:string, lName:string, phoneNo:string) {
+  register(fName: string, lName: string, phoneNo: string) {
     if (this.email == '') {
       alert('please enter email');
       return;
@@ -63,5 +67,4 @@ export class RegisterComponent implements OnInit {
     }
     this.auth.register(this.email, this.password, fName, lName, phoneNo);
   }
-
 }

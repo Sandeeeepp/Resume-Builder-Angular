@@ -8,12 +8,12 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatCardModule} from '@angular/material/card';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TemplateThreeComponent } from './template-three/template-three.component';
 import { TemplateFourComponent } from './template-four/template-four.component';
 
@@ -38,8 +38,14 @@ import { TemplateFourComponent } from './template-four/template-four.component';
     MatTabsModule,
     MatCardModule,
     MatSliderModule,
-    MatDialogModule
+    MatDialogModule,
   ],
-  exports: [TemplateOneComponent, TemplateTwoComponent, InputPageComponent, TemplateFourComponent, TemplateThreeComponent],
+  exports: [
+    TemplateOneComponent,
+    TemplateTwoComponent,
+    InputPageComponent,
+    TemplateFourComponent,
+    TemplateThreeComponent,
+  ],
 })
 export class CvTemplatesModule {}
