@@ -1,3 +1,8 @@
+This is an angular project to create your own resumes using the templates which we have provided for you.There are cover letter and cv templates too. 
+
+
+
+
 # Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
